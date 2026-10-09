@@ -4,6 +4,14 @@ This repository distributes general skills and practical guidance for chemistry
 researchers. Keep individual projects, researcher biographies, machine-specific
 paths, credentials, chat identifiers and personal automations outside it.
 
+The agreed positioning is “省时的化学科研技能合集”: help chemistry and
+materials researchers spend less effort finding, choosing and configuring skills.
+Prioritize clear task guidance, straightforward installation, source attribution
+and useful examples. Evaluate additions by the user problem they address and
+maintenance cost, rather than catalog size. Keep public-facing documentation
+focused on users; record maintenance guidance here. Treat time savings as an aim
+unless supported by measured usage evidence.
+
 The primary work is curating useful skills across sources, explaining task fit,
 and accumulating public usage examples and evidence of usefulness. Installation
 tooling supports that work. Prefer upstream reuse and narrow adaptations over
