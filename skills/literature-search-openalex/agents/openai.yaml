@@ -1,0 +1,3 @@
+interface:
+  display_name: "literature-search-openalex"
+  short_description: "检索 OpenAlex 论文、作者、机构及引文元数据"

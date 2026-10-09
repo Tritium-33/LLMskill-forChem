@@ -1,0 +1,3 @@
+interface:
+  display_name: "dft-qe"
+  short_description: "根据结构与指定参数准备 Quantum ESPRESSO 输入"

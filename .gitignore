@@ -24,3 +24,17 @@ credentials/
 backups/
 dist/
 .llmskill-forchem*
+
+# Public instruction skill, not a directory containing user credentials.
+!/skills/credentials/
+/skills/credentials/*
+!/skills/credentials/SKILL.md
+!/skills/credentials/SOURCE.json
+!/skills/credentials/LICENSE
+!/skills/credentials/LICENSE-CC-BY-4.0.txt
+!/skills/credentials/UPSTREAM_README.md
+!/skills/credentials/SKILL_LICENSES.md
+!/skills/credentials/PACKAGING.md
+!/skills/credentials/agents/
+/skills/credentials/agents/*
+!/skills/credentials/agents/openai.yaml

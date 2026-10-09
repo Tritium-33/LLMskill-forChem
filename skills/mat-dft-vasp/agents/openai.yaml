@@ -1,0 +1,3 @@
+interface:
+  display_name: "mat-dft-vasp"
+  short_description: "VASP 输入准备与结果提取；需另配上游运行环境"

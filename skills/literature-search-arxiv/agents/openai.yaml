@@ -1,0 +1,3 @@
+interface:
+  display_name: "literature-search-arxiv"
+  short_description: "检索 arXiv 预印本、下载论文及源文件"

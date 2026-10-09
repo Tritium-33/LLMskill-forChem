@@ -1,0 +1,24 @@
+{
+  "repository": "https://github.com/google-deepmind/science-skills",
+  "commit": "68832757cbbf941c620b71df5756cf6e5cc287b0",
+  "path": "skills/literature_search_arxiv",
+  "license": "Apache-2.0 (software); CC-BY-4.0 (other materials)",
+  "upstream_skill_unchanged": true,
+  "upstream_files_sha256": {
+    "SKILL.md": "b71daf2b4f847b5ca31d74c10b2e565aaeec90ed9f8c727465f89cae03fcbd49",
+    "references/citation.bib": "3f3ae780a0aa2cfb0c3fa008eecfb89d9bf68640944a6debd802df3e6222d7ea",
+    "references/query_syntax.md": "648ad68a3fa7e32f8e1b7ef1762c932b80a7b447fee86f32616cad3a446a674d",
+    "scripts/download_paper.py": "dc980dc135b9e5d00e7b1853c55c00ba41833d758149ba8e8dec31249da4139e",
+    "scripts/download_paper_source.py": "d672a83af5d3c1f34bf11cd2a86b88ebe59c94bc6c19bd2bfb764c0992801c80",
+    "scripts/search_arxiv.py": "34b8ea10bfe3e133a624339fcce260b47e8386fcfad50f81cd439b274cbafdf9"
+  },
+  "local_additions": [
+    "SOURCE.json",
+    "LICENSE",
+    "agents/openai.yaml",
+    "PACKAGING.md",
+    "LICENSE-CC-BY-4.0.txt",
+    "UPSTREAM_README.md",
+    "SKILL_LICENSES.md"
+  ]
+}

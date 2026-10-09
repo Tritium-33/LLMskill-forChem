@@ -19,6 +19,8 @@
 | `scholar-evaluation` | 对科研作品进行可追溯的质量评估 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scholar-evaluation/SKILL.md) |
 | `scientific-brainstorming` | 生成和比较候选研究方向及其关键假设 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-brainstorming/SKILL.md) |
 | `scientific-critical-thinking` | 审查科研主张、证据质量与混杂因素 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-critical-thinking/SKILL.md) |
+| `literature-search-arxiv` | 检索 arXiv 预印本、下载论文及源文件 | [google-deepmind/science-skills](https://github.com/google-deepmind/science-skills/blob/68832757cbbf941c620b71df5756cf6e5cc287b0/skills/literature_search_arxiv/SKILL.md) |
+| `literature-search-openalex` | 检索 OpenAlex 论文、作者、机构及引文元数据 | [google-deepmind/science-skills](https://github.com/google-deepmind/science-skills/blob/68832757cbbf941c620b71df5756cf6e5cc287b0/skills/literature_search_openalex/SKILL.md) |
 
 ## 选择后再核对依赖
 
@@ -35,3 +37,5 @@
 - **scholar-evaluation**：Requires Python 3.11+ for optional bundled standard-library CLIs. All tooling is local JSON/CSV processing with no network, credentials, external models, or subprocesses.
 - **scientific-brainstorming**：Core guidance works in any Agent Skills-compatible host. Optional bundled CLIs require Python 3.11+ and use only the standard library; they make no network or LLM calls and require no credentials.
 - **scientific-critical-thinking**：Analytical guidance needs no network. Optional figures via the scientific-schematics skill require OPENROUTER_API_KEY and outbound API access to OpenRouter.
+- **literature-search-arxiv**：Read the skill for runtime requirements.
+- **literature-search-openalex**：Read the skill for runtime requirements.

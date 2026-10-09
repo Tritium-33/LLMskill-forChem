@@ -1,0 +1,3 @@
+interface:
+  display_name: "dpdata-cli"
+  short_description: "原子结构和计算数据格式转换"

@@ -474,6 +474,105 @@
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/seaborn/SKILL.md",
       "bundled": true,
       "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "mat-dft-vasp",
+      "group": "chemistry-materials",
+      "purpose": "VASP 输入准备与结果提取；需另配上游运行环境",
+      "example": "请使用 $mat-dft-vasp，帮助我完成VASP 输入准备与结果提取；需另配上游运行环境，先检查输入与所需依赖。",
+      "compatibility": "Read the skill for runtime requirements.",
+      "source_name": "learningmatter-mit/AtomisticSkills",
+      "source_url": "https://github.com/learningmatter-mit/AtomisticSkills/blob/62574443f2a772e23dd5951f3712b65133b06715/skills/mat-dft-vasp/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "dft-vasp",
+      "group": "chemistry-materials",
+      "purpose": "准备 VASP 静态、优化、DOS 与能带输入，不自动提交",
+      "example": "请使用 $dft-vasp，帮助我完成准备 VASP 静态、优化、DOS 与能带输入，不自动提交，先检查输入与所需依赖。",
+      "compatibility": "Requires a user-provided structure and valid VASP pseudopotential resources/license in the target environment.",
+      "source_name": "jinzhezenggroup/computational-chemistry-agent-skills",
+      "source_url": "https://github.com/jinzhezenggroup/computational-chemistry-agent-skills/blob/5c19e75b256d49849574c999b1965d94024ee072/quantum-chemistry/dft-vasp/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "dft-qe",
+      "group": "chemistry-materials",
+      "purpose": "根据结构与指定参数准备 Quantum ESPRESSO 输入",
+      "example": "请使用 $dft-qe，帮助我完成根据结构与指定参数准备 Quantum ESPRESSO 输入，先检查输入与所需依赖。",
+      "compatibility": "Requires a user-provided initial structure and enough DFT parameters to build a scientifically meaningful QE input.",
+      "source_name": "jinzhezenggroup/computational-chemistry-agent-skills",
+      "source_url": "https://github.com/jinzhezenggroup/computational-chemistry-agent-skills/blob/5c19e75b256d49849574c999b1965d94024ee072/quantum-chemistry/dft-qe/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "dpdata-cli",
+      "group": "chemistry-materials",
+      "purpose": "原子结构和计算数据格式转换",
+      "example": "请使用 $dpdata-cli，帮助我完成原子结构和计算数据格式转换，先检查输入与所需依赖。",
+      "compatibility": "Requires uvx (uv) for running dpdata",
+      "source_name": "jinzhezenggroup/computational-chemistry-agent-skills",
+      "source_url": "https://github.com/jinzhezenggroup/computational-chemistry-agent-skills/blob/5c19e75b256d49849574c999b1965d94024ee072/tools/dpdata-cli/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "dpdisp-submit",
+      "group": "runtime-support",
+      "purpose": "通过 DPDispatcher 管理已获授权的本地或集群作业",
+      "example": "请使用 $dpdisp-submit，帮助我完成通过 DPDispatcher 管理已获授权的本地或集群作业，先检查输入与所需依赖。",
+      "compatibility": "Read the skill for runtime requirements.",
+      "source_name": "jinzhezenggroup/computational-chemistry-agent-skills",
+      "source_url": "https://github.com/jinzhezenggroup/computational-chemistry-agent-skills/blob/5c19e75b256d49849574c999b1965d94024ee072/tools/dpdisp-submit/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "literature-search-arxiv",
+      "group": "research-evidence",
+      "purpose": "检索 arXiv 预印本、下载论文及源文件",
+      "example": "请使用 $literature-search-arxiv，帮助我完成检索 arXiv 预印本、下载论文及源文件，先检查输入与所需依赖。",
+      "compatibility": "Read the skill for runtime requirements.",
+      "source_name": "google-deepmind/science-skills",
+      "source_url": "https://github.com/google-deepmind/science-skills/blob/68832757cbbf941c620b71df5756cf6e5cc287b0/skills/literature_search_arxiv/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "literature-search-openalex",
+      "group": "research-evidence",
+      "purpose": "检索 OpenAlex 论文、作者、机构及引文元数据",
+      "example": "请使用 $literature-search-openalex，帮助我完成检索 OpenAlex 论文、作者、机构及引文元数据，先检查输入与所需依赖。",
+      "compatibility": "Read the skill for runtime requirements.",
+      "source_name": "google-deepmind/science-skills",
+      "source_url": "https://github.com/google-deepmind/science-skills/blob/68832757cbbf941c620b71df5756cf6e5cc287b0/skills/literature_search_openalex/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "uv",
+      "group": "runtime-support",
+      "purpose": "配置 uv 并运行带独立依赖的 Python 脚本",
+      "example": "请使用 $uv，帮助我完成配置 uv 并运行带独立依赖的 Python 脚本，先检查输入与所需依赖。",
+      "compatibility": "Read the skill for runtime requirements.",
+      "source_name": "google-deepmind/science-skills",
+      "source_url": "https://github.com/google-deepmind/science-skills/blob/68832757cbbf941c620b71df5756cf6e5cc287b0/skills/uv/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "credentials",
+      "group": "runtime-support",
+      "purpose": "检查服务凭据是否就绪，避免在会话中暴露密钥",
+      "example": "请使用 $credentials，帮助我完成检查服务凭据是否就绪，避免在会话中暴露密钥，先检查输入与所需依赖。",
+      "compatibility": "Read the skill for runtime requirements.",
+      "source_name": "google-deepmind/science-skills",
+      "source_url": "https://github.com/google-deepmind/science-skills/blob/68832757cbbf941c620b71df5756cf6e5cc287b0/skills/credentials/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
     }
   ]
 }

@@ -1,8 +1,18 @@
 # 科研技能功能目录
 
-按任务选择技能，来源仅用于追溯与许可说明。包含43项具体技能及独立的 `scientific-skill-router` 选择入口。技能文件已收录，不表示依赖已安装或科学效果已验证。
+按任务选择技能，来源仅用于追溯与许可说明。包含52项具体技能及独立的 `scientific-skill-router` 选择入口。技能文件已收录，不表示依赖已安装或科学效果已验证。
 
-## 化学与材料（15项）
+## 运行与作业支持（3项）
+
+仅在所选科学技能确有需要时加载；安装软件、凭据配置和提交作业是独立操作，不因加载技能自动执行。
+
+| 技能 | 中文用途 | 来源 |
+| --- | --- | --- |
+| [dpdisp-submit](../skills/dpdisp-submit/SKILL.md) | 通过 DPDispatcher 管理已获授权的本地或集群作业 | [jinzhezenggroup/computational-chemistry-agent-skills](https://github.com/jinzhezenggroup/computational-chemistry-agent-skills/blob/5c19e75b256d49849574c999b1965d94024ee072/tools/dpdisp-submit/SKILL.md) |
+| [uv](../skills/uv/SKILL.md) | 配置 uv 并运行带独立依赖的 Python 脚本 | [google-deepmind/science-skills](https://github.com/google-deepmind/science-skills/blob/68832757cbbf941c620b71df5756cf6e5cc287b0/skills/uv/SKILL.md) |
+| [credentials](../skills/credentials/SKILL.md) | 检查服务凭据是否就绪，避免在会话中暴露密钥 | [google-deepmind/science-skills](https://github.com/google-deepmind/science-skills/blob/68832757cbbf941c620b71df5756cf6e5cc287b0/skills/credentials/SKILL.md) |
+
+## 化学与材料（19项）
 
 输入通常为结构、分子、光谱、热力学数据库或动力学机制；根据科学对象选择，不把分子工具套用于周期晶体。
 
@@ -23,8 +33,12 @@
 | [pyopenms](../skills/pyopenms/SKILL.md) | 液相色谱质谱数据处理与特征检测 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pyopenms/SKILL.md) |
 | [rdkit](../skills/rdkit/SKILL.md) | 分子结构、描述符、指纹与子结构检索 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/rdkit/SKILL.md) |
 | [uncertainty-and-units](../skills/uncertainty-and-units/SKILL.md) | 物理单位检查、误差传播与不确定度预算 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/uncertainty-and-units/SKILL.md) |
+| [mat-dft-vasp](../skills/mat-dft-vasp/SKILL.md) | VASP 输入准备与结果提取；需另配上游运行环境 | [learningmatter-mit/AtomisticSkills](https://github.com/learningmatter-mit/AtomisticSkills/blob/62574443f2a772e23dd5951f3712b65133b06715/skills/mat-dft-vasp/SKILL.md) |
+| [dft-vasp](../skills/dft-vasp/SKILL.md) | 准备 VASP 静态、优化、DOS 与能带输入，不自动提交 | [jinzhezenggroup/computational-chemistry-agent-skills](https://github.com/jinzhezenggroup/computational-chemistry-agent-skills/blob/5c19e75b256d49849574c999b1965d94024ee072/quantum-chemistry/dft-vasp/SKILL.md) |
+| [dft-qe](../skills/dft-qe/SKILL.md) | 根据结构与指定参数准备 Quantum ESPRESSO 输入 | [jinzhezenggroup/computational-chemistry-agent-skills](https://github.com/jinzhezenggroup/computational-chemistry-agent-skills/blob/5c19e75b256d49849574c999b1965d94024ee072/quantum-chemistry/dft-qe/SKILL.md) |
+| [dpdata-cli](../skills/dpdata-cli/SKILL.md) | 原子结构和计算数据格式转换 | [jinzhezenggroup/computational-chemistry-agent-skills](https://github.com/jinzhezenggroup/computational-chemistry-agent-skills/blob/5c19e75b256d49849574c999b1965d94024ee072/tools/dpdata-cli/SKILL.md) |
 
-## 科研检索与论证（13项）
+## 科研检索与论证（15项）
 
 按找资料、核书目、证据综合、形成假设、设计实验和评阅区分；检索获得记录不等于已读全文。
 
@@ -43,6 +57,8 @@
 | [scholar-evaluation](../skills/scholar-evaluation/SKILL.md) | 对科研作品进行可追溯的质量评估 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scholar-evaluation/SKILL.md) |
 | [scientific-brainstorming](../skills/scientific-brainstorming/SKILL.md) | 生成和比较候选研究方向及其关键假设 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-brainstorming/SKILL.md) |
 | [scientific-critical-thinking](../skills/scientific-critical-thinking/SKILL.md) | 审查科研主张、证据质量与混杂因素 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-critical-thinking/SKILL.md) |
+| [literature-search-arxiv](../skills/literature-search-arxiv/SKILL.md) | 检索 arXiv 预印本、下载论文及源文件 | [google-deepmind/science-skills](https://github.com/google-deepmind/science-skills/blob/68832757cbbf941c620b71df5756cf6e5cc287b0/skills/literature_search_arxiv/SKILL.md) |
+| [literature-search-openalex](../skills/literature-search-openalex/SKILL.md) | 检索 OpenAlex 论文、作者、机构及引文元数据 | [google-deepmind/science-skills](https://github.com/google-deepmind/science-skills/blob/68832757cbbf941c620b71df5756cf6e5cc287b0/skills/literature_search_openalex/SKILL.md) |
 
 ## 数据、统计与机器学习（9项）
 
@@ -128,3 +144,12 @@
 - **scientific-visualization**：Requires Python 3.11+ and uv for pinned examples. Bundled CLIs are network-free and load Matplotlib, Pillow, or pypdf only when needed. Plotly static export with Kaleido v1 requires a compatible Chrome/Chromium installation.
 - **scientific-writing**：Requires Python 3.11+ only for optional dependency-free local CLIs; core guidance is platform-neutral. Bundled tools are offline and require no API keys.
 - **seaborn**：Requires Python 3.8+ with seaborn 0.13.2, NumPy, pandas, and Matplotlib; the tested current dependency stack requires Python 3.12+. Optional scipy/statsmodels for advanced regression or clustering, ipywidgets for notebook controls. Network only for installation or uncached example datasets.
+- **mat-dft-vasp**：Read the skill for runtime requirements.
+- **dft-vasp**：Requires a user-provided structure and valid VASP pseudopotential resources/license in the target environment.
+- **dft-qe**：Requires a user-provided initial structure and enough DFT parameters to build a scientifically meaningful QE input.
+- **dpdata-cli**：Requires uvx (uv) for running dpdata
+- **dpdisp-submit**：Read the skill for runtime requirements.
+- **literature-search-arxiv**：Read the skill for runtime requirements.
+- **literature-search-openalex**：Read the skill for runtime requirements.
+- **uv**：Read the skill for runtime requirements.
+- **credentials**：Read the skill for runtime requirements.

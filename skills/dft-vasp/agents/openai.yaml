@@ -1,0 +1,3 @@
+interface:
+  display_name: "dft-vasp"
+  short_description: "准备 VASP 静态、优化、DOS 与能带输入，不自动提交"

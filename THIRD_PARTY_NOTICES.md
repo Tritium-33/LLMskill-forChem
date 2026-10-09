@@ -52,3 +52,21 @@ implied.
 ## Local routing skill
 
 `scientific-skill-router` is original LLMskill-forChem content under the root MIT license. Its indexes link to individually attributed skills across sources. SOURCE.json uses kind=original and a local version; there is no invented upstream repository or commit.
+
+## AtomisticSkills
+
+Source: https://github.com/learningmatter-mit/AtomisticSkills
+Pinned commit: `62574443f2a772e23dd5951f3712b65133b06715`.
+`mat-dft-vasp`: MIT, Copyright (c) 2026 Bowen Deng. Original tree and license retained; separate packaging metadata added. No VASP binary or POTCAR is distributed.
+
+## Computational Chemistry Agent Skills
+
+Source: https://github.com/jinzhezenggroup/computational-chemistry-agent-skills
+Pinned commit: `5c19e75b256d49849574c999b1965d94024ee072`.
+`dft-vasp`, `dft-qe`, `dpdisp-submit`: LGPL-3.0-or-later per skill metadata. `dpdata-cli` follows the upstream repository LGPL v3 license; no broader version permission is inferred from absent skill metadata. Editable original source, author metadata, LGPL and incorporated GPL v3 text are included in each directory. Original file contents are unchanged. These licenses govern upstream files; the collection's MIT license does not replace them.
+
+## Google DeepMind Science Skills
+
+Source: https://github.com/google-deepmind/science-skills
+Pinned commit: `68832757cbbf941c620b71df5756cf6e5cc287b0`.
+Copyright 2026 Google LLC. `literature-search-arxiv`, `literature-search-openalex`, `uv`, `credentials`: software under Apache-2.0; other materials under CC-BY-4.0, according to the included upstream README. Original files are unchanged; directories are normalized to the original frontmatter skill names, and separate packaging/UI metadata is added. Apache and CC BY license texts, upstream README and SKILL_LICENSES.md are included. Third-party data/service terms still apply. This redistribution is not an official Google product and implies no endorsement.

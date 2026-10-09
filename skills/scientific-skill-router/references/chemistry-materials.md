@@ -21,6 +21,10 @@
 | `pyopenms` | 液相色谱质谱数据处理与特征检测 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pyopenms/SKILL.md) |
 | `rdkit` | 分子结构、描述符、指纹与子结构检索 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/rdkit/SKILL.md) |
 | `uncertainty-and-units` | 物理单位检查、误差传播与不确定度预算 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/uncertainty-and-units/SKILL.md) |
+| `mat-dft-vasp` | VASP 输入准备与结果提取；需另配上游运行环境 | [learningmatter-mit/AtomisticSkills](https://github.com/learningmatter-mit/AtomisticSkills/blob/62574443f2a772e23dd5951f3712b65133b06715/skills/mat-dft-vasp/SKILL.md) |
+| `dft-vasp` | 准备 VASP 静态、优化、DOS 与能带输入，不自动提交 | [jinzhezenggroup/computational-chemistry-agent-skills](https://github.com/jinzhezenggroup/computational-chemistry-agent-skills/blob/5c19e75b256d49849574c999b1965d94024ee072/quantum-chemistry/dft-vasp/SKILL.md) |
+| `dft-qe` | 根据结构与指定参数准备 Quantum ESPRESSO 输入 | [jinzhezenggroup/computational-chemistry-agent-skills](https://github.com/jinzhezenggroup/computational-chemistry-agent-skills/blob/5c19e75b256d49849574c999b1965d94024ee072/quantum-chemistry/dft-qe/SKILL.md) |
+| `dpdata-cli` | 原子结构和计算数据格式转换 | [jinzhezenggroup/computational-chemistry-agent-skills](https://github.com/jinzhezenggroup/computational-chemistry-agent-skills/blob/5c19e75b256d49849574c999b1965d94024ee072/tools/dpdata-cli/SKILL.md) |
 
 ## 选择后再核对依赖
 
@@ -39,3 +43,7 @@
 - **pyopenms**：Requires CPython 3.11+ and pyOpenMS 3.6.0; pandas and NumPy for tables, Matplotlib for plots. Wheels support macOS 15+ arm64, Linux glibc 2.34+ x86-64/arm64, and Windows x86-64. Search-engine executables are separate.
 - **rdkit**：Tested with RDKit 2026.03.6 on Python 3.13; bundled scripts require the rdkit package. No credentials or network are needed after installation. Use conda-forge for the broadest binary support or PyPI package `rdkit` for supported platform wheels; `rdkit-pypi` is the legacy PyPI name.
 - **uncertainty-and-units**：Requires Python 3.12+. The numeric CLIs need pint, uncertainties, NumPy, and SciPy; the static auditor is standard-library only. All bundled tooling runs locally with no network access.
+- **mat-dft-vasp**：Read the skill for runtime requirements.
+- **dft-vasp**：Requires a user-provided structure and valid VASP pseudopotential resources/license in the target environment.
+- **dft-qe**：Requires a user-provided initial structure and enough DFT parameters to build a scientifically meaningful QE input.
+- **dpdata-cli**：Requires uvx (uv) for running dpdata

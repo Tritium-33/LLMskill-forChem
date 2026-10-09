@@ -12,10 +12,11 @@ Skill 是供 AI 助手读取的任务指导和配套资源。安装后，你可�
 
 ## 可以用来做什么
 
-本仓库收录 **44 项技能**，包括按功能组织的43项具体技能，以及1项技能选择入口。不同来源的同类技能放在同一板块中。
+本仓库收录 **53 项技能**，包括按功能组织的52项具体技能，以及1项技能选择入口。不同来源的同类技能放在同一板块中。
 
 | 任务 | 技能示例 |
 | --- | --- |
+| VASP / Quantum ESPRESSO 输入与结果 | `mat-dft-vasp`、`dft-vasp`、`dft-qe` |
 | 晶体、分子与化学数据处理 | `pymatgen`、`rdkit`、`datamol` |
 | 光谱、反应动力学与相平衡 | `nmrglue`、`matchms`、`cantera`、`pycalphad` |
 | 文献检索与引用管理 | `paper-lookup`、`literature-review`、`citation-management` |
@@ -148,7 +149,7 @@ flowchart TD
 $scientific-skill-router 根据我的目标选择必要技能并完成任务。
 ```
 
-该入口为全部43项具体技能提供四个跨来源的功能板块索引：
+该入口为全部52项具体技能提供五个跨来源的功能板块索引：
 
 | 板块 | 覆盖内容 |
 | --- | --- |
@@ -156,8 +157,9 @@ $scientific-skill-router 根据我的目标选择必要技能并完成任务。
 | 科研检索与论证 | 文献、引用、证据、假设、实验设计与评阅 |
 | 数据、统计与机器学习 | 数据检查、统计推断、预测、模型解释与优化 |
 | 写作与图表 | 论文、数据图、示意图、幻灯片、格式与文档转换 |
+| 运行与作业支持 | uv 环境、凭据检查与已授权作业提交 |
 
-助手按任务读取相关索引，再读取所需技能；不必一次加载全部技能。任务已明确对应某个技能时，可直接使用它。
+助手按任务读取相关索引，再读取所需技能；不必一次加载全部技能。任务已明确对应某个技能时，可直接使用它，也可让 router 只选择这一项；不强制凑成多技能流程。
 
 同用途技能按任务分工选择，不随机抽取，也不默认全部执行。例如，一般综述的检索、筛选与综合使用 `literature-review`；围绕创新性主张深入阅读与审查证据使用 `lit-review`。需要两者时，明确主流程及补充检查，并复用已有检索与阅读记录。选择入口是给模型的指导，不是保证每次必经的程序。更多例子见 [使用指南](docs/usage.md#同用途技能怎么选)。
 
@@ -237,8 +239,10 @@ $scientific-skill-router 根据我的目标选择必要技能并完成任务。
 
 ## 来源与许可
 
-技能主要来自 [K-Dense Scientific Agent Skills](https://github.com/K-Dense-AI/scientific-agent-skills)、[BootLoops Skills](https://github.com/BootLoops-ai/skills)。各技能目录保留固定来源、版本和许可证；`scientific-skill-router` 为本仓库新增的选择入口。
+技能来自 [AtomisticSkills](https://github.com/learningmatter-mit/AtomisticSkills)、[Computational Chemistry Agent Skills](https://github.com/jinzhezenggroup/computational-chemistry-agent-skills)、[Google DeepMind Science Skills](https://github.com/google-deepmind/science-skills)、[K-Dense Scientific Agent Skills](https://github.com/K-Dense-AI/scientific-agent-skills)、[BootLoops Skills](https://github.com/BootLoops-ai/skills)。各技能目录保留固定来源、版本和许可证；`scientific-skill-router` 为本仓库新增的选择入口。
 
 本仓库新增代码与说明采用 [MIT 许可证](LICENSE)。上游内容按各自许可证使用，详见 [第三方声明](THIRD_PARTY_NOTICES.md)。
 
 版权与再分发检查见 [逐项许可审查](docs/license-audit/README.md)。授权或随附许可未核清的技能暂停收录，不代表认定上游侵权。
+
+新增的 AtomisticSkills、Computational Chemistry Agent Skills 与 Google DeepMind Science Skills 技能及运行限制，见 [接入说明](docs/imported-skills.md)。Paper2Agent 仅作参考，未收录。

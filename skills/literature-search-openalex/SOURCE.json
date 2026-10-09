@@ -1,0 +1,30 @@
+{
+  "repository": "https://github.com/google-deepmind/science-skills",
+  "commit": "68832757cbbf941c620b71df5756cf6e5cc287b0",
+  "path": "skills/literature_search_openalex",
+  "license": "Apache-2.0 (software); CC-BY-4.0 (other materials)",
+  "upstream_skill_unchanged": true,
+  "upstream_files_sha256": {
+    "SKILL.md": "5f01889e2c75c51da9e30e623bcc18aafa9888c65d0aafdbc32eb9865c56bb28",
+    "references/authors.md": "d7f28e9178d45e74538637d8e498ba0fb06305e199d391a8cfd037963f7d1ceb",
+    "references/citation.bib": "5190848ddbda5d6e289b0fed53d4e4288cc8f39ac988492ca1543b5ed30d5f9f",
+    "references/geo_and_language.md": "b5407c1d6b144bb96cde8dc3754c7fab607a70d62ebcddd7a060694a479c1067",
+    "references/institutions.md": "3ab566db518e83b94a67e810e1c7422a838619d7e4f3daf4c965072ea3feb729",
+    "references/publishers_funders.md": "fe8f7e8b069730ab06848da2398d792055e201dd4d7db4a15a97917cae259930",
+    "references/sources.md": "d22672f7357b0b84bb6724af062edb88384403f8d54622ad04620dcbb6eee3d2",
+    "references/taxonomy.md": "5d324cc741bd51e0d7dfc6acf601f9afbe2e659d1d00606759a4f0906cbed465",
+    "references/topics.md": "03b9559abb8ead16578fa08f96e24d80f7a047d2f51a8b10ea7a1b0748196e84",
+    "references/type_values.md": "14856517889d8d1f414263e561519624dc7e5e02a9ba2a505dfde8fb7f15640e",
+    "references/works.md": "d05e7050598442a9dcfb135e5a10b5a36191ae425eaa6e8139e7767eb17869b4",
+    "scripts/openalex_cli.py": "493539788f47dd5f3174876ab727f9c92a067de2a34746fcaf56d7782996d70f"
+  },
+  "local_additions": [
+    "SOURCE.json",
+    "LICENSE",
+    "agents/openai.yaml",
+    "PACKAGING.md",
+    "LICENSE-CC-BY-4.0.txt",
+    "UPSTREAM_README.md",
+    "SKILL_LICENSES.md"
+  ]
+}

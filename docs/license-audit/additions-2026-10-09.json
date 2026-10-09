@@ -1,0 +1,201 @@
+[
+  {
+    "name": "mat-dft-vasp",
+    "repository": "https://github.com/learningmatter-mit/AtomisticSkills",
+    "commit": "62574443f2a772e23dd5951f3712b65133b06715",
+    "path": "skills/mat-dft-vasp",
+    "license": "MIT",
+    "upstream_skill_unchanged": true,
+    "upstream_files_sha256": {
+      "SKILL.md": "0313deeca543d69b17e420375ba917a90c9e4b58fee25ee2dec7e5393febe5f8",
+      "examples/vasp-workflow/README.md": "285f1c998ca38dede59fbfe1807b3b47caa658ea7e82c8cbe5c1a7de18bff89b",
+      "examples/vasp-workflow/Si.cif": "f84c61b5808c3c63e37eb69b5c98c21213459b72a144f4f324ff0971ce44bfb7",
+      "examples/vasp-workflow/vasp_inputs/INCAR": "bde80ca377b68998a1319be0b716a10958a5fec3cc107d9dee1ac20f835b1f2b",
+      "examples/vasp-workflow/vasp_inputs/POSCAR": "14270570d400451cd90cd98494c968405e64ff6d20392702ec45ccfb42301cb0",
+      "scripts/parse_vasp_results.py": "0a59b4372848f62078e4a0daf62e38c426b8ff599a705c8ec8ac44c2483e0f78",
+      "scripts/prepare_vasp_inputs.py": "f730acc5a218f5662f646dea14cf803d597cefb83b8c839b39c415ab1804c47d"
+    },
+    "local_additions": [
+      "SOURCE.json",
+      "LICENSE",
+      "agents/openai.yaml",
+      "PACKAGING.md"
+    ]
+  },
+  {
+    "name": "dft-vasp",
+    "repository": "https://github.com/jinzhezenggroup/computational-chemistry-agent-skills",
+    "commit": "5c19e75b256d49849574c999b1965d94024ee072",
+    "path": "quantum-chemistry/dft-vasp",
+    "license": "LGPL-3.0-or-later",
+    "upstream_skill_unchanged": true,
+    "upstream_files_sha256": {
+      "SKILL.md": "edff8d513a96603881581a4f25a0c1d657ae13ac5b612825a01259afddf6170a",
+      "band/SKILL.md": "4f735f92c2c30fac5f3a48b17a6d50f02468675449c43b264a71b42fe813cdec",
+      "dos/SKILL.md": "143458dd8b5e81ebeb2ab82a3f1f131dddd9a388b9d20639dfea581cb2d873b7",
+      "references/commands-and-workflow.md": "fef538d94f799e20a5284eb70401ffa719a24623c98963852fbb15da724acf25",
+      "relax/SKILL.md": "7b93e796cabe384649826e193bb7200b9ec4b2ba528623d3f013f98317858e55",
+      "static/SKILL.md": "81ac8d6337fb22f2461daebf41229707fa07f1502f7a68da202b1af74b0dddf8"
+    },
+    "local_additions": [
+      "SOURCE.json",
+      "LICENSE",
+      "agents/openai.yaml",
+      "PACKAGING.md",
+      "LICENSE-GPL-3.0.txt"
+    ]
+  },
+  {
+    "name": "dft-qe",
+    "repository": "https://github.com/jinzhezenggroup/computational-chemistry-agent-skills",
+    "commit": "5c19e75b256d49849574c999b1965d94024ee072",
+    "path": "quantum-chemistry/dft-qe",
+    "license": "LGPL-3.0-or-later",
+    "upstream_skill_unchanged": true,
+    "upstream_files_sha256": {
+      "SKILL.md": "c83d171db21137afdbf96447148fe7b96c89a8249fe2d1b9b08bd5e9016692fe",
+      "assets/pw-water-0.in": "fca7efdb4947942137b2047003339d66711a4f47ddd38e4ad9780b6b29a3f180",
+      "references/commands-and-workflow.md": "8bdb4044cb8122edd3c7eb6fa4e99a9e21d01c86127eca4402b11ca979319cb5"
+    },
+    "local_additions": [
+      "SOURCE.json",
+      "LICENSE",
+      "agents/openai.yaml",
+      "PACKAGING.md",
+      "LICENSE-GPL-3.0.txt"
+    ]
+  },
+  {
+    "name": "dpdata-cli",
+    "repository": "https://github.com/jinzhezenggroup/computational-chemistry-agent-skills",
+    "commit": "5c19e75b256d49849574c999b1965d94024ee072",
+    "path": "tools/dpdata-cli",
+    "license": "LGPL-3.0 (repository license)",
+    "upstream_skill_unchanged": true,
+    "upstream_files_sha256": {
+      "README.md": "ee2e5c3666a04ee40ab7b38e1cf49af1b8f37807109724a5996d385c83c30948",
+      "SKILL.md": "3f845813722dac514aa670053c41e64cff3fecc4fed56a414839af1577d4740a"
+    },
+    "local_additions": [
+      "SOURCE.json",
+      "LICENSE",
+      "agents/openai.yaml",
+      "PACKAGING.md",
+      "LICENSE-GPL-3.0.txt"
+    ]
+  },
+  {
+    "name": "dpdisp-submit",
+    "repository": "https://github.com/jinzhezenggroup/computational-chemistry-agent-skills",
+    "commit": "5c19e75b256d49849574c999b1965d94024ee072",
+    "path": "tools/dpdisp-submit",
+    "license": "LGPL-3.0-or-later",
+    "upstream_skill_unchanged": true,
+    "upstream_files_sha256": {
+      "SKILL.md": "28d649eb72db4f2dd46ee6c25c3d065399d7b082c5553ab3278e8ef1ac56a821"
+    },
+    "local_additions": [
+      "SOURCE.json",
+      "LICENSE",
+      "agents/openai.yaml",
+      "PACKAGING.md",
+      "LICENSE-GPL-3.0.txt"
+    ]
+  },
+  {
+    "name": "literature-search-arxiv",
+    "repository": "https://github.com/google-deepmind/science-skills",
+    "commit": "68832757cbbf941c620b71df5756cf6e5cc287b0",
+    "path": "skills/literature_search_arxiv",
+    "license": "Apache-2.0 (software); CC-BY-4.0 (other materials)",
+    "upstream_skill_unchanged": true,
+    "upstream_files_sha256": {
+      "SKILL.md": "b71daf2b4f847b5ca31d74c10b2e565aaeec90ed9f8c727465f89cae03fcbd49",
+      "references/citation.bib": "3f3ae780a0aa2cfb0c3fa008eecfb89d9bf68640944a6debd802df3e6222d7ea",
+      "references/query_syntax.md": "648ad68a3fa7e32f8e1b7ef1762c932b80a7b447fee86f32616cad3a446a674d",
+      "scripts/download_paper.py": "dc980dc135b9e5d00e7b1853c55c00ba41833d758149ba8e8dec31249da4139e",
+      "scripts/download_paper_source.py": "d672a83af5d3c1f34bf11cd2a86b88ebe59c94bc6c19bd2bfb764c0992801c80",
+      "scripts/search_arxiv.py": "34b8ea10bfe3e133a624339fcce260b47e8386fcfad50f81cd439b274cbafdf9"
+    },
+    "local_additions": [
+      "SOURCE.json",
+      "LICENSE",
+      "agents/openai.yaml",
+      "PACKAGING.md",
+      "LICENSE-CC-BY-4.0.txt",
+      "UPSTREAM_README.md",
+      "SKILL_LICENSES.md"
+    ]
+  },
+  {
+    "name": "literature-search-openalex",
+    "repository": "https://github.com/google-deepmind/science-skills",
+    "commit": "68832757cbbf941c620b71df5756cf6e5cc287b0",
+    "path": "skills/literature_search_openalex",
+    "license": "Apache-2.0 (software); CC-BY-4.0 (other materials)",
+    "upstream_skill_unchanged": true,
+    "upstream_files_sha256": {
+      "SKILL.md": "5f01889e2c75c51da9e30e623bcc18aafa9888c65d0aafdbc32eb9865c56bb28",
+      "references/authors.md": "d7f28e9178d45e74538637d8e498ba0fb06305e199d391a8cfd037963f7d1ceb",
+      "references/citation.bib": "5190848ddbda5d6e289b0fed53d4e4288cc8f39ac988492ca1543b5ed30d5f9f",
+      "references/geo_and_language.md": "b5407c1d6b144bb96cde8dc3754c7fab607a70d62ebcddd7a060694a479c1067",
+      "references/institutions.md": "3ab566db518e83b94a67e810e1c7422a838619d7e4f3daf4c965072ea3feb729",
+      "references/publishers_funders.md": "fe8f7e8b069730ab06848da2398d792055e201dd4d7db4a15a97917cae259930",
+      "references/sources.md": "d22672f7357b0b84bb6724af062edb88384403f8d54622ad04620dcbb6eee3d2",
+      "references/taxonomy.md": "5d324cc741bd51e0d7dfc6acf601f9afbe2e659d1d00606759a4f0906cbed465",
+      "references/topics.md": "03b9559abb8ead16578fa08f96e24d80f7a047d2f51a8b10ea7a1b0748196e84",
+      "references/type_values.md": "14856517889d8d1f414263e561519624dc7e5e02a9ba2a505dfde8fb7f15640e",
+      "references/works.md": "d05e7050598442a9dcfb135e5a10b5a36191ae425eaa6e8139e7767eb17869b4",
+      "scripts/openalex_cli.py": "493539788f47dd5f3174876ab727f9c92a067de2a34746fcaf56d7782996d70f"
+    },
+    "local_additions": [
+      "SOURCE.json",
+      "LICENSE",
+      "agents/openai.yaml",
+      "PACKAGING.md",
+      "LICENSE-CC-BY-4.0.txt",
+      "UPSTREAM_README.md",
+      "SKILL_LICENSES.md"
+    ]
+  },
+  {
+    "name": "uv",
+    "repository": "https://github.com/google-deepmind/science-skills",
+    "commit": "68832757cbbf941c620b71df5756cf6e5cc287b0",
+    "path": "skills/uv",
+    "license": "Apache-2.0 (software); CC-BY-4.0 (other materials)",
+    "upstream_skill_unchanged": true,
+    "upstream_files_sha256": {
+      "SKILL.md": "d01562f2dcc104b3291a08bfb3a9e9883044330847285824a05f04000df0665b"
+    },
+    "local_additions": [
+      "SOURCE.json",
+      "LICENSE",
+      "agents/openai.yaml",
+      "PACKAGING.md",
+      "LICENSE-CC-BY-4.0.txt",
+      "UPSTREAM_README.md",
+      "SKILL_LICENSES.md"
+    ]
+  },
+  {
+    "name": "credentials",
+    "repository": "https://github.com/google-deepmind/science-skills",
+    "commit": "68832757cbbf941c620b71df5756cf6e5cc287b0",
+    "path": "skills/credentials",
+    "license": "Apache-2.0 (software); CC-BY-4.0 (other materials)",
+    "upstream_skill_unchanged": true,
+    "upstream_files_sha256": {
+      "SKILL.md": "82f252acbf135c37d04a14c20856f159fce7142e45cda5d318e1504426578bcc"
+    },
+    "local_additions": [
+      "SOURCE.json",
+      "LICENSE",
+      "agents/openai.yaml",
+      "PACKAGING.md",
+      "LICENSE-CC-BY-4.0.txt",
+      "UPSTREAM_README.md",
+      "SKILL_LICENSES.md"
+    ]
+  }
+]

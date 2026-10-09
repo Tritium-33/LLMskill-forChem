@@ -1,0 +1,17 @@
+{
+  "repository": "https://github.com/jinzhezenggroup/computational-chemistry-agent-skills",
+  "commit": "5c19e75b256d49849574c999b1965d94024ee072",
+  "path": "tools/dpdisp-submit",
+  "license": "LGPL-3.0-or-later",
+  "upstream_skill_unchanged": true,
+  "upstream_files_sha256": {
+    "SKILL.md": "28d649eb72db4f2dd46ee6c25c3d065399d7b082c5553ab3278e8ef1ac56a821"
+  },
+  "local_additions": [
+    "SOURCE.json",
+    "LICENSE",
+    "agents/openai.yaml",
+    "PACKAGING.md",
+    "LICENSE-GPL-3.0.txt"
+  ]
+}

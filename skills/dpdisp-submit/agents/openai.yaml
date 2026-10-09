@@ -1,0 +1,3 @@
+interface:
+  display_name: "dpdisp-submit"
+  short_description: "通过 DPDispatcher 管理已获授权的本地或集群作业"

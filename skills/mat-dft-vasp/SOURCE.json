@@ -1,0 +1,22 @@
+{
+  "repository": "https://github.com/learningmatter-mit/AtomisticSkills",
+  "commit": "62574443f2a772e23dd5951f3712b65133b06715",
+  "path": "skills/mat-dft-vasp",
+  "license": "MIT",
+  "upstream_skill_unchanged": true,
+  "upstream_files_sha256": {
+    "SKILL.md": "0313deeca543d69b17e420375ba917a90c9e4b58fee25ee2dec7e5393febe5f8",
+    "examples/vasp-workflow/README.md": "285f1c998ca38dede59fbfe1807b3b47caa658ea7e82c8cbe5c1a7de18bff89b",
+    "examples/vasp-workflow/Si.cif": "f84c61b5808c3c63e37eb69b5c98c21213459b72a144f4f324ff0971ce44bfb7",
+    "examples/vasp-workflow/vasp_inputs/INCAR": "bde80ca377b68998a1319be0b716a10958a5fec3cc107d9dee1ac20f835b1f2b",
+    "examples/vasp-workflow/vasp_inputs/POSCAR": "14270570d400451cd90cd98494c968405e64ff6d20392702ec45ccfb42301cb0",
+    "scripts/parse_vasp_results.py": "0a59b4372848f62078e4a0daf62e38c426b8ff599a705c8ec8ac44c2483e0f78",
+    "scripts/prepare_vasp_inputs.py": "f730acc5a218f5662f646dea14cf803d597cefb83b8c839b39c415ab1804c47d"
+  },
+  "local_additions": [
+    "SOURCE.json",
+    "LICENSE",
+    "agents/openai.yaml",
+    "PACKAGING.md"
+  ]
+}

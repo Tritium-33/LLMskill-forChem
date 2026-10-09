@@ -1,0 +1,19 @@
+{
+  "repository": "https://github.com/jinzhezenggroup/computational-chemistry-agent-skills",
+  "commit": "5c19e75b256d49849574c999b1965d94024ee072",
+  "path": "quantum-chemistry/dft-qe",
+  "license": "LGPL-3.0-or-later",
+  "upstream_skill_unchanged": true,
+  "upstream_files_sha256": {
+    "SKILL.md": "c83d171db21137afdbf96447148fe7b96c89a8249fe2d1b9b08bd5e9016692fe",
+    "assets/pw-water-0.in": "fca7efdb4947942137b2047003339d66711a4f47ddd38e4ad9780b6b29a3f180",
+    "references/commands-and-workflow.md": "8bdb4044cb8122edd3c7eb6fa4e99a9e21d01c86127eca4402b11ca979319cb5"
+  },
+  "local_additions": [
+    "SOURCE.json",
+    "LICENSE",
+    "agents/openai.yaml",
+    "PACKAGING.md",
+    "LICENSE-GPL-3.0.txt"
+  ]
+}

@@ -309,6 +309,69 @@
       "title": "scientific-skill-router",
       "summary": "按化学、文献、数据和写作板块选择所需科研技能。",
       "example_prompt": "请使用 $scientific-skill-router，根据我的任务选择必要的科研技能并完成任务。"
+    },
+    {
+      "name": "mat-dft-vasp",
+      "title": "mat-dft-vasp",
+      "summary": "VASP 输入准备与结果提取；需另配上游运行环境",
+      "example_prompt": "请使用 $mat-dft-vasp，帮助我完成VASP 输入准备与结果提取；需另配上游运行环境，先检查输入与所需依赖。",
+      "routing_group": "chemistry-materials"
+    },
+    {
+      "name": "dft-vasp",
+      "title": "dft-vasp",
+      "summary": "准备 VASP 静态、优化、DOS 与能带输入，不自动提交",
+      "example_prompt": "请使用 $dft-vasp，帮助我完成准备 VASP 静态、优化、DOS 与能带输入，不自动提交，先检查输入与所需依赖。",
+      "routing_group": "chemistry-materials"
+    },
+    {
+      "name": "dft-qe",
+      "title": "dft-qe",
+      "summary": "根据结构与指定参数准备 Quantum ESPRESSO 输入",
+      "example_prompt": "请使用 $dft-qe，帮助我完成根据结构与指定参数准备 Quantum ESPRESSO 输入，先检查输入与所需依赖。",
+      "routing_group": "chemistry-materials"
+    },
+    {
+      "name": "dpdata-cli",
+      "title": "dpdata-cli",
+      "summary": "原子结构和计算数据格式转换",
+      "example_prompt": "请使用 $dpdata-cli，帮助我完成原子结构和计算数据格式转换，先检查输入与所需依赖。",
+      "routing_group": "chemistry-materials"
+    },
+    {
+      "name": "dpdisp-submit",
+      "title": "dpdisp-submit",
+      "summary": "通过 DPDispatcher 管理已获授权的本地或集群作业",
+      "example_prompt": "请使用 $dpdisp-submit，帮助我完成通过 DPDispatcher 管理已获授权的本地或集群作业，先检查输入与所需依赖。",
+      "routing_group": "runtime-support"
+    },
+    {
+      "name": "literature-search-arxiv",
+      "title": "literature-search-arxiv",
+      "summary": "检索 arXiv 预印本、下载论文及源文件",
+      "example_prompt": "请使用 $literature-search-arxiv，帮助我完成检索 arXiv 预印本、下载论文及源文件，先检查输入与所需依赖。",
+      "routing_group": "research-evidence"
+    },
+    {
+      "name": "literature-search-openalex",
+      "title": "literature-search-openalex",
+      "summary": "检索 OpenAlex 论文、作者、机构及引文元数据",
+      "example_prompt": "请使用 $literature-search-openalex，帮助我完成检索 OpenAlex 论文、作者、机构及引文元数据，先检查输入与所需依赖。",
+      "routing_group": "research-evidence"
+    },
+    {
+      "name": "uv",
+      "title": "uv",
+      "summary": "配置 uv 并运行带独立依赖的 Python 脚本",
+      "example_prompt": "请使用 $uv，帮助我完成配置 uv 并运行带独立依赖的 Python 脚本，先检查输入与所需依赖。",
+      "routing_group": "runtime-support"
+    },
+    {
+      "name": "credentials",
+      "title": "credentials",
+      "summary": "检查服务凭据是否就绪，避免在会话中暴露密钥",
+      "example_prompt": "请使用 $credentials，帮助我完成检查服务凭据是否就绪，避免在会话中暴露密钥，先检查输入与所需依赖。",
+      "routing_group": "runtime-support"
     }
   ]
 }

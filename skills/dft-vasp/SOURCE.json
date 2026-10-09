@@ -1,0 +1,22 @@
+{
+  "repository": "https://github.com/jinzhezenggroup/computational-chemistry-agent-skills",
+  "commit": "5c19e75b256d49849574c999b1965d94024ee072",
+  "path": "quantum-chemistry/dft-vasp",
+  "license": "LGPL-3.0-or-later",
+  "upstream_skill_unchanged": true,
+  "upstream_files_sha256": {
+    "SKILL.md": "edff8d513a96603881581a4f25a0c1d657ae13ac5b612825a01259afddf6170a",
+    "band/SKILL.md": "4f735f92c2c30fac5f3a48b17a6d50f02468675449c43b264a71b42fe813cdec",
+    "dos/SKILL.md": "143458dd8b5e81ebeb2ab82a3f1f131dddd9a388b9d20639dfea581cb2d873b7",
+    "references/commands-and-workflow.md": "fef538d94f799e20a5284eb70401ffa719a24623c98963852fbb15da724acf25",
+    "relax/SKILL.md": "7b93e796cabe384649826e193bb7200b9ec4b2ba528623d3f013f98317858e55",
+    "static/SKILL.md": "81ac8d6337fb22f2461daebf41229707fa07f1502f7a68da202b1af74b0dddf8"
+  },
+  "local_additions": [
+    "SOURCE.json",
+    "LICENSE",
+    "agents/openai.yaml",
+    "PACKAGING.md",
+    "LICENSE-GPL-3.0.txt"
+  ]
+}

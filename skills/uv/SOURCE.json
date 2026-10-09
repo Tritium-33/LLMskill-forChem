@@ -1,0 +1,19 @@
+{
+  "repository": "https://github.com/google-deepmind/science-skills",
+  "commit": "68832757cbbf941c620b71df5756cf6e5cc287b0",
+  "path": "skills/uv",
+  "license": "Apache-2.0 (software); CC-BY-4.0 (other materials)",
+  "upstream_skill_unchanged": true,
+  "upstream_files_sha256": {
+    "SKILL.md": "d01562f2dcc104b3291a08bfb3a9e9883044330847285824a05f04000df0665b"
+  },
+  "local_additions": [
+    "SOURCE.json",
+    "LICENSE",
+    "agents/openai.yaml",
+    "PACKAGING.md",
+    "LICENSE-CC-BY-4.0.txt",
+    "UPSTREAM_README.md",
+    "SKILL_LICENSES.md"
+  ]
+}
