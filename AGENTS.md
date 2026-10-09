@@ -22,21 +22,10 @@ and packaging validation from observed task performance. The current distributio
 - Do not add a UI, model API, scheduler or project-specific scientific workflow
   without a concrete request. No account credentials belong in this repository.
 
-## 输出前缀：技能与执行记录
+## Skill usage reporting
 
-每次向用户返回结果时，先列出本轮实际使用的技能及完整的操作步骤，再给出正文。阶段性更新列出截至当前的状态；最终答复覆盖本轮从开始到结束的步骤。
-
-- 技能保留英文名，说明本轮用途；没有使用时写“无”。仅计划使用、目录中可见或仅被提及的技能不能列为已使用。读取指导与实际执行脚本应分别标明。
-- 步骤按实际顺序编号，记录读取了什么、调用了哪个工具或脚本、产生了什么结果及完成状态。包含失败、重试、跳过和未完成项；计划另列，不能伪装成已执行。
-- 这里的步骤是可核查的操作记录，不要求公开内部推理。无需逐字复制工具输出；不显示密钥、隐私数据或无关环境信息。
-- 记录很长时，前缀给出步骤概览并链接完整操作日志；只有实际生成了日志才提供链接。不能为凑记录而额外调用技能。
-
-格式：
-
-```text
-【本轮技能】英文名称 — 实际用途；或“无”
-【执行步骤】
-1. [完成/失败/跳过/未执行] 操作 → 结果或产物。
-
-正文……
-```
+For collection tasks combining skills, use scientific-skill-router to plan the
+sequence and report actual skill usage and execution steps before the final result.
+Do not impose this format on standalone direct skill calls, ordinary conversation
+or repository maintenance. Keep reporting rules in the local router rather than
+inserting them into upstream skills. Preserve existing provenance and license notices.
