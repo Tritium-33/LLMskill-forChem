@@ -16,7 +16,7 @@ description: 按科研任务选择已收录的化学、材料、文献、统计�
 | 检查数据、统计推断、建立预测模型、解释模型或做优化 | [data-modeling](references/data-modeling.md) |
 | 写论文、制作数据图/示意图/幻灯片、匹配格式或转换文档 | [writing-figures](references/writing-figures.md) |
 
-这些索引覆盖此分发包选择的42项 K-Dense 技能，并非上游全部技能。只在下一步确实跨板块时再读第二个索引；不要为简单任务加载所有索引或所有 SKILL.md。
+这些索引按功能覆盖本分发包全部47项具体技能，不按来源拆分。来源只用于追溯、许可和版本核对，选择时以任务适配性为依据。只在下一步确实跨板块时再读第二个索引；不要为简单任务加载所有索引或所有 SKILL.md。
 
 ## 选择和执行
 
@@ -28,10 +28,10 @@ description: 按科研任务选择已收录的化学、材料、文献、统计�
 
 ## 容易混淆的入口
 
-- 找具体论文/DOI先看 `paper-lookup`；生成书目用 `citation-management`；需要系统筛选综合才用 `literature-review`。既有 `lit-review`、`ref-check` 可用于更严格的创新性与参考文献审查，仅在当前可用且任务需要时组合。
+- 找具体论文/DOI先看 `paper-lookup`；生成书目用 `citation-management`；需要系统筛选综合才用 `literature-review`。同板块的 `lit-review`、`ref-check` 可用于更严格的创新性与参考文献审查，仅在当前可用且任务需要时组合。
 - 通用分子处理选 `datamol`，精细分子操作选 `rdkit`；周期性材料结构选 `pymatgen`。`molecular-dynamics` 面向 OpenMM 生物分子/小分子，不自动等同周期性材料 AIMD。
-- VASP 输入、提交或报错任务不能仅凭 `pymatgen` 当作完整工作流。若当前环境已有 `mat-dft-vasp`，读取其本地适配说明和项目约束；该技能不属于本42项索引，也不保证在其他用户环境中存在。
-- 数据探索 → `exploratory-data-analysis`；选择统计检验 → `statistical-analysis`；样本量 → `statistical-power`；预测模型 → `scikit-learn`。只有任务明确需要时才扩展到 PyMC/SHAP/多目标优化。
+- VASP 输入、提交或报错任务不能仅凭 `pymatgen` 当作完整工作流。若当前环境已有 `mat-dft-vasp`，读取其本地适配说明和项目约束；该技能未收录在本分发包的功能索引，也不保证在其他用户环境中存在。
+- 数据探索 → `exploratory-data-analysis`；选择统计检验 → `statistical-analysis`；样本量 → `statistical-power`；预测模型 → `scikit-learn`。审查验证路线或数据泄漏时使用同板块的 `independence-bookkeeping`；只有任务明确需要时才扩展到 PyMC/SHAP/多目标优化。
 - 真实数据图选 `matplotlib`、`seaborn` 或 `scientific-visualization`；概念示意图才考虑 `scientific-schematics`。后者的外部图像服务不是数据绘图的必需依赖。
 
 ## 维护

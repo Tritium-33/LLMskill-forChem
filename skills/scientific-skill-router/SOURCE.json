@@ -3,6 +3,6 @@
   "project": "LLMskill-forChem",
   "path": "skills/scientific-skill-router",
   "license": "MIT",
-  "version": "0.1.0",
-  "description": "Original selection instructions and indexes over separately attributed K-Dense skills; no upstream authorship claimed."
+  "version": "0.1.1",
+  "description": "Original functional routing across all bundled task skills, with per-skill upstream attribution."
 }

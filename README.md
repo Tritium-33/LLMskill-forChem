@@ -8,7 +8,7 @@ Skill 是供 AI 助手读取的任务指导和配套资源。安装后，你可�
 
 ## 可以用来做什么
 
-本仓库收录 **48 项技能**：42 项 K-Dense 化学与通用科研技能、5 项科研审查与研究规划技能，以及1项技能选择入口。
+本仓库收录 **48 项技能**，包括按功能组织的47项具体技能，以及1项技能选择入口。不同来源的同类技能放在同一板块中。
 
 | 任务 | 技能示例 |
 | --- | --- |
@@ -21,7 +21,7 @@ Skill 是供 AI 助手读取的任务指导和配套资源。安装后，你可�
 | 原文、文献与参考文献核验 | `reading-contract`、`lit-review`、`ref-check` |
 | 验证独立性与研究方向梳理 | `independence-bookkeeping`、`research-direction-recovery` |
 
-[K-Dense 技能分类、用途与依赖](docs/kdense-skills.md) · [使用指南](docs/usage.md)
+[完整功能目录、用途与依赖](docs/skills-catalog.md) · [使用指南](docs/usage.md)
 
 ## 安装
 
@@ -105,7 +105,7 @@ $paper-lookup 检索这个主题的论文，并保留 DOI 和来源。
 $scientific-skill-router 根据我的目标选择必要技能并完成任务。
 ```
 
-该入口为已收录的42项 K-Dense 技能提供四个板块索引：
+该入口为全部47项具体技能提供四个跨来源的功能板块索引：
 
 | 板块 | 覆盖内容 |
 | --- | --- |

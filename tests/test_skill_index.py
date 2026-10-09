@@ -10,9 +10,9 @@ spec=importlib.util.spec_from_file_location('skill_index',ROOT/'tools/build_skil
 index=importlib.util.module_from_spec(spec);spec.loader.exec_module(index)
 
 class SkillIndexTests(unittest.TestCase):
- def test_index_covers_each_bundled_kdense_skill_once(self):
+ def test_index_covers_each_task_skill_once(self):
   actual=json.loads((ROOT/'skills/scientific-skill-router/references/index.json').read_text())['skills']
-  expected={p.parent.name for p in (ROOT/'skills').glob('*/SOURCE.json') if json.loads(p.read_text()).get('repository')=='https://github.com/K-Dense-AI/scientific-agent-skills'}
+  expected={p.parent.name for p in (ROOT/'skills').glob('*/SOURCE.json')} - {'scientific-skill-router'}
   self.assertEqual({r['name'] for r in actual},expected)
   self.assertEqual(len(actual),len(expected))
   self.assertEqual({r['group'] for r in actual},set(index.GROUPS))
@@ -26,3 +26,10 @@ class SkillIndexTests(unittest.TestCase):
   self.assertEqual(source['kind'],'original')
   self.assertNotIn('commit',source)
   self.assertNotIn('repository',source)
+
+ def test_related_skills_share_groups_across_sources(self):
+  rows=json.loads((ROOT/'skills/scientific-skill-router/references/index.json').read_text())['skills']
+  by_name={r['name']:r for r in rows}
+  for a,b in [('lit-review','literature-review'),('ref-check','citation-management'),('independence-bookkeeping','scikit-learn')]:
+   self.assertEqual(by_name[a]['group'],by_name[b]['group'])
+   self.assertNotEqual(by_name[a]['source_name'],by_name[b]['source_name'])
