@@ -294,5 +294,3 @@ flowchart TD
 本仓库新增代码与说明采用 [MIT 许可证](LICENSE)。上游内容按各自许可证使用，详见 [第三方声明](THIRD_PARTY_NOTICES.md)。
 
 版权与再分发检查见 [逐项许可审查](docs/license-audit/README.md)。授权或随附许可未核清的技能暂停收录，不代表认定上游侵权。
-
-新增的 AtomisticSkills、Computational Chemistry Agent Skills 与 Google DeepMind Science Skills 技能及运行限制，见 [接入说明](docs/imported-skills.md)。Paper2Agent 仅作参考，未收录。
