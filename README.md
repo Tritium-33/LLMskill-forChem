@@ -193,6 +193,26 @@ $scientific-skill-router 根据我的目标选择必要技能并完成任务。
 
 同用途技能按任务分工选择，不随机抽取，也不默认全部执行。例如，一般综述的检索、筛选与综合使用 `literature-review`；围绕创新性主张深入阅读与审查证据使用 `lit-review`。需要两者时，明确主流程及补充检查，并复用已有检索与阅读记录。选择入口是给模型的指导，不是保证每次必经的程序。更多例子见 [使用指南](docs/usage.md#同用途技能怎么选)。
 
+### 总 router 与 VASP 专用 router 如何共存？
+
+本合集已保留 Computational Chemistry Agent Skills 的 [`dft-vasp`](skills/dft-vasp/SKILL.md) 及四个子流程。它与 `scientific-skill-router` 分层协作：总入口选择任务路径，VASP 入口选择具体计算类型。无需把同一个 router 再复制一份或提高两者之间的数值权重。
+
+```mermaid
+flowchart TD
+    A[科研任务] --> B[scientific-skill-router：选择领域与工作步骤]
+    B -->|准备 VASP 分类输入| C[dft-vasp：选择 VASP 子任务]
+    C --> D[static / relax / dos / band：准备具体输入]
+    D --> E[返回输入文件与检查状态]
+    E -->|用户要求执行或提交| F[dpdisp-submit]
+    B -->|已有预设脚本路径或结果提取| G[mat-dft-vasp：检查依赖与适配后使用]
+```
+
+例如，“为这个结构准备 VASP 几何优化输入，暂不提交”，可以走 `scientific-skill-router → dft-vasp → relax`。这只是调用示例，不代表已执行计算。用户也可以直接指定 `dft-vasp`；是否先经过总入口取决于自己选择的个人规则。
+
+`dft-vasp` 与 `mat-dft-vasp` 是不同的工作路径：前者按计算类型分流准备输入，后者提供预设输入和结果提取脚本。按目标、现有项目约束与依赖选择，不默认两套都跑或混用参数。结果提取、报错分析不能直接等同于输入准备。
+
+领域阶段不会把同一个问题反复交回总入口。若原任务还有绘图或写作，总入口接收领域产物后继续后续阶段。上游 `dft-vasp` 正文保持原样，共存与交接规则写在本项目自己的总 router 中；没有同时引入上游完整工作流框架。
+
 ## 执行记录：如何实现，什么时候出现？
 
 **合集组合任务由 `scientific-skill-router` 负责计划、串联和输出记录；单项技能直接调用不强制附带完整记录。** 上游技能不追加本合集的统一输出规则，原始来源、许可和既有修改记录保留。
