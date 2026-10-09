@@ -1,0 +1,3 @@
+interface:
+  display_name: "pyopenms"
+  short_description: "液相色谱质谱数据处理与特征检测；来源：K-Dense"

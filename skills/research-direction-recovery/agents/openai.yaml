@@ -1,0 +1,3 @@
+interface:
+  display_name: "研究方向纠偏"
+  short_description: "当结果偏弱或讨论偏离目标时复核已有证据，找出能推进研究判断的下一步"

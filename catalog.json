@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "package": "LLMskill-forChem",
+  "version": "0.1.0",
+  "skills": [
+    {
+      "name": "reading-contract",
+      "title": "原文证据核查",
+      "summary": "逐条核对论文或记录中的证据，区分事实、推断和未核实内容。",
+      "example_prompt": "请核对这篇论文中支持结论的原文、页码和图表，区分原文事实与推断。"
+    },
+    {
+      "name": "lit-review",
+      "title": "文献深审与创新性审查",
+      "summary": "围绕明确研究主张检索近邻工作，记录检索、阅读和证据缺口。",
+      "example_prompt": "请审查这个化学研究设想与已有工作的重叠，记录检索范围和全文阅读情况。"
+    },
+    {
+      "name": "ref-check",
+      "title": "参考文献核验",
+      "summary": "核对书目信息及引用是否支持正文，给出可追溯的修改建议。",
+      "example_prompt": "请核验这份参考文献的题名、作者、年份和 DOI，并检查关键引用是否支持正文。"
+    },
+    {
+      "name": "independence-bookkeeping",
+      "title": "验证独立性与数据泄漏检查",
+      "summary": "检查验证路线的共享依赖、数据使用历史与循环验证。",
+      "example_prompt": "请检查这份分子性质预测方案的训练、调参和测试数据是否独立。"
+    },
+    {
+      "name": "research-direction-recovery",
+      "title": "研究方向纠偏",
+      "summary": "结合目标与已有结果，识别有证据支持的下一步或停止条件。",
+      "example_prompt": "请根据现有结果重新梳理研究目标，列出能改变下一步决策的最小验证。"
+    },
+    {
+      "name": "pymatgen",
+      "title": "pymatgen",
+      "summary": "晶体结构、材料数据与电子结构文件分析",
+      "example_prompt": "请使用 $pymatgen，帮助我完成晶体结构、材料数据与电子结构文件分析，先检查输入与所需依赖。",
+      "routing_group": "chemistry-materials"
+    },
+    {
+      "name": "rdkit",
+      "title": "rdkit",
+      "summary": "分子结构、描述符、指纹与子结构检索",
+      "example_prompt": "请使用 $rdkit，帮助我完成分子结构、描述符、指纹与子结构检索，先检查输入与所需依赖。",
+      "routing_group": "chemistry-materials"
+    },
+    {
+      "name": "datamol",
+      "title": "datamol",
+      "summary": "常用分子标准化、描述符和构象处理",
+      "example_prompt": "请使用 $datamol，帮助我完成常用分子标准化、描述符和构象处理，先检查输入与所需依赖。",
+      "routing_group": "chemistry-materials"
+    },
+    {
+      "name": "deepchem",
+      "title": "deepchem",
+      "summary": "分子性质预测、特征化与化学机器学习",
+      "example_prompt": "请使用 $deepchem，帮助我完成分子性质预测、特征化与化学机器学习，先检查输入与所需依赖。",
+      "routing_group": "chemistry-materials"
+    },
+    {
+      "name": "molfeat",
+      "title": "molfeat",
+      "summary": "分子指纹、描述符与预训练分子表征",
+      "example_prompt": "请使用 $molfeat，帮助我完成分子指纹、描述符与预训练分子表征，先检查输入与所需依赖。",
+      "routing_group": "chemistry-materials"
+    },
+    {
+      "name": "medchem",
+      "title": "medchem",
+      "summary": "药物化学结构警示与分子库筛选",
+      "example_prompt": "请使用 $medchem，帮助我完成药物化学结构警示与分子库筛选，先检查输入与所需依赖。",
+      "routing_group": "chemistry-materials"
+    },
+    {
+      "name": "molecular-dynamics",
+      "title": "molecular-dynamics",
+      "summary": "OpenMM分子动力学与轨迹分析",
+      "example_prompt": "请使用 $molecular-dynamics，帮助我完成OpenMM分子动力学与轨迹分析，先检查输入与所需依赖。",
+      "routing_group": "chemistry-materials"
+    },
+    {
+      "name": "cantera",
+      "title": "cantera",
+      "summary": "化学反应动力学、反应器与点火延迟",
+      "example_prompt": "请使用 $cantera，帮助我完成化学反应动力学、反应器与点火延迟，先检查输入与所需依赖。",
+      "routing_group": "chemistry-materials"
+    },
+    {
+      "name": "pycalphad",
+      "title": "pycalphad",
+      "summary": "基于热力学数据库的相平衡计算",
+      "example_prompt": "请使用 $pycalphad，帮助我完成基于热力学数据库的相平衡计算，先检查输入与所需依赖。",
+      "routing_group": "chemistry-materials"
+    },
+    {
+      "name": "pybamm",
+      "title": "pybamm",
+      "summary": "电池充放电建模与参数敏感性分析",
+      "example_prompt": "请使用 $pybamm，帮助我完成电池充放电建模与参数敏感性分析，先检查输入与所需依赖。",
+      "routing_group": "chemistry-materials"
+    },
+    {
+      "name": "nmrglue",
+      "title": "nmrglue",
+      "summary": "一维核磁原始数据处理、谱峰与积分",
+      "example_prompt": "请使用 $nmrglue，帮助我完成一维核磁原始数据处理、谱峰与积分，先检查输入与所需依赖。",
+      "routing_group": "chemistry-materials"
+    },
+    {
+      "name": "matchms",
+      "title": "matchms",
+      "summary": "串联质谱清理、相似度与谱库匹配",
+      "example_prompt": "请使用 $matchms，帮助我完成串联质谱清理、相似度与谱库匹配，先检查输入与所需依赖。",
+      "routing_group": "chemistry-materials"
+    },
+    {
+      "name": "pyopenms",
+      "title": "pyopenms",
+      "summary": "液相色谱质谱数据处理与特征检测",
+      "example_prompt": "请使用 $pyopenms，帮助我完成液相色谱质谱数据处理与特征检测，先检查输入与所需依赖。",
+      "routing_group": "chemistry-materials"
+    },
+    {
+      "name": "analytical-method-validation",
+      "title": "analytical-method-validation",
+      "summary": "分析方法的准确度、精密度与检出限验证",
+      "example_prompt": "请使用 $analytical-method-validation，帮助我完成分析方法的准确度、精密度与检出限验证，先检查输入与所需依赖。",
+      "routing_group": "chemistry-materials"
+    },
+    {
+      "name": "uncertainty-and-units",
+      "title": "uncertainty-and-units",
+      "summary": "物理单位检查、误差传播与不确定度预算",
+      "example_prompt": "请使用 $uncertainty-and-units，帮助我完成物理单位检查、误差传播与不确定度预算，先检查输入与所需依赖。",
+      "routing_group": "chemistry-materials"
+    },
+    {
+      "name": "paper-lookup",
+      "title": "paper-lookup",
+      "summary": "跨学术数据库检索论文、引文与开放全文",
+      "example_prompt": "请使用 $paper-lookup，帮助我完成跨学术数据库检索论文、引文与开放全文，先检查输入与所需依赖。",
+      "routing_group": "research-evidence"
+    },
+    {
+      "name": "research-lookup",
+      "title": "research-lookup",
+      "summary": "通过外部搜索服务汇集科研证据与背景",
+      "example_prompt": "请使用 $research-lookup，帮助我完成通过外部搜索服务汇集科研证据与背景，先检查输入与所需依赖。",
+      "routing_group": "research-evidence"
+    },
+    {
+      "name": "literature-review",
+      "title": "literature-review",
+      "summary": "系统、范围与叙述综述的检索筛选和综合",
+      "example_prompt": "请使用 $literature-review，帮助我完成系统、范围与叙述综述的检索筛选和综合，先检查输入与所需依赖。",
+      "routing_group": "research-evidence"
+    },
+    {
+      "name": "citation-management",
+      "title": "citation-management",
+      "summary": "书目信息获取、引用核对与BibTeX生成",
+      "example_prompt": "请使用 $citation-management，帮助我完成书目信息获取、引用核对与BibTeX生成，先检查输入与所需依赖。",
+      "routing_group": "research-evidence"
+    },
+    {
+      "name": "scientific-critical-thinking",
+      "title": "scientific-critical-thinking",
+      "summary": "审查科研主张、证据质量与混杂因素",
+      "example_prompt": "请使用 $scientific-critical-thinking，帮助我完成审查科研主张、证据质量与混杂因素，先检查输入与所需依赖。",
+      "routing_group": "research-evidence"
+    },
+    {
+      "name": "scientific-brainstorming",
+      "title": "scientific-brainstorming",
+      "summary": "生成和比较候选研究方向及其关键假设",
+      "example_prompt": "请使用 $scientific-brainstorming，帮助我完成生成和比较候选研究方向及其关键假设，先检查输入与所需依赖。",
+      "routing_group": "research-evidence"
+    },
+    {
+      "name": "hypothesis-generation",
+      "title": "hypothesis-generation",
+      "summary": "将观察转化为可检验假设与区分性预测",
+      "example_prompt": "请使用 $hypothesis-generation，帮助我完成将观察转化为可检验假设与区分性预测，先检查输入与所需依赖。",
+      "routing_group": "research-evidence"
+    },
+    {
+      "name": "experimental-design",
+      "title": "experimental-design",
+      "summary": "实验设计、随机化、分区组与因素组合",
+      "example_prompt": "请使用 $experimental-design，帮助我完成实验设计、随机化、分区组与因素组合，先检查输入与所需依赖。",
+      "routing_group": "research-evidence"
+    },
+    {
+      "name": "peer-review",
+      "title": "peer-review",
+      "summary": "有证据支持的论文评阅与修订意见",
+      "example_prompt": "请使用 $peer-review，帮助我完成有证据支持的论文评阅与修订意见，先检查输入与所需依赖。",
+      "routing_group": "research-evidence"
+    },
+    {
+      "name": "scholar-evaluation",
+      "title": "scholar-evaluation",
+      "summary": "对科研作品进行可追溯的质量评估",
+      "example_prompt": "请使用 $scholar-evaluation，帮助我完成对科研作品进行可追溯的质量评估，先检查输入与所需依赖。",
+      "routing_group": "research-evidence"
+    },
+    {
+      "name": "exploratory-data-analysis",
+      "title": "exploratory-data-analysis",
+      "summary": "科学数据的结构、缺失值和异常值探索",
+      "example_prompt": "请使用 $exploratory-data-analysis，帮助我完成科学数据的结构、缺失值和异常值探索，先检查输入与所需依赖。",
+      "routing_group": "data-modeling"
+    },
+    {
+      "name": "statistical-analysis",
+      "title": "statistical-analysis",
+      "summary": "统计检验选择、假设检查与效应量报告",
+      "example_prompt": "请使用 $statistical-analysis，帮助我完成统计检验选择、假设检查与效应量报告，先检查输入与所需依赖。",
+      "routing_group": "data-modeling"
+    },
+    {
+      "name": "statistical-power",
+      "title": "statistical-power",
+      "summary": "样本量、重复数和统计功效规划",
+      "example_prompt": "请使用 $statistical-power，帮助我完成样本量、重复数和统计功效规划，先检查输入与所需依赖。",
+      "routing_group": "data-modeling"
+    },
+    {
+      "name": "statsmodels",
+      "title": "statsmodels",
+      "summary": "回归、广义线性模型和时间序列诊断",
+      "example_prompt": "请使用 $statsmodels，帮助我完成回归、广义线性模型和时间序列诊断，先检查输入与所需依赖。",
+      "routing_group": "data-modeling"
+    },
+    {
+      "name": "scikit-learn",
+      "title": "scikit-learn",
+      "summary": "机器学习预处理、建模与交叉验证",
+      "example_prompt": "请使用 $scikit-learn，帮助我完成机器学习预处理、建模与交叉验证，先检查输入与所需依赖。",
+      "routing_group": "data-modeling"
+    },
+    {
+      "name": "pymc",
+      "title": "pymc",
+      "summary": "贝叶斯建模、后验检查与不确定度推断",
+      "example_prompt": "请使用 $pymc，帮助我完成贝叶斯建模、后验检查与不确定度推断，先检查输入与所需依赖。",
+      "routing_group": "data-modeling"
+    },
+    {
+      "name": "pymoo",
+      "title": "pymoo",
+      "summary": "多目标优化、约束与帕累托解分析",
+      "example_prompt": "请使用 $pymoo，帮助我完成多目标优化、约束与帕累托解分析，先检查输入与所需依赖。",
+      "routing_group": "data-modeling"
+    },
+    {
+      "name": "shap",
+      "title": "shap",
+      "summary": "模型预测的特征归因、解释与诊断",
+      "example_prompt": "请使用 $shap，帮助我完成模型预测的特征归因、解释与诊断，先检查输入与所需依赖。",
+      "routing_group": "data-modeling"
+    },
+    {
+      "name": "sympy",
+      "title": "sympy",
+      "summary": "符号代数、微积分与精确公式推导",
+      "example_prompt": "请使用 $sympy，帮助我完成符号代数、微积分与精确公式推导，先检查输入与所需依赖。",
+      "routing_group": "data-modeling"
+    },
+    {
+      "name": "scientific-writing",
+      "title": "scientific-writing",
+      "summary": "有证据溯源的科研论文撰写与一致性检查",
+      "example_prompt": "请使用 $scientific-writing，帮助我完成有证据溯源的科研论文撰写与一致性检查，先检查输入与所需依赖。",
+      "routing_group": "writing-figures"
+    },
+    {
+      "name": "matplotlib",
+      "title": "matplotlib",
+      "summary": "精细控制科研图表并导出出版格式",
+      "example_prompt": "请使用 $matplotlib，帮助我完成精细控制科研图表并导出出版格式，先检查输入与所需依赖。",
+      "routing_group": "writing-figures"
+    },
+    {
+      "name": "seaborn",
+      "title": "seaborn",
+      "summary": "分布、分组比较与统计关系可视化",
+      "example_prompt": "请使用 $seaborn，帮助我完成分布、分组比较与统计关系可视化，先检查输入与所需依赖。",
+      "routing_group": "writing-figures"
+    },
+    {
+      "name": "scientific-visualization",
+      "title": "scientific-visualization",
+      "summary": "多面板科研图设计、单位与可读性检查",
+      "example_prompt": "请使用 $scientific-visualization，帮助我完成多面板科研图设计、单位与可读性检查，先检查输入与所需依赖。",
+      "routing_group": "writing-figures"
+    },
+    {
+      "name": "scientific-schematics",
+      "title": "scientific-schematics",
+      "summary": "通过外部图像模型生成科学示意图草稿",
+      "example_prompt": "请使用 $scientific-schematics，帮助我完成通过外部图像模型生成科学示意图草稿，先检查输入与所需依赖。",
+      "routing_group": "writing-figures"
+    },
+    {
+      "name": "scientific-slides",
+      "title": "scientific-slides",
+      "summary": "科研汇报幻灯片结构、制作与视觉检查",
+      "example_prompt": "请使用 $scientific-slides，帮助我完成科研汇报幻灯片结构、制作与视觉检查，先检查输入与所需依赖。",
+      "routing_group": "writing-figures"
+    },
+    {
+      "name": "venue-templates",
+      "title": "venue-templates",
+      "summary": "期刊会议模板选择与投稿格式检查",
+      "example_prompt": "请使用 $venue-templates，帮助我完成期刊会议模板选择与投稿格式检查，先检查输入与所需依赖。",
+      "routing_group": "writing-figures"
+    },
+    {
+      "name": "markitdown",
+      "title": "markitdown",
+      "summary": "将PDF、Office等文档转换为Markdown",
+      "example_prompt": "请使用 $markitdown，帮助我完成将PDF、Office等文档转换为Markdown，先检查输入与所需依赖。",
+      "routing_group": "writing-figures"
+    },
+    {
+      "name": "scientific-skill-router",
+      "title": "scientific-skill-router",
+      "summary": "按化学、文献、数据和写作板块选择所需科研技能。",
+      "example_prompt": "请使用 $scientific-skill-router，根据我的任务选择必要的科研技能并完成任务。"
+    }
+  ]
+}

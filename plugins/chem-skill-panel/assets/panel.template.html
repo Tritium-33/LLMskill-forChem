@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<title>选择科研技能</title>
+<style>
+:root{color-scheme:light dark;--bg:#fff;--ink:#24332e;--muted:#68756f;--line:#e6eae7;--accent:#187c72;--hover:#f4f8f6}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 system-ui,"Segoe UI","Microsoft YaHei",sans-serif}main{max-width:640px;margin:auto;padding:20px}header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}h1{margin:0;font-size:18px;font-weight:650}.count{color:var(--muted);font-size:12px}input{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}#skills{margin:10px 0 0;padding:0;list-style:none}.skill{display:flex;align-items:center;gap:16px;padding:14px 2px;border-bottom:1px solid var(--line)}.info{flex:1;min-width:0}.title{font-weight:600;overflow-wrap:anywhere}.source{display:block;margin-top:5px;color:var(--muted);font-size:11px;overflow-wrap:anywhere}.source a{color:var(--accent);text-underline-offset:3px}.summary{color:var(--muted);font-size:12px;margin-top:4px}button{flex-shrink:0;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--accent);padding:7px 12px;font:inherit;font-size:13px;cursor:pointer}button:hover{background:var(--hover);border-color:var(--accent)}button:disabled{opacity:.5;cursor:wait}button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}#hint,#status,#empty{font-size:12px;color:var(--muted);margin:12px 0 0}#status{color:var(--accent)}#status:empty{display:none}#manual{margin-top:10px}[hidden]{display:none!important}
+@media(prefers-color-scheme:dark){:root{--bg:#1c211f;--ink:#e5eae7;--muted:#a7b1ab;--line:#39413c;--accent:#7bceba;--hover:#26342d}}
+:root[data-theme=light]{color-scheme:light;--bg:#fff;--ink:#24332e;--muted:#68756f;--line:#e6eae7;--accent:#187c72;--hover:#f4f8f6}
+:root[data-theme=dark]{color-scheme:dark;--bg:#1c211f;--ink:#e5eae7;--muted:#a7b1ab;--line:#39413c;--accent:#7bceba;--hover:#26342d}
+@media(max-width:420px){main{padding:14px}.skill{gap:10px}.title{font-size:13px}}
+</style>
+<main>
+ <header><h1>选择科研技能</h1><span id="count" class="count"></span></header>
+ <input id="search" type="search" aria-label="搜索技能名称或用途" placeholder="搜索名称或用途" autocomplete="off">
+ <ul id="skills" aria-label="可用科研技能"></ul>
+ <p id="empty" hidden>没有匹配的技能。</p>
+ <p id="hint">点击复制，再粘贴到当前对话。</p>
+ <p id="status" role="status" aria-live="polite"></p>
+ <input id="manual" readonly hidden aria-label="待复制的技能引用">
+</main>
+<script id="catalog-data" type="application/json">__CHEM_CATALOG_JSON__</script>
+<script>
+"use strict";
+const catalog=JSON.parse(document.getElementById("catalog-data").textContent);
+const $=id=>document.getElementById(id);
+let canAttach=false,busy=false,sequence=0,parentOrigin=null;
+const pending=new Map();
+function selectionText(skill){return `请使用 chem-skill-panel 插件的${skill.name}（${skill.title}）处理我随本条消息提供的任务；先读取该技能完整 SKILL.md（可调用 get_skill_instructions），尚无任务时仅确认选择。`;}
+function render(){
+ const query=$("search").value.trim().toLocaleLowerCase();
+ const items=catalog.skills.filter(s=>[s.title,s.name,s.summary,s.source.name].join(" ").toLocaleLowerCase().includes(query));
+ $("skills").replaceChildren();$("empty").hidden=items.length>0;
+ $("count").textContent=`${items.length} 项`;
+ for(const skill of items){
+  const row=document.createElement("li");row.className="skill";row.dataset.skill=skill.name;
+  const info=document.createElement("div");info.className="info";
+  for(const [cls,text] of [["title",skill.name],["summary",`${skill.title}：${skill.summary}`]]){const el=document.createElement("div");el.className=cls;el.textContent=text;info.append(el);}
+  const source=document.createElement("div");source.className="source";source.append("来源：");
+  if(skill.source.url){const link=document.createElement("a");link.textContent=skill.source.name;link.href=skill.source.url;link.target="_blank";link.rel="noopener noreferrer";link.title="查看所用版本的原始 SKILL.md";source.append(link);}else{source.append(skill.source.name);}info.append(source);
+  const button=document.createElement("button");button.type="button";button.textContent=canAttach?"插入":"复制";button.disabled=busy;
+  button.setAttribute("aria-label",`${canAttach?"插入":"复制"}${skill.name}`);
+  button.addEventListener("click",()=>choose(skill));row.append(info,button);$("skills").append(row);
+ }
+}
+function notify(method,params){window.parent.postMessage({jsonrpc:"2.0",method,params},parentOrigin||"*");}
+function rpc(method,params){return new Promise((resolve,reject)=>{
+ const id=++sequence,timer=setTimeout(()=>{pending.delete(id);reject(new Error("宿主响应超时"));},7000);
+ pending.set(id,{resolve,reject,timer});window.parent.postMessage({jsonrpc:"2.0",id,method,params},parentOrigin||"*");
+});}
+function hostContext(context){
+ if(context?.theme==="dark"||context?.theme==="light")document.documentElement.dataset.theme=context.theme;
+ if(context&&Object.hasOwn(context,"openai/modelContext")&&context["openai/modelContext"]===null)$("status").textContent="";
+}
+window.addEventListener("message",event=>{
+ if(window.parent===window||event.source!==window.parent||(parentOrigin&&event.origin!==parentOrigin))return;
+ const msg=event.data;if(!msg||msg.jsonrpc!=="2.0")return;
+ if(msg.id!==undefined&&pending.has(msg.id)&&("result" in msg||"error" in msg)){
+  const p=pending.get(msg.id);pending.delete(msg.id);clearTimeout(p.timer);
+  if(event.origin&&event.origin!=="null")parentOrigin=event.origin;
+  if(msg.error)p.reject(new Error(msg.error.message||"宿主拒绝请求"));else p.resolve(msg.result);return;
+ }
+ if(msg.method==="ui/notifications/host-context-changed")hostContext(msg.params);
+});
+async function choose(skill){
+ if(busy)return;
+ busy=true;render();$("manual").hidden=true;
+ const text=selectionText(skill);
+ try{
+  if(canAttach){
+   const result=await rpc("ui/update-model-context",{content:[{type:"text",text,_meta:{"openai/title":skill.name}}]});
+   if(result?.isError)throw new Error("宿主未接受技能引用");
+   $("status").textContent=`已插入「${skill.name}」。在输入框补充任务后发送。`;
+  }else{
+   try{await navigator.clipboard.writeText(text);$("status").textContent=`已复制「${skill.name}」，请粘贴到当前对话。`;}
+   catch{$("manual").value=text;$("manual").hidden=false;$("manual").focus();$("manual").select();$("status").textContent="请按 Ctrl+C 复制，再粘贴到当前对话。";}
+  }
+ }catch{
+  canAttach=false;$("hint").textContent="请先检查输入框；如未插入，可点击复制后粘贴。";
+  $("status").textContent="未确认插入成功，尚未发送消息。";
+ }finally{busy=false;render();}
+}
+async function connect(){
+ if(window.parent===window)return;
+ try{
+  const result=await rpc("ui/initialize",{appInfo:{name:"chem-skill-panel",version:"0.1.0"},appCapabilities:{},protocolVersion:"2026-01-26"});
+  notify("ui/notifications/initialized",{});
+  const caps=result?.hostCapabilities;
+  // A standard context update alone does not promise a visible composer attachment.
+  canAttach=Boolean(caps?.updateModelContext?.text&&caps?.experimental?.["openai/modelContext"]);
+  $("hint").textContent=canAttach?"点击插入当前输入框，不会自动发送。再选会替换本面板上次选择。":"当前客户端不支持直接插入；点击复制后粘贴。";
+  hostContext(result?.hostContext);render();
+  const size=()=>notify("ui/notifications/size-changed",{height:document.documentElement.scrollHeight});
+  new ResizeObserver(size).observe(document.body);size();
+ }catch{$("hint").textContent="点击复制，再粘贴到当前对话。";}
+}
+$("search").addEventListener("input",render);
+render();connect();
+</script>
+</html>

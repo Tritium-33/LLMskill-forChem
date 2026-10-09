@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+  "commit": "92ace75ac21efe19a620434e0ca4e356081fe807",
+  "path": "skills/molecular-dynamics",
+  "upstream_skill_sha256": "1efb31165ec1477b37c31394ba04b5fb280d44db8907afdf2a956e48487f1136",
+  "modifications": [
+    "Added agents/openai.yaml: original English display name and Chinese purpose/source.",
+    "Added provenance and repository MIT license; upstream skill text and support files unchanged."
+  ],
+  "upstream_license_metadata": "MIT",
+  "distribution_license": "Repository MIT license; retain upstream metadata and bundled third-party notices."
+}

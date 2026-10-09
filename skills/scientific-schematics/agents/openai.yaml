@@ -1,0 +1,3 @@
+interface:
+  display_name: "scientific-schematics"
+  short_description: "通过外部图像模型生成科学示意图草稿；来源：K-Dense"

@@ -1,0 +1,30 @@
+{
+  "name": "chem-skill-panel",
+  "version": "0.1.0",
+  "description": "中文科研技能选择器：查看用途，点击插入当前会话，无需记住技能名称。",
+  "author": {
+    "name": "LLMskill-forChem contributors"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "化学科研技能面板",
+    "shortDescription": "原始技能名称、中文用途与来源",
+    "longDescription": "浏览五项通用科研技能的原始英文名称、中文用途与来源，点击原文链接可查看固定版本。兼容宿主可插入当前输入框；浏览器提供复制。",
+    "developerName": "LLMskill-forChem contributors",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read"
+    ],
+    "defaultPrompt": [
+      "打开化学科研技能面板，让我选择本次使用的技能。",
+      "根据我的任务，帮我选择合适的通用科研技能。"
+    ],
+    "brandColor": "#187C72",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "screenshots": [
+      "./assets/screenshot.png"
+    ]
+  }
+}

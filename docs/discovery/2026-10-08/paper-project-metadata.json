@@ -1,0 +1,26 @@
+[
+  {
+    "requested_repository": "jmiao24/Paper2Agent",
+    "source": "https://api.github.com/repos/jmiao24/Paper2Agent",
+    "checked_on": "2026-10-08",
+    "error": "HTTP Error 403: rate limit exceeded"
+  },
+  {
+    "requested_repository": "AkariAsai/OpenScholar",
+    "source": "https://api.github.com/repos/AkariAsai/OpenScholar",
+    "checked_on": "2026-10-08",
+    "error": "HTTP Error 403: rate limit exceeded"
+  },
+  {
+    "requested_repository": "ur-whitelab/chemcrow-public",
+    "source": "https://api.github.com/repos/ur-whitelab/chemcrow-public",
+    "checked_on": "2026-10-08",
+    "error": "HTTP Error 403: rate limit exceeded"
+  },
+  {
+    "requested_repository": "gomesgroup/coscientist",
+    "source": "https://api.github.com/repos/gomesgroup/coscientist",
+    "checked_on": "2026-10-08",
+    "error": "HTTP Error 403: rate limit exceeded"
+  }
+]

@@ -1,0 +1,3 @@
+interface:
+  display_name: "analytical-method-validation"
+  short_description: "分析方法的准确度、精密度与检出限验证；来源：K-Dense"

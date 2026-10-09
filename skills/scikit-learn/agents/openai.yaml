@@ -1,0 +1,3 @@
+interface:
+  display_name: "scikit-learn"
+  short_description: "机器学习预处理、建模与交叉验证；来源：K-Dense"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "deepchem"
+  short_description: "分子性质预测、特征化与化学机器学习；来源：K-Dense"

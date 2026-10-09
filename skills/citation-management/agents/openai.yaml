@@ -1,0 +1,3 @@
+interface:
+  display_name: "citation-management"
+  short_description: "书目信息获取、引用核对与BibTeX生成；来源：K-Dense"

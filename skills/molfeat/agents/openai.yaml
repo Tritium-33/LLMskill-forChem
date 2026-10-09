@@ -1,0 +1,3 @@
+interface:
+  display_name: "molfeat"
+  short_description: "分子指纹、描述符与预训练分子表征；来源：K-Dense"

@@ -1,0 +1,426 @@
+{
+  "schema_version": 1,
+  "scope": "Selected K-Dense skills in this distribution, not the complete upstream catalog",
+  "skills": [
+    {
+      "name": "pymatgen",
+      "group": "chemistry-materials",
+      "purpose": "晶体结构、材料数据与电子结构文件分析",
+      "example": "请使用 $pymatgen，帮助我完成晶体结构、材料数据与电子结构文件分析，先检查输入与所需依赖。",
+      "compatibility": "Python 3.11+ with uv. The verified snapshot uses pymatgen 2026.9.24, pymatgen-core 2026.9.23, and mp-api 0.46.5. Bundled help and planning CLIs use only the standard library; local scientific execution lazily requires the pinned pymatgen packages. Materials Project access additionally requires explicit network approval and the single named secret MP_API_KEY.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pymatgen/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "rdkit",
+      "group": "chemistry-materials",
+      "purpose": "分子结构、描述符、指纹与子结构检索",
+      "example": "请使用 $rdkit，帮助我完成分子结构、描述符、指纹与子结构检索，先检查输入与所需依赖。",
+      "compatibility": "Tested with RDKit 2026.03.6 on Python 3.13; bundled scripts require the rdkit package. No credentials or network are needed after installation. Use conda-forge for the broadest binary support or PyPI package `rdkit` for supported platform wheels; `rdkit-pypi` is the legacy PyPI name.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/rdkit/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "datamol",
+      "group": "chemistry-materials",
+      "purpose": "常用分子标准化、描述符和构象处理",
+      "example": "请使用 $datamol，帮助我完成常用分子标准化、描述符和构象处理，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.11+ and datamol 0.13.0 with RDKit 2024.09+. Installation needs network access; local molecular workflows need no credentials. Remote I/O needs the selected provider credentials.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/datamol/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "deepchem",
+      "group": "chemistry-materials",
+      "purpose": "分子性质预测、特征化与化学机器学习",
+      "example": "请使用 $deepchem，帮助我完成分子性质预测、特征化与化学机器学习，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.11 for the tested DeepChem 2.8.0 stack. Molecular workflows need RDKit. Torch, Transformers, torch-geometric or DGL/DGL-LifeSci depend on the chosen model. Network is needed only for package, benchmark or model downloads.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/deepchem/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "molfeat",
+      "group": "chemistry-materials",
+      "purpose": "分子指纹、描述符与预训练分子表征",
+      "example": "请使用 $molfeat，帮助我完成分子指纹、描述符与预训练分子表征，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.11+ and molfeat 1.0.0 (RDKit, datamol, PyTorch). macOS Intel needs Python 3.11–3.12 and upstream platform-specific dependency pins. Optional extras and network access are needed for pretrained models; core fingerprints run offline.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/molfeat/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "medchem",
+      "group": "chemistry-materials",
+      "purpose": "药物化学结构警示与分子库筛选",
+      "example": "请使用 $medchem，帮助我完成药物化学结构警示与分子库筛选，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.11+ with medchem, datamol, and RDKit. Optional Lilly demerits require native tools built with medchem install-lilly, a C++ compiler, make, zlib, and Ruby; installation needs network access. Other filters run locally without credentials.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/medchem/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "molecular-dynamics",
+      "group": "chemistry-materials",
+      "purpose": "OpenMM分子动力学与轨迹分析",
+      "example": "请使用 $molecular-dynamics，帮助我完成OpenMM分子动力学与轨迹分析，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.11+ with OpenMM and MDAnalysis; matplotlib for plots. Optional PDBFixer and OpenFF need separate installation. Network access for installation; local simulation and analysis run offline.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/molecular-dynamics/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "cantera",
+      "group": "chemistry-materials",
+      "purpose": "化学反应动力学、反应器与点火延迟",
+      "example": "请使用 $cantera，帮助我完成化学反应动力学、反应器与点火延迟，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.12-3.14, Cantera 3.2.0, and NumPy. Installation needs network access; simulations run locally without credentials. Custom mechanisms must be available as Cantera YAML files.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/cantera/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "pycalphad",
+      "group": "chemistry-materials",
+      "purpose": "基于热力学数据库的相平衡计算",
+      "example": "请使用 $pycalphad，帮助我完成基于热力学数据库的相平衡计算，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.12+, pycalphad 0.11.2, and NumPy. Installation needs network access; calculations run locally without credentials. Real-material predictions require a suitable licensed thermodynamic database.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pycalphad/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "pybamm",
+      "group": "chemistry-materials",
+      "purpose": "电池充放电建模与参数敏感性分析",
+      "example": "请使用 $pybamm，帮助我完成电池充放电建模与参数敏感性分析，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.12 with PyBaMM 26.9.0.0 and pybammsolvers 0.10.0 (IDAKLU). NumPy and CasADi are supplied by PyBaMM. Network is needed for installation and optional upstream dataset retrieval; bundled simulations and CSV comparisons run locally without credentials.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pybamm/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "nmrglue",
+      "group": "chemistry-materials",
+      "purpose": "一维核磁原始数据处理、谱峰与积分",
+      "example": "请使用 $nmrglue，帮助我完成一维核磁原始数据处理、谱峰与积分，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.12+, nmrglue, NumPy 2+, and SciPy. Installation needs network access; processing is local and needs no credentials.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/nmrglue/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "matchms",
+      "group": "chemistry-materials",
+      "purpose": "串联质谱清理、相似度与谱库匹配",
+      "example": "请使用 $matchms，帮助我完成串联质谱清理、相似度与谱库匹配，先检查输入与所需依赖。",
+      "compatibility": "Requires Python >=3.10,<3.15, uv, and matchms 0.33.1. Local file workflows need no credentials; metabolomics-USI loading requires network access.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/matchms/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "pyopenms",
+      "group": "chemistry-materials",
+      "purpose": "液相色谱质谱数据处理与特征检测",
+      "example": "请使用 $pyopenms，帮助我完成液相色谱质谱数据处理与特征检测，先检查输入与所需依赖。",
+      "compatibility": "Requires CPython 3.11+ and pyOpenMS 3.6.0; pandas and NumPy for tables, Matplotlib for plots. Wheels support macOS 15+ arm64, Linux glibc 2.34+ x86-64/arm64, and Windows x86-64. Search-engine executables are separate.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pyopenms/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "analytical-method-validation",
+      "group": "chemistry-materials",
+      "purpose": "分析方法的准确度、精密度与检出限验证",
+      "example": "请使用 $analytical-method-validation，帮助我完成分析方法的准确度、精密度与检出限验证，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.11+. Scripts use only the standard library - no numpy, scipy, or network access. Statistical distributions are computed from first principles so results are reproducible in any conforming interpreter.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/analytical-method-validation/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "uncertainty-and-units",
+      "group": "chemistry-materials",
+      "purpose": "物理单位检查、误差传播与不确定度预算",
+      "example": "请使用 $uncertainty-and-units，帮助我完成物理单位检查、误差传播与不确定度预算，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.12+. The numeric CLIs need pint, uncertainties, NumPy, and SciPy; the static auditor is standard-library only. All bundled tooling runs locally with no network access.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/uncertainty-and-units/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "paper-lookup",
+      "group": "research-evidence",
+      "purpose": "跨学术数据库检索论文、引文与开放全文",
+      "example": "请使用 $paper-lookup，帮助我完成跨学术数据库检索论文、引文与开放全文，先检查输入与所需依赖。",
+      "compatibility": "Needs network access and curl. The bundled scripts require Python 3.11+ and use only the standard library. No credentials are required; NCBI_API_KEY, S2_API_KEY, CORE_API_KEY, and OPENALEX_API_KEY raise rate limits or unlock full text where noted.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/paper-lookup/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "research-lookup",
+      "group": "research-evidence",
+      "purpose": "通过外部搜索服务汇集科研证据与背景",
+      "example": "请使用 $research-lookup，帮助我完成通过外部搜索服务汇集科研证据与背景，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.10+ and network access; targets parallel-web-tools CLI 0.9.3 for Search, Extract, and Research. Explicit Chat requires requests and PARALLEL_API_KEY; optional Perplexity through openrouter.ai requires requests and OPENROUTER_API_KEY.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/research-lookup/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "literature-review",
+      "group": "research-evidence",
+      "purpose": "系统、范围与叙述综述的检索筛选和综合",
+      "example": "请使用 $literature-review，帮助我完成系统、范围与叙述综述的检索筛选和综合，先检查输入与所需依赖。",
+      "compatibility": "Python 3.10+ with requests; network for DOI checks and searches. Optional parallel-cli requires Parallel authentication. PDF export needs Pandoc and XeLaTeX; AI schematics need OPENROUTER_API_KEY.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/literature-review/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "citation-management",
+      "group": "research-evidence",
+      "purpose": "书目信息获取、引用核对与BibTeX生成",
+      "example": "请使用 $citation-management，帮助我完成书目信息获取、引用核对与BibTeX生成，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.9+ with requests. Google Scholar search additionally needs scholarly. Needs network access to api.openalex.org, api.crossref.org, eutils.ncbi.nlm.nih.gov, pmc.ncbi.nlm.nih.gov, doi.org, export.arxiv.org, and api.datacite.org.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/citation-management/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "scientific-critical-thinking",
+      "group": "research-evidence",
+      "purpose": "审查科研主张、证据质量与混杂因素",
+      "example": "请使用 $scientific-critical-thinking，帮助我完成审查科研主张、证据质量与混杂因素，先检查输入与所需依赖。",
+      "compatibility": "Analytical guidance needs no network. Optional figures via the scientific-schematics skill require OPENROUTER_API_KEY and outbound API access to OpenRouter.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-critical-thinking/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "scientific-brainstorming",
+      "group": "research-evidence",
+      "purpose": "生成和比较候选研究方向及其关键假设",
+      "example": "请使用 $scientific-brainstorming，帮助我完成生成和比较候选研究方向及其关键假设，先检查输入与所需依赖。",
+      "compatibility": "Core guidance works in any Agent Skills-compatible host. Optional bundled CLIs require Python 3.11+ and use only the standard library; they make no network or LLM calls and require no credentials.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-brainstorming/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "hypothesis-generation",
+      "group": "research-evidence",
+      "purpose": "将观察转化为可检验假设与区分性预测",
+      "example": "请使用 $hypothesis-generation，帮助我完成将观察转化为可检验假设与区分性预测，先检查输入与所需依赖。",
+      "compatibility": "Python 3.11+ standard library. Bundled CLIs are deterministic and local-only; they accept bounded JSON, CSV, or Markdown and require no network, credentials, models, image services, or external packages.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/hypothesis-generation/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "experimental-design",
+      "group": "research-evidence",
+      "purpose": "实验设计、随机化、分区组与因素组合",
+      "example": "请使用 $experimental-design，帮助我完成实验设计、随机化、分区组与因素组合，先检查输入与所需依赖。",
+      "compatibility": "Requires Python >=3.12 with numpy, pandas, and pydoe 1.5.0 (DOE matrices). Network access is needed only to install packages; no credentials are required.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/experimental-design/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "peer-review",
+      "group": "research-evidence",
+      "purpose": "有证据支持的论文评阅与修订意见",
+      "example": "请使用 $peer-review，帮助我完成有证据支持的论文评阅与修订意见，先检查输入与所需依赖。",
+      "compatibility": "Python 3.11+ standard library. Bundled CLIs are deterministic and local-only; they accept bounded JSON, CSV, or Markdown and make no network, model, image, or external-service calls.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/peer-review/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "scholar-evaluation",
+      "group": "research-evidence",
+      "purpose": "对科研作品进行可追溯的质量评估",
+      "example": "请使用 $scholar-evaluation，帮助我完成对科研作品进行可追溯的质量评估，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.11+ for optional bundled standard-library CLIs. All tooling is local JSON/CSV processing with no network, credentials, external models, or subprocesses.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scholar-evaluation/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "exploratory-data-analysis",
+      "group": "data-modeling",
+      "purpose": "科学数据的结构、缺失值和异常值探索",
+      "example": "请使用 $exploratory-data-analysis，帮助我完成科学数据的结构、缺失值和异常值探索，先检查输入与所需依赖。",
+      "compatibility": "Bundled core CLIs require Python 3.11+ and are local/network-free; the complete pinned optional snapshot requires Python 3.12+, uv, and format-specific libraries listed below.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/exploratory-data-analysis/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "statistical-analysis",
+      "group": "data-modeling",
+      "purpose": "统计检验选择、假设检查与效应量报告",
+      "example": "请使用 $statistical-analysis，帮助我完成统计检验选择、假设检查与效应量报告，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.12+ and the documented isolated scientific Python environment; network access only for installation and documentation.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/statistical-analysis/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "statistical-power",
+      "group": "data-modeling",
+      "purpose": "样本量、重复数和统计功效规划",
+      "example": "请使用 $statistical-power，帮助我完成样本量、重复数和统计功效规划，先检查输入与所需依赖。",
+      "compatibility": "Requires Python >=3.12 with statsmodels, scipy, numpy, pandas, and matplotlib. Optional comparison uses pingouin; survival extensions use lifelines (requires pandas<3). Installation needs network access unless packages are cached. Calculations run locally without credentials.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/statistical-power/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "statsmodels",
+      "group": "data-modeling",
+      "purpose": "回归、广义线性模型和时间序列诊断",
+      "example": "请使用 $statsmodels，帮助我完成回归、广义线性模型和时间序列诊断，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.10+ and statsmodels 0.15.0; the tested NumPy 2.5.3/SciPy 1.18.1 stack needs Python 3.12+. Plotting needs matplotlib; predictive metrics need scikit-learn. Network access is needed only for installation or documentation; no credentials.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/statsmodels/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "scikit-learn",
+      "group": "data-modeling",
+      "purpose": "机器学习预处理、建模与交叉验证",
+      "example": "请使用 $scikit-learn，帮助我完成机器学习预处理、建模与交叉验证，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.11+ and scikit-learn 1.9.1. NumPy, SciPy, and joblib are dependencies; bundled scripts also require pandas and matplotlib. Installation needs network access; bundled examples use local datasets without credentials.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scikit-learn/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "pymc",
+      "group": "data-modeling",
+      "purpose": "贝叶斯建模、后验检查与不确定度推断",
+      "example": "请使用 $pymc，帮助我完成贝叶斯建模、后验检查与不确定度推断，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.12+ with PyMC 6.3.2, PyTensor 3.3.2 and ArviZ 1.3-compatible dependencies; NumPy, pandas, Matplotlib, h5netcdf and h5py for bundled helpers/artifacts. Network access for installation only. Optional nutpie, NumPyro and BlackJAX samplers need separate dependencies.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pymc/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "pymoo",
+      "group": "data-modeling",
+      "purpose": "多目标优化、约束与帕累托解分析",
+      "example": "请使用 $pymoo，帮助我完成多目标优化、约束与帕累托解分析，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.10+ and pymoo 0.6.2 with its NumPy, SciPy, matplotlib and autograd dependencies. Optional joblib for parallel runners, optuna for its algorithm wrapper, and dill for checkpoints. Network needed for installation only.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pymoo/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "shap",
+      "group": "data-modeling",
+      "purpose": "模型预测的特征归因、解释与诊断",
+      "example": "请使用 $shap，帮助我完成模型预测的特征归因、解释与诊断，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.12+ and uv for SHAP 0.52.0; model-specific libraries are optional.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/shap/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "sympy",
+      "group": "data-modeling",
+      "purpose": "符号代数、微积分与精确公式推导",
+      "example": "请使用 $sympy，帮助我完成符号代数、微积分与精确公式推导，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.9+ and SymPy 1.14.0. Optional NumPy/SciPy/Matplotlib, IPython/ipywidgets, or ANTLR 4.11 parser runtime for relevant examples. Compiled wrappers need a C/Fortran compiler and backend packages; emitting source needs no compiler. Network only for installation/docs.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/sympy/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "scientific-writing",
+      "group": "writing-figures",
+      "purpose": "有证据溯源的科研论文撰写与一致性检查",
+      "example": "请使用 $scientific-writing，帮助我完成有证据溯源的科研论文撰写与一致性检查，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.11+ only for optional dependency-free local CLIs; core guidance is platform-neutral. Bundled tools are offline and require no API keys.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-writing/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "matplotlib",
+      "group": "writing-figures",
+      "purpose": "精细控制科研图表并导出出版格式",
+      "example": "请使用 $matplotlib，帮助我完成精细控制科研图表并导出出版格式，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.11+ and Matplotlib 3.11.2. Bundled examples also use NumPy and SciPy; pandas examples need pandas, and Jupyter widgets need ipympl. Installation needs network access; local plotting needs no credentials.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/matplotlib/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "seaborn",
+      "group": "writing-figures",
+      "purpose": "分布、分组比较与统计关系可视化",
+      "example": "请使用 $seaborn，帮助我完成分布、分组比较与统计关系可视化，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.8+ with seaborn 0.13.2, NumPy, pandas, and Matplotlib; the tested current dependency stack requires Python 3.12+. Optional scipy/statsmodels for advanced regression or clustering, ipywidgets for notebook controls. Network only for installation or uncached example datasets.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/seaborn/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "scientific-visualization",
+      "group": "writing-figures",
+      "purpose": "多面板科研图设计、单位与可读性检查",
+      "example": "请使用 $scientific-visualization，帮助我完成多面板科研图设计、单位与可读性检查，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.11+ and uv for pinned examples. Bundled CLIs are network-free and load Matplotlib, Pillow, or pypdf only when needed. Plotly static export with Kaleido v1 requires a compatible Chrome/Chromium installation.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-visualization/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "scientific-schematics",
+      "group": "writing-figures",
+      "purpose": "通过外部图像模型生成科学示意图草稿",
+      "example": "请使用 $scientific-schematics，帮助我完成通过外部图像模型生成科学示意图草稿，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.10+ with requests, network access, and an OpenRouter API key.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-schematics/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "scientific-slides",
+      "group": "writing-figures",
+      "purpose": "科研汇报幻灯片结构、制作与视觉检查",
+      "example": "请使用 $scientific-slides，帮助我完成科研汇报幻灯片结构、制作与视觉检查，先检查输入与所需依赖。",
+      "compatibility": "Python 3.12+; requests for OpenRouter generation, Pillow for image PDFs, PyMuPDF for rendering, pypdf and python-pptx for validation and template editing. Generation needs network and OPENROUTER_API_KEY. Beamer needs TeX Live/MiKTeX; programmatic PPTX needs Node.js and PptxGenJS; rendering PPTX for review needs LibreOffice.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-slides/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "venue-templates",
+      "group": "writing-figures",
+      "purpose": "期刊会议模板选择与投稿格式检查",
+      "example": "请使用 $venue-templates，帮助我完成期刊会议模板选择与投稿格式检查，先检查输入与所需依赖。",
+      "compatibility": "Requires Python 3.11+ for helper scripts; LaTeX and Poppler command-line tools are optional for compilation and PDF inspection. Needs network access to verify current venue instructions.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/venue-templates/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    },
+    {
+      "name": "markitdown",
+      "group": "writing-figures",
+      "purpose": "将PDF、Office等文档转换为Markdown",
+      "example": "请使用 $markitdown，帮助我完成将PDF、Office等文档转换为Markdown，先检查输入与所需依赖。",
+      "compatibility": "Python >=3.10,<3.15 and uv. Examples target MarkItDown 0.1.8. Core local conversion can run offline; URL, YouTube, audio transcription, LLM, Azure, and MCP workflows may use network or external services.",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/markitdown/SKILL.md",
+      "bundled": true,
+      "runtime_ready": "not established by installation"
+    }
+  ]
+}

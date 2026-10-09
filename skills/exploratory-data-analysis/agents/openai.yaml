@@ -1,0 +1,3 @@
+interface:
+  display_name: "exploratory-data-analysis"
+  short_description: "科学数据的结构、缺失值和异常值探索；来源：K-Dense"

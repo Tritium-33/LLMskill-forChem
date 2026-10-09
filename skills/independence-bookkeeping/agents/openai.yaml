@@ -1,0 +1,3 @@
+interface:
+  display_name: "验证独立性与数据泄漏检查"
+  short_description: "检查验证路线的共享依赖与数据使用历史，识别循环验证及训练评估泄漏"

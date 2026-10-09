@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+  "commit": "92ace75ac21efe19a620434e0ca4e356081fe807",
+  "path": "skills/matchms",
+  "upstream_skill_sha256": "1bde0e20f69f99dfa44800b9e908b0f90aa1256cfdb1d88a36ed0b8064c447ec",
+  "modifications": [
+    "Added agents/openai.yaml: original English display name and Chinese purpose/source.",
+    "Added provenance and repository MIT license; upstream skill text and support files unchanged."
+  ],
+  "upstream_license_metadata": "Apache-2.0",
+  "distribution_license": "Repository MIT license; retain upstream metadata and bundled third-party notices."
+}

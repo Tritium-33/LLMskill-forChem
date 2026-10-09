@@ -1,0 +1,3 @@
+interface:
+  display_name: "statsmodels"
+  short_description: "回归、广义线性模型和时间序列诊断；来源：K-Dense"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "scientific-skill-router"
+  short_description: "按化学、文献、数据和写作板块选择必要技能；来源：LLMskill-forChem"

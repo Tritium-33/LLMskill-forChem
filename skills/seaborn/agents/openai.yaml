@@ -1,0 +1,3 @@
+interface:
+  display_name: "seaborn"
+  short_description: "分布、分组比较与统计关系可视化；来源：K-Dense"

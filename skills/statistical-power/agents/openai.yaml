@@ -1,0 +1,3 @@
+interface:
+  display_name: "statistical-power"
+  short_description: "样本量、重复数和统计功效规划；来源：K-Dense"

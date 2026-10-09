@@ -1,0 +1,3 @@
+interface:
+  display_name: "shap"
+  short_description: "模型预测的特征归因、解释与诊断；来源：K-Dense"

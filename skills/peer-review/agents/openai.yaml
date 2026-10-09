@@ -1,0 +1,3 @@
+interface:
+  display_name: "peer-review"
+  short_description: "有证据支持的论文评阅与修订意见；来源：K-Dense"

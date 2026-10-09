@@ -1,0 +1,4 @@
+interface:
+  display_name: "化学科研技能面板"
+  short_description: "浏览原始英文技能名、中文用途与来源，选好后插入当前输入框。"
+  default_prompt: "请使用 $chem-skill-panel 打开中文技能选择面板。"

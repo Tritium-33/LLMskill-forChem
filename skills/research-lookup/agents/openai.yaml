@@ -1,0 +1,3 @@
+interface:
+  display_name: "research-lookup"
+  short_description: "通过外部搜索服务汇集科研证据与背景；来源：K-Dense"

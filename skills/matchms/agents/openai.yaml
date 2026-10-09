@@ -1,0 +1,3 @@
+interface:
+  display_name: "matchms"
+  short_description: "串联质谱清理、相似度与谱库匹配；来源：K-Dense"

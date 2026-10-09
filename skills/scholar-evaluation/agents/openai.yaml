@@ -1,0 +1,3 @@
+interface:
+  display_name: "scholar-evaluation"
+  short_description: "对科研作品进行可追溯的质量评估；来源：K-Dense"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "pymc"
+  short_description: "贝叶斯建模、后验检查与不确定度推断；来源：K-Dense"

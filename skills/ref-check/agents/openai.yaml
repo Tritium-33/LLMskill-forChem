@@ -1,0 +1,3 @@
+interface:
+  display_name: "参考文献核验"
+  short_description: "新增或检查参考文献时核对作者、题名、年份、期刊和 DOI，先报告问题"

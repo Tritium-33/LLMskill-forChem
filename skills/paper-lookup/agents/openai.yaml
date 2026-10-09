@@ -1,0 +1,3 @@
+interface:
+  display_name: "paper-lookup"
+  short_description: "跨学术数据库检索论文、引文与开放全文；来源：K-Dense"

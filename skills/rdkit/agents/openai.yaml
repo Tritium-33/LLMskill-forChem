@@ -1,0 +1,3 @@
+interface:
+  display_name: "rdkit"
+  short_description: "分子结构、描述符、指纹与子结构检索；来源：K-Dense"

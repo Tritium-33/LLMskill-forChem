@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/BootLoops-ai/skills",
+  "commit": "ca892277dcf0468d995f0036f3bd6d753a8afe7d",
+  "path": "skills/lit-review",
+  "upstream_skill_sha256": "f68f125f6a65fa7d638a5e9e74843a4559961fb711407055b8c0be256e18c6ea",
+  "modifications": [
+    "Added Chinese display metadata in agents/openai.yaml."
+  ]
+}

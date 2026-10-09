@@ -1,0 +1,3 @@
+interface:
+  display_name: "hypothesis-generation"
+  short_description: "将观察转化为可检验假设与区分性预测；来源：K-Dense"

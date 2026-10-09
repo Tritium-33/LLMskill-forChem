@@ -1,0 +1,3 @@
+interface:
+  display_name: "scientific-brainstorming"
+  short_description: "生成和比较候选研究方向及其关键假设；来源：K-Dense"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "pycalphad"
+  short_description: "基于热力学数据库的相平衡计算；来源：K-Dense"

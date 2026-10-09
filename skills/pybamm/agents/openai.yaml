@@ -1,0 +1,3 @@
+interface:
+  display_name: "pybamm"
+  short_description: "电池充放电建模与参数敏感性分析；来源：K-Dense"

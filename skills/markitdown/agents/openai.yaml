@@ -1,0 +1,3 @@
+interface:
+  display_name: "markitdown"
+  short_description: "将PDF、Office等文档转换为Markdown；来源：K-Dense"

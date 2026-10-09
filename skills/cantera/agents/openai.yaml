@@ -1,0 +1,3 @@
+interface:
+  display_name: "cantera"
+  short_description: "化学反应动力学、反应器与点火延迟；来源：K-Dense"

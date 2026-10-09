@@ -1,0 +1,3 @@
+interface:
+  display_name: "experimental-design"
+  short_description: "实验设计、随机化、分区组与因素组合；来源：K-Dense"

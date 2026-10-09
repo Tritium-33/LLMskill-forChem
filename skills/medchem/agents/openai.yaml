@@ -1,0 +1,3 @@
+interface:
+  display_name: "medchem"
+  short_description: "药物化学结构警示与分子库筛选；来源：K-Dense"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "datamol"
+  short_description: "常用分子标准化、描述符和构象处理；来源：K-Dense"

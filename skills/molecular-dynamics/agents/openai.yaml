@@ -1,0 +1,3 @@
+interface:
+  display_name: "molecular-dynamics"
+  short_description: "OpenMM分子动力学与轨迹分析；来源：K-Dense"

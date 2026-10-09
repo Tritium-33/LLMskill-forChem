@@ -1,0 +1,3 @@
+interface:
+  display_name: "原文证据核查"
+  short_description: "阅读论文或记录时逐条核对原文依据与定位，区分事实、推断和未核实信息"

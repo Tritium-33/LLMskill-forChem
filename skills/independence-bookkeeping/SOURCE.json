@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/BootLoops-ai/skills",
+  "commit": "ca892277dcf0468d995f0036f3bd6d753a8afe7d",
+  "path": "skills/independence-bookkeeping",
+  "upstream_skill_sha256": "e655aaf792063af7f51031d94b209c0157f72ce3ca7f6497e61bd36b06bd3909",
+  "modifications": [
+    "Added Chinese display metadata in agents/openai.yaml."
+  ]
+}

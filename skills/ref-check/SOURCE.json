@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/BootLoops-ai/skills",
+  "commit": "ca892277dcf0468d995f0036f3bd6d753a8afe7d",
+  "path": "skills/ref-check",
+  "upstream_skill_sha256": "45c7cc15b0474fce71c8417ecf5f05f9bec537d039e6487240406c184afc8b73",
+  "modifications": [
+    "Added Chinese display metadata in agents/openai.yaml.",
+    "Replaced two shell-pipeline examples with platform-neutral entry parsing instructions; the verification procedure is otherwise unchanged."
+  ]
+}
