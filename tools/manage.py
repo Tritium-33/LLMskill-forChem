@@ -148,9 +148,15 @@ def locked(target):
         lock.rmdir()
 
 
-def select(rows, names):
+def select(rows, names, groups=None):
     known = {r["name"] for r in rows}
-    selected = sorted(set(names) if names else known)
+    known_groups = {r.get("routing_group") for r in rows} - {None}
+    if set(groups or []) - known_groups:
+        raise Conflict("Unknown group(s): " + ", ".join(sorted(set(groups) - known_groups)))
+    chosen = set(names or [])
+    if groups:
+        chosen.update(r["name"] for r in rows if r.get("routing_group") in groups)
+    selected = sorted(chosen if names or groups else known)
     if set(selected) - known:
         raise Conflict("Unknown skill(s): " + ", ".join(sorted(set(selected) - known)))
     return selected
@@ -278,22 +284,37 @@ def main(argv=None):
     parser.add_argument("--target", type=Path, default=Path.home() / ".agents" / "skills",
                         help="Exact skills directory; default: ~/.agents/skills")
     parser.add_argument("--skill", action="append", help="Select a skill; repeatable; default: all")
+    parser.add_argument("--group", action="append",
+                        help="Select a functional group; repeatable, combined with --skill")
+    parser.add_argument("--search", help="Filter list by English name or Chinese purpose")
     parser.add_argument("--dry-run", action="store_true", help="Preview without writing")
     parser.add_argument("--replace", action="store_true", help="Install over conflicts, with backup")
     args = parser.parse_args(argv)
     try:
         rows = validate()
-        if args.command == "check":
-            print(f"OK: {len(rows)} skills; metadata, provenance and required files checked.")
-            return 0
-        if args.command == "list":
-            for row in rows:
-                print(f"{row['name']} | {row['title']}\n  {row['summary']}")
-            return 0
+        if args.search is not None and args.command != "list":
+            raise Conflict("--search is only supported for list; use --skill or --group to install")
         if args.replace and args.command != "install":
             raise Conflict("--replace is only supported for install")
+        if args.command == "check":
+            if args.skill or args.group:
+                raise Conflict("check validates the complete source catalog; do not pass selectors")
+            print(f"OK: {len(rows)} skills; metadata, provenance and required files checked.")
+            return 0
+        names = select(rows, args.skill, args.group)
+        if args.command == "list":
+            query = (args.search or "").strip().casefold()
+            matches = [r for r in rows if r["name"] in names and
+                       query in (r["name"] + " " + r["summary"]).casefold()]
+            for row in matches:
+                source = json.loads((ROOT / "skills" / row["name"] / "SOURCE.json").read_text(encoding="utf-8"))
+                origin = source.get("repository", source.get("project", "Local"))
+                print(f"{row['name']} | {row['summary']}\n  {row.get('routing_group', 'router')} | {origin}")
+            if not matches:
+                print("No matching skills. / 没有匹配的技能。")
+                return 1
+            return 0
         target = check_target(args.target)
-        names = select(rows, args.skill)
         print(f"Target: {target}")
         if args.command == "status":
             return status(ROOT, target, names)

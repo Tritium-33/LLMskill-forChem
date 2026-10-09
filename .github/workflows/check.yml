@@ -15,4 +15,5 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
       - run: python tools/manage.py check
-      - run: python -m unittest discover -s tests -v
+      # Detect implicit locale-dependent file I/O even on UTF-8 runners.
+      - run: python -X warn_default_encoding -W error::EncodingWarning -m unittest discover -s tests -v

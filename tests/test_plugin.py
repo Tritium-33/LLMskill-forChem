@@ -23,13 +23,18 @@ installer = module("install_plugin")
 
 
 class PluginPackagingTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        # Tests only read this generated bundle; mutable install targets stay
+        # isolated per test below. Build the full package once.
+        cls.package_tmp = tempfile.TemporaryDirectory()
+        cls.addClassCleanup(cls.package_tmp.cleanup)
+        cls.bundle = builder.build(ROOT, Path(cls.package_tmp.name) / "bundle")
+
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
         self.base = Path(self.tmp.name)
-        self.bundle = builder.build(ROOT, self.base / "bundle")
-
-    def tearDown(self):
-        self.tmp.cleanup()
 
     def test_bundle_keeps_canonical_bytes_and_excludes_private_sources(self):
         data = json.loads((ROOT / "catalog.json").read_text(encoding="utf-8"))
@@ -48,10 +53,10 @@ class PluginPackagingTests(unittest.TestCase):
     def test_builder_does_not_replace_unmanaged_directory(self):
         target = self.base / "personal"
         target.mkdir()
-        (target / "keep.txt").write_text("keep")
+        (target / "keep.txt").write_text("keep", encoding="utf-8")
         with self.assertRaises(ValueError):
             builder.build(ROOT, target)
-        self.assertEqual((target / "keep.txt").read_text(), "keep")
+        self.assertEqual((target / "keep.txt").read_text(encoding="utf-8"), "keep")
 
     def test_dry_run_writes_nothing(self):
         target = self.base / "user"
@@ -74,19 +79,19 @@ class PluginPackagingTests(unittest.TestCase):
         home = self.base / "user"
         target = home / "plugins/chem-skill-panel"
         target.mkdir(parents=True)
-        (target / "keep.txt").write_text("keep")
+        (target / "keep.txt").write_text("keep", encoding="utf-8")
         with patch.object(installer.subprocess, "run") as run:
             with self.assertRaises(ValueError):
                 installer.install(self.bundle, home)
             run.assert_not_called()
-        self.assertEqual((target / "keep.txt").read_text(), "keep")
+        self.assertEqual((target / "keep.txt").read_text(encoding="utf-8"), "keep")
 
     def test_dependency_failure_preserves_marketplace(self):
         home = self.base / "user"
         market = home / ".agents/plugins/marketplace.json"
         market.parent.mkdir(parents=True)
         original = '{"name":"personal","plugins":[]}\n'
-        market.write_text(original)
+        market.write_text(original, encoding="utf-8")
         def fail(command, **kwargs):
             runtime = home / "plugins/.chem-skill-panel-runtime"
             runtime.mkdir()
@@ -94,7 +99,7 @@ class PluginPackagingTests(unittest.TestCase):
         with patch.object(installer.subprocess, "run", side_effect=fail):
             with self.assertRaises(OSError):
                 installer.install(self.bundle, home)
-        self.assertEqual(market.read_text(), original)
+        self.assertEqual(market.read_text(encoding="utf-8"), original)
         self.assertFalse((home / "plugins/chem-skill-panel").exists())
         self.assertFalse((home / "plugins/.chem-skill-panel-runtime").exists())
         self.assertFalse((market.parent / ".chem-skill-panel-install.lock").exists())

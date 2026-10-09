@@ -52,3 +52,24 @@ Codex 可以输入 `$reading-contract`，也可以直接说“请使用原文证
 | 常规分子清洗与特征计算 | `datamol` | 需要精细分子操作时使用 `rdkit` |
 
 这些是选择约定，不是已验证的性能排名。来源用于追溯；任务适配性、已具备的依赖和用户指定决定选择。技能选择仍由宿主与模型执行，不能保证自然语言请求每次都触发同一个技能。
+
+## 从任务开始
+
+以下是方便起步的安装组合与请求示例，不是已通过科学验证的工作流。命令在仓库根目录运行，`python` 表示 Python 3.10+；Windows 可用 `py -3`，Linux/WSL 可用 `python3`。可先加 `--dry-run` 预览，已有本地修改时安装器会停止，不会静默覆盖。
+
+| 任务 | 最小起步组合 | 可以怎样说 | 预期产物与额外要求 |
+| --- | --- | --- | --- |
+| 给 DOI 阅读分析论文 | `scientific-skill-router`、`paper-lookup`、`reading-contract` | “分析这篇论文，区分已读全文与摘要信息。” | 论文身份、可访问全文的证据与分析；需要网络，全文可能不可获取 |
+| 汇总 CIF 并绘图 | `scientific-skill-router`、`pymatgen`、`scientific-visualization` | “检查这些 CIF，汇总晶胞参数并绘图。” | 汇总表、图和异常项；需另配结构处理及绘图库 |
+| 准备 VASP 优化输入 | `scientific-skill-router`、`dft-vasp` | “为这个结构准备优化输入，暂不提交。” | 输入文件与缺失项说明；需要结构、明确的计算设置及合法赝势资源 |
+| 指定 arXiv 检索 | `literature-search-arxiv`、`uv` | “在 arXiv 查找这个主题，列出来源。” | 检索记录；需网络与 uv，脚本执行可能下载依赖 |
+
+例如只安装论文分析的起步组合：
+
+```text
+python tools/manage.py install --skill scientific-skill-router --skill paper-lookup --skill reading-contract
+```
+
+这些组合按任务需要扩展：严格书目核验再加 `ref-check`，创新性审查再考虑 `lit-review`。VASP 四个子流程随 `dft-vasp` 一起安装；仅准备输入不需要为此安装作业提交技能。用户明确要求执行或提交时，再检查 `dpdisp-submit` 及运行环境。
+
+若助手没有找到技能，先确认 Windows 原生与 WSL 的安装目录没有混用，再用 `python tools/manage.py status --skill 技能名 --target 实际安装目录` 检查文件状态。索引收录不等于本机已安装；缺失技能应明确说明，不冒充已经调用。

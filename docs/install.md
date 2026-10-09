@@ -4,7 +4,7 @@
 
 ## 选择安装范围
 
-默认用户级安装，适用于同一环境、同一用户下使用默认目录的 Codex 和 DSH：
+默认安装到当前用户的 `~/.agents/skills`；请确认宿主实际读取此目录。DSH 尚未实测：
 
 ```text
 python tools/manage.py install --dry-run
@@ -23,9 +23,31 @@ python tools/manage.py install --skill reading-contract --skill ref-check
 py -3 tools/manage.py install --target "C:\Research\my-project\.agents\skills"
 ```
 
-项目应当是独立于本技能源码仓库的目录。DSH 以最近包含 `.git` 的祖先为项目根；没有 Git 根时使用当前工作目录。不要在用户级和项目级重复安装同名技能，除非确实需要分别维护版本。
+项目应当是独立于本技能源码仓库的目录。DSH 的项目目录发现行为需以实际版本验证。不要在用户级和项目级重复安装同名技能，除非确实需要分别维护版本。
 
 自定义安装目标时，后续 `status`、更新、卸载都要传入同一个 `--target`。程序不会扫描或更改其他用户、Windows/WSL 的另一侧或其他智能体配置。
+
+## 按用途查找与按板块安装
+
+```text
+python tools/manage.py list --search 文献
+python tools/manage.py list --group chemistry-materials
+python tools/manage.py install --group chemistry-materials --skill scientific-skill-router --dry-run
+```
+
+`--search` 只用于 `list`，匹配英文名称或中文用途，不会自动安装搜索结果。没有匹配项时返回状态码 `1`。
+
+`--group` 使用以下标识，可重复传入，也可和 `--skill` 合用；选择范围取并集。适用于 `list`、`install`、`status` 和 `uninstall`。卸载板块前先用 `--dry-run` 查看范围。
+
+| 标识 | 板块 |
+| --- | --- |
+| `chemistry-materials` | 化学与材料 |
+| `research-evidence` | 科研检索与论证 |
+| `data-modeling` | 数据、统计与机器学习 |
+| `writing-figures` | 写作与图表 |
+| `runtime-support` | 运行与作业支持 |
+
+router 是独立入口，不归入上述板块，需要时用 `--skill scientific-skill-router` 添加。板块选择不自动解析配套技能或安装软件。状态输出仅反映指定目录中的文件与清单，不证明宿主已加载技能或科学环境可运行。
 
 ## 更新和冲突
 
@@ -80,4 +102,16 @@ python tools/manage.py uninstall --skill reading-contract
 
 已经通过其他工具安装过这些技能的用户，先运行 `install --dry-run`。若来源元数据或技能正文不同，出现冲突是正常保护。对照源码检查后，用 `--skill 名称 --replace` 逐项接管；旧版本留在备份中。
 
-从此只编辑本仓库，不编辑用户目录中的部署副本。公开仓库之外的个人技能可以继续保留；安装器只管理本仓库目录清单中的五项。
+从此只编辑本仓库，不编辑用户目录中的部署副本。公开仓库之外的个人技能可以继续保留；安装器只管理目录清单中选定的技能。
+
+## 已验证的安装工具范围
+
+2026-10-09：本轮 28 项安装、更新保护、回滚、搜索、板块选择、插件打包与索引检查在 Linux/WSL 下全部通过；Windows 原生 Python 3.13.5、默认文本编码 `cp936`、关闭 UTF-8 模式下，27 项通过，1 项因无符号链接创建权限跳过。测试使用独立临时目录，不覆盖个人已安装技能。
+
+CI 使用以下命令，将遗漏文本编码产生的警告视为错误，即使运行器本身使用 UTF-8 也能发现这类遗漏：
+
+```text
+python -X warn_default_encoding -W error::EncodingWarning -m unittest discover -s tests -v
+```
+
+这些结果验证的是安装与打包工具，不代表宿主发现行为、DSH 兼容性或各项科学计算已验证。

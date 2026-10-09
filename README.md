@@ -67,6 +67,16 @@ python3 tools/manage.py install
 
 ### 只安装需要的技能
 
+不确定技能名称时，可先按中文用途或英文名称查找；列表同时显示来源：
+
+```text
+python tools/manage.py list --search 文献
+python tools/manage.py list --search VASP
+```
+
+这里的 `python` 指 Python 3.10+；Windows 可换成 `py -3`，Linux/WSL 可换成 `python3`。
+
+
 例如只安装 `paper-lookup`：
 
 ```bash
@@ -74,6 +84,16 @@ python3 tools/manage.py install --skill paper-lookup
 ```
 
 Windows 将 `python3` 换成 `py -3`。可重复传入 `--skill` 选择多项，用 `--target` 指定宿主读取的技能目录。选择入口不会自动补装其他技能；希望使用完整板块选择功能时，可按上面的默认方式安装全部技能。
+
+也可以只安装一个功能板块，并另外选择 router：
+
+```text
+python tools/manage.py list --group research-evidence
+python tools/manage.py install --group research-evidence --skill scientific-skill-router --dry-run
+python tools/manage.py install --group research-evidence --skill scientific-skill-router
+```
+
+板块安装不自动添加其他板块的运行支持技能或科学软件。按实际任务补充配套项即可；常见任务的最小安装组合见 [从任务开始](docs/usage.md#从任务开始)。
 
 **目前暂未测试 DeepSeek Harness（DSH）兼容性。** 相关配置说明仅供参考，不代表已验证可用。
 
