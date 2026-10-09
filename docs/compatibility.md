@@ -16,9 +16,11 @@ Windows 窗口承载的智能体也可能在 WSL 中执行。目录由智能体�
 
 根据 [官方技能文档](https://learn.chatgpt.com/docs/build-skills)，支持用户级 `~/.agents/skills` 和项目级 `.agents/skills`，显式调用及根据描述自动选择。相同名字的多份技能不会合并，应避免无意重复安装。
 
-包内 `agents/openai.yaml` 提供中文显示名称与简介，不修改默认隐式调用策略。本仓库本身不是带 UI 的 Codex 插件。
+包内 `agents/openai.yaml` 保留英文技能名称，并提供中文用途简介，不修改默认隐式调用策略。本仓库本身不是带 UI 的 Codex 插件。
 
 ## DeepSeek Harness
+
+**目前暂未实测 DSH 兼容性。** 以下内容依据文档整理，仅作配置参考；尚未验证技能发现、自然语言选择、脚本执行或完整任务效果。
 
 根据 [官方技能子系统文档](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/subsystems/skills.md)，默认本地提供器发现 `.dsh/skills`、`.agents/skills` 和配置的目录，项目级条目优先于用户级条目。
 
