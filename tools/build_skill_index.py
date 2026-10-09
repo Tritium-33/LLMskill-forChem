@@ -22,7 +22,7 @@ def build(root=ROOT):
   text=(root/'skills'/entry['name']/'SKILL.md').read_text(encoding='utf-8')
   front=text.split('---',2)[1]
   compatibility=next((line.split(':',1)[1].strip() for line in front.splitlines() if line.startswith('compatibility:')), 'Read the skill for runtime requirements.')
-  rows.append(dict(name=entry['name'],group=group,purpose=entry['summary'],example=entry['example_prompt'],compatibility=compatibility,source_name=source.get('repository',source.get('project','Local')).removeprefix('https://github.com/'),source_url=(f"{source['repository']}/blob/{source['commit']}/{source['path']}/SKILL.md" if source.get('repository') else None),bundled=True,runtime_ready='not established by installation'))
+  rows.append(dict(name=entry['name'],group=group,purpose=entry['summary'],example=entry['example_prompt'],compatibility=compatibility,source_name=source.get('repository',source.get('project','Local')).removeprefix('https://github.com/'),source_url=(f"{source['repository']}/blob/{source['commit']}/{source['path']}/SKILL.md" if source.get('repository') else None),bundled=True,runtime_ready='not established by installation',capability=entry.get('capability')))
  out=root/'skills/scientific-skill-router/references';out.mkdir(parents=True,exist_ok=True)
  for group,(title,guidance) in GROUPS.items():
   members=[r for r in rows if r['group']==group]
@@ -30,8 +30,16 @@ def build(root=ROOT):
   lines += [f"| `{r['name']}` | {r['purpose']} | "+(f"[{r['source_name']}]({r['source_url']})" if r['source_url'] else r['source_name'])+" |" for r in members]
   lines+=['','## 选择后再核对依赖','']
   lines += [f"- **{r['name']}**：{r['compatibility']}" for r in members]
-  (out/(group+'.md')).write_text('\n'.join(lines)+'\n',encoding='utf-8')
- (out/'index.json').write_text(json.dumps({'schema_version':1,'scope':'All bundled task skills grouped by function across sources; router excluded','skills':rows},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+  described=[r for r in members if r['capability']]
+  if described:
+   lines+=['','## 首批路线的能力与交接','', '以下为合集维护的适配说明，不是性能排名；未列出的技能仍可使用，需读取原文判断。','']
+   for row in described:
+    cap=row['capability']; rel=cap['relations']
+    lines += [f"### {row['name']}", '', 'Tasks: '+', '.join(cap['tasks']), 'Inputs: '+'; '.join(cap['inputs']), 'Outputs: '+'; '.join(cap['outputs']), 'Requires: '+'; '.join(cap['requires'])]
+    lines += [key+': '+', '.join(values) for key,values in rel.items() if values]
+    lines += ['Evidence: '+cap['evidence'],'']
+  (out/(group+'.md')).write_text('\n'.join(lines).rstrip()+'\n',encoding='utf-8')
+ (out/'index.json').write_text(json.dumps({'schema_version':2,'scope':'All bundled task skills grouped by function across sources; router excluded','skills':rows},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  docs=root/'docs';docs.mkdir(exist_ok=True)
  lines=['# 科研技能功能目录','',f'按任务选择技能，来源仅用于追溯与许可说明。包含{len(rows)}项具体技能及独立的 `scientific-skill-router` 选择入口。技能文件已收录，不表示依赖已安装或科学效果已验证。','']
  for group,(title,guidance) in GROUPS.items():

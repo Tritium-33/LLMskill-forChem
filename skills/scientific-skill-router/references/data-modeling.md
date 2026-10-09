@@ -27,3 +27,42 @@
 - **statistical-analysis**：Requires Python 3.12+ and the documented isolated scientific Python environment; network access only for installation and documentation.
 - **statistical-power**：Requires Python >=3.12 with statsmodels, scipy, numpy, pandas, and matplotlib. Optional comparison uses pingouin; survival extensions use lifelines (requires pandas<3). Installation needs network access unless packages are cached. Calculations run locally without credentials.
 - **statsmodels**：Requires Python 3.10+ and statsmodels 0.15.0; the tested NumPy 2.5.3/SciPy 1.18.1 stack needs Python 3.12+. Plotting needs matplotlib; predictive metrics need scikit-learn. Network access is needed only for installation or documentation; no credentials.
+
+## 首批路线的能力与交接
+
+以下为合集维护的适配说明，不是性能排名；未列出的技能仍可使用，需读取原文判断。
+
+### exploratory-data-analysis
+
+Tasks: tabular-quality-audit
+Inputs: Authorized local supported file
+Outputs: bounded data profile and quality flags
+Requires: Bundled core CLIs declare Python 3.11+; optional formats have additional dependencies
+feeds_into: statistical-analysis, scientific-visualization
+Evidence: See referenced cases; no general task-performance claim.
+
+### independence-bookkeeping
+
+Tasks: validation-independence-audit
+Inputs: Data/reference usage history
+Outputs: record of independent and reused evidence
+Requires: Actual provenance; no independence inferred from a second transformation
+Evidence: See referenced cases; no general task-performance claim.
+
+### scikit-learn
+
+Tasks: predictive-modeling
+Inputs: Prediction objective, checked data and justified split
+Outputs: model evaluation and split provenance
+Requires: Compatible scikit-learn environment
+feeds_into: scientific-visualization
+Evidence: See referenced cases; no general task-performance claim.
+
+### statistical-analysis
+
+Tasks: statistical-inference-planning
+Inputs: Research question, design, units and checked data
+Outputs: justified analysis and assumption checks
+Requires: Task-specific statistical runtime
+feeds_into: scientific-visualization
+Evidence: See referenced cases; no general task-performance claim.

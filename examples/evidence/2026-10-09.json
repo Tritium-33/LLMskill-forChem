@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-09",
+  "kind": "execution-and-packaging-evidence-not-model-benchmark",
+  "environment": {
+    "platform": "Linux/WSL",
+    "python": "3.12.3"
+  },
+  "command": "python -X warn_default_encoding -W error::EncodingWarning -m unittest discover -s tests -v",
+  "result": {
+    "tests_run": 40,
+    "passed": 40,
+    "skipped": 0
+  },
+  "case_execution": {
+    "table-clean": "upstream CLI executed; counts, missingness and known mean checked",
+    "table-missing": "upstream CLI executed; missing values detected without raw-file modification",
+    "table-malformed": "upstream CLI executed; malformed table rejected",
+    "table-group-leakage": "upstream CLI executed; positive and negative overlap controls checked"
+  },
+  "model_routing": "not_run",
+  "vasp_parser": "not_run",
+  "scientific_effectiveness": "not_established",
+  "source_versions": {
+    "exploratory-data-analysis": "92ace75ac21efe19a620434e0ca4e356081fe807",
+    "mat-dft-vasp": "62574443f2a772e23dd5951f3712b65133b06715",
+    "reading-contract": "ca892277dcf0468d995f0036f3bd6d753a8afe7d"
+  },
+  "sha256": {
+    "catalog.json": "b5fe4c1d936367900003cc97773f394e86ae1637c3cb0f07ae2a1df1c0f6f635",
+    "skills/scientific-skill-router/SKILL.md": "e6b00c15f0e55d75b50d650b97c8d4f4853f9c21a997806bb0360ad4f8f15177",
+    "skills/scientific-skill-router/references/workflows.json": "6c48dad868839d4bb470c58d422e6c83225e482e5bc876ef7ab12c799306b077",
+    "examples/cases.json": "8483e3c1a8cece2ace8de766aadf44fc444af9d524871b739b9c763f1893f21e",
+    "tests/test_workflows.py": "7633a2c4551ea1e4b830dad85cdeed246bc2ae3ac521d57ccd1f6ccba40bce05",
+    "skills/exploratory-data-analysis/scripts/tabular_profile.py": "78cd139292c18e31d17de882762948db7b51fdc3278546f994270a287d0149db",
+    "skills/exploratory-data-analysis/scripts/missingness_leakage_audit.py": "28458714e80ee31db636c0265ba21e1623ba27816d31e236fdc9b873a5b78ffc",
+    "skills/exploratory-data-analysis/scripts/_tabular.py": "5d1db825890dd035c30e51ac1c11aee56e1e1dca6ffd238ee87ae7d51d8df2f0",
+    "examples/fixtures/papers/abstract.md": "44efbd1b0bc099e50e41a685fd4d4e0e13647b204649e1ce52492f84f9702ea6",
+    "examples/fixtures/papers/conflict.json": "15867c5f3d8cf45a17ec44be4a1eaac3f83b012b36519174befa5f89c4af6f73",
+    "examples/fixtures/papers/fulltext.md": "9a6941f6505da83e115c76161a28e43b07b50bddb06d1dc8954037b906ac0b1e",
+    "examples/fixtures/tables/clean.csv": "f8670e159c92818022d722dc94382dd6c5e3fc8b5b3b233766937ae959636f96",
+    "examples/fixtures/tables/group-leakage.csv": "884171e11083559194d32435141ec608d553c5dde95000b54f2d1f25659604ee",
+    "examples/fixtures/tables/malformed.csv": "769c339e1f7b433f861987d1be1b93b1a56f4e5b242d3ee774728e970d8d4a12",
+    "examples/fixtures/tables/missing.csv": "09cfb4fa405a9d6ec61d5200acfa37952c58c0f95c7d5dd0d28eaf3394c9032f",
+    "examples/fixtures/vasp/complete.json": "c9574c984b715c175fc77aeb182130ea9254b9593969149cfab639e5db79c308",
+    "examples/fixtures/vasp/insufficient.json": "d720240a425e23e5e9f3c8345ec76e409a8055ad71140b6b3f48cba21c7d3507",
+    "examples/fixtures/vasp/interrupted.json": "f682ecc9b50c40dc3695bd99ef2cdfc3540dd7be0260275eae4eaa1e355a0526",
+    "examples/fixtures/vasp/unconverged.json": "ea8b9355a4ac6e57197749658774fb981711ffc6e2758e08edff093d586830a1"
+  },
+  "additional_environment": {
+    "platform": "Windows native",
+    "python": "3.13.5",
+    "locale_encoding": "cp936",
+    "utf8_mode": 0,
+    "tests_run": 40,
+    "passed": 39,
+    "skipped": 1,
+    "skip_reason": "Host does not permit creating symlinks",
+    "execution_location": "isolated temporary public-source snapshot"
+  }
+}

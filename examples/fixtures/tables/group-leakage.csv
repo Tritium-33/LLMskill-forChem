@@ -1,0 +1,5 @@
+sample_id,group,split,response
+s01,A,train,1.0
+s02,A,test,1.2
+s03,B,train,0.9
+s04,B,test,1.1

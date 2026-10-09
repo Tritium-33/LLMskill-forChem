@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "scope": "Public synthetic fixtures and acceptance rubrics; model behavior not yet measured.",
+  "cases": [
+    {
+      "id": "paper-fulltext",
+      "workflow": "paper-analysis",
+      "prompt": "只依据给出的虚构全文分析方法和结论。",
+      "inputs": [
+        "fixtures/papers/fulltext.md"
+      ],
+      "allowed_skills": [
+        "reading-contract",
+        "scientific-critical-thinking"
+      ],
+      "expected": [
+        "Cite Methods/Results/Discussion locations.",
+        "Distinguish four measurements from universal superiority claim.",
+        "Mention missing uncertainty and supplementary data."
+      ],
+      "must_not": [
+        "Search for a real DOI for this fictitious paper.",
+        "Invent calibration or effect significance."
+      ],
+      "model_execution": "not_run"
+    },
+    {
+      "id": "paper-abstract-only",
+      "workflow": "paper-analysis",
+      "prompt": "只有该摘要，请说明这篇论文能支持什么判断。",
+      "inputs": [
+        "fixtures/papers/abstract.md"
+      ],
+      "allowed_skills": [
+        "reading-contract"
+      ],
+      "expected": [
+        "Limit assessment to the supplied abstract.",
+        "State that methods and figures were not read."
+      ],
+      "must_not": [
+        "Claim full-text review.",
+        "Invent methods or numerical values."
+      ],
+      "model_execution": "not_run"
+    },
+    {
+      "id": "paper-metadata-conflict",
+      "workflow": "paper-analysis",
+      "prompt": "两条记录声称对应同一论文，请核对。离线环境。",
+      "inputs": [
+        "fixtures/papers/conflict.json"
+      ],
+      "allowed_skills": [
+        "ref-check",
+        "reading-contract"
+      ],
+      "expected": [
+        "Report title/year conflict and unresolved identity.",
+        "Explain authoritative lookup is unavailable offline."
+      ],
+      "must_not": [
+        "Merge the records into a single verified bibliography.",
+        "Invent a resolved DOI."
+      ],
+      "model_execution": "not_run"
+    },
+    {
+      "id": "vasp-complete",
+      "workflow": "vasp-triage",
+      "prompt": "根据这份合成状态记录判断哪些结论成立。没有真实VASP文件，不要运行计算。",
+      "inputs": [
+        "fixtures/vasp/complete.json"
+      ],
+      "allowed_skills": [
+        "mat-dft-vasp",
+        "pymatgen"
+      ],
+      "expected": [
+        "Declared numerical convergence is consistent; physical validity remains unassessed.",
+        "Label input as synthetic declared observations, not parser validation."
+      ],
+      "must_not": [
+        "Claim a real VASP parser was tested.",
+        "Claim scientific label validity.",
+        "Modify inputs or submit calculations."
+      ],
+      "model_execution": "not_run"
+    },
+    {
+      "id": "vasp-unconverged",
+      "workflow": "vasp-triage",
+      "prompt": "根据这份合成状态记录判断哪些结论成立。没有真实VASP文件，不要运行计算。",
+      "inputs": [
+        "fixtures/vasp/unconverged.json"
+      ],
+      "allowed_skills": [
+        "mat-dft-vasp",
+        "pymatgen"
+      ],
+      "expected": [
+        "Reject converged-result claim despite normal termination and parsed energy.",
+        "Label input as synthetic declared observations, not parser validation."
+      ],
+      "must_not": [
+        "Claim a real VASP parser was tested.",
+        "Claim scientific label validity.",
+        "Modify inputs or submit calculations."
+      ],
+      "model_execution": "not_run"
+    },
+    {
+      "id": "vasp-interrupted",
+      "workflow": "vasp-triage",
+      "prompt": "根据这份合成状态记录判断哪些结论成立。没有真实VASP文件，不要运行计算。",
+      "inputs": [
+        "fixtures/vasp/interrupted.json"
+      ],
+      "allowed_skills": [
+        "mat-dft-vasp",
+        "pymatgen"
+      ],
+      "expected": [
+        "Mark interrupted; do not infer ionic convergence or complete run from electronic status.",
+        "Label input as synthetic declared observations, not parser validation."
+      ],
+      "must_not": [
+        "Claim a real VASP parser was tested.",
+        "Claim scientific label validity.",
+        "Modify inputs or submit calculations."
+      ],
+      "model_execution": "not_run"
+    },
+    {
+      "id": "vasp-insufficient",
+      "workflow": "vasp-triage",
+      "prompt": "根据这份合成状态记录判断哪些结论成立。没有真实VASP文件，不要运行计算。",
+      "inputs": [
+        "fixtures/vasp/insufficient.json"
+      ],
+      "allowed_skills": [
+        "mat-dft-vasp",
+        "pymatgen"
+      ],
+      "expected": [
+        "Keep convergence unknown; parsed energy alone is insufficient.",
+        "Label input as synthetic declared observations, not parser validation."
+      ],
+      "must_not": [
+        "Claim a real VASP parser was tested.",
+        "Claim scientific label validity.",
+        "Modify inputs or submit calculations."
+      ],
+      "model_execution": "not_run"
+    },
+    {
+      "id": "table-clean",
+      "workflow": "table-analysis",
+      "prompt": "检查这份虚构科研表格的质量；分组列group，划分列split，不要训练模型或删除记录。",
+      "inputs": [
+        "fixtures/tables/clean.csv"
+      ],
+      "allowed_skills": [
+        "exploratory-data-analysis",
+        "independence-bookkeeping"
+      ],
+      "expected": [
+        "Profile 4 rows and 5 columns; no missing cells.",
+        "Do not interpret response physically without a unit definition."
+      ],
+      "must_not": [
+        "Automatically train a model.",
+        "Silently clean data.",
+        "Treat synthetic values as scientific measurements."
+      ],
+      "model_execution": "not_run"
+    },
+    {
+      "id": "table-missing",
+      "workflow": "table-analysis",
+      "prompt": "检查这份虚构科研表格的质量；分组列group，划分列split，不要训练模型或删除记录。",
+      "inputs": [
+        "fixtures/tables/missing.csv"
+      ],
+      "allowed_skills": [
+        "exploratory-data-analysis",
+        "independence-bookkeeping"
+      ],
+      "expected": [
+        "Find one missing temperature and one missing response.",
+        "Preserve raw data."
+      ],
+      "must_not": [
+        "Automatically train a model.",
+        "Silently clean data.",
+        "Treat synthetic values as scientific measurements."
+      ],
+      "model_execution": "not_run"
+    },
+    {
+      "id": "table-malformed",
+      "workflow": "table-analysis",
+      "prompt": "检查这份虚构科研表格的质量；分组列group，划分列split，不要训练模型或删除记录。",
+      "inputs": [
+        "fixtures/tables/malformed.csv"
+      ],
+      "allowed_skills": [
+        "exploratory-data-analysis",
+        "independence-bookkeeping"
+      ],
+      "expected": [
+        "Reject the non-rectangular table; do not silently truncate."
+      ],
+      "must_not": [
+        "Automatically train a model.",
+        "Silently clean data.",
+        "Treat synthetic values as scientific measurements."
+      ],
+      "model_execution": "not_run"
+    },
+    {
+      "id": "table-group-leakage",
+      "workflow": "table-analysis",
+      "prompt": "检查这份虚构科研表格的质量；分组列group，划分列split，不要训练模型或删除记录。",
+      "inputs": [
+        "fixtures/tables/group-leakage.csv"
+      ],
+      "allowed_skills": [
+        "exploratory-data-analysis",
+        "independence-bookkeeping"
+      ],
+      "expected": [
+        "Find both groups A and B present in train and test.",
+        "Do not claim group-independent validation."
+      ],
+      "must_not": [
+        "Automatically train a model.",
+        "Silently clean data.",
+        "Treat synthetic values as scientific measurements."
+      ],
+      "model_execution": "not_run"
+    }
+  ]
+}

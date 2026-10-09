@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "scope": "All bundled task skills grouped by function across sources; router excluded",
   "skills": [
     {
@@ -11,7 +11,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/analytical-method-validation/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "cantera",
@@ -22,7 +23,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/cantera/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "datamol",
@@ -33,7 +35,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/datamol/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "deepchem",
@@ -44,7 +47,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/deepchem/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "matchms",
@@ -55,7 +59,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/matchms/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "medchem",
@@ -66,7 +71,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/medchem/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "molecular-dynamics",
@@ -77,7 +83,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/molecular-dynamics/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "molfeat",
@@ -88,7 +95,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/molfeat/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "nmrglue",
@@ -99,7 +107,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/nmrglue/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "pybamm",
@@ -110,7 +119,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pybamm/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "pycalphad",
@@ -121,7 +131,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pycalphad/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "pymatgen",
@@ -132,7 +143,28 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pymatgen/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": {
+        "tasks": [
+          "materials-structure-analysis",
+          "vasp-output-inspection"
+        ],
+        "inputs": [
+          "Structures or supported materials output files"
+        ],
+        "outputs": [
+          "analysis with units, parser version and limitations"
+        ],
+        "requires": [
+          "Compatible pymatgen environment; remote services only when requested"
+        ],
+        "relations": {
+          "feeds_into": [],
+          "alternatives": [],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "pyopenms",
@@ -143,7 +175,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pyopenms/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "rdkit",
@@ -154,7 +187,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/rdkit/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "uncertainty-and-units",
@@ -165,7 +199,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/uncertainty-and-units/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "citation-management",
@@ -176,7 +211,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/citation-management/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "experimental-design",
@@ -187,7 +223,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/experimental-design/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "hypothesis-generation",
@@ -198,7 +235,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/hypothesis-generation/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "lit-review",
@@ -209,7 +247,29 @@
       "source_name": "BootLoops-ai/skills",
       "source_url": "https://github.com/BootLoops-ai/skills/blob/ca892277dcf0468d995f0036f3bd6d753a8afe7d/skills/lit-review/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": {
+        "tasks": [
+          "novelty-audit"
+        ],
+        "inputs": [
+          "Specific novelty claim and accessible literature"
+        ],
+        "outputs": [
+          "source-grounded comparison and limits"
+        ],
+        "requires": [
+          "Search and full-text access"
+        ],
+        "relations": {
+          "feeds_into": [],
+          "alternatives": [
+            "literature-review"
+          ],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "literature-review",
@@ -220,7 +280,29 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/literature-review/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": {
+        "tasks": [
+          "literature-synthesis"
+        ],
+        "inputs": [
+          "Review question and available literature"
+        ],
+        "outputs": [
+          "search/screening record and synthesis"
+        ],
+        "requires": [
+          "Search and document access"
+        ],
+        "relations": {
+          "feeds_into": [],
+          "alternatives": [
+            "lit-review"
+          ],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "paper-lookup",
@@ -231,7 +313,30 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/paper-lookup/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": {
+        "tasks": [
+          "paper-identity",
+          "paper-discovery"
+        ],
+        "inputs": [
+          "DOI, title or research query"
+        ],
+        "outputs": [
+          "metadata and retrieved-source locations"
+        ],
+        "requires": [
+          "Network and selected scholarly endpoint availability"
+        ],
+        "relations": {
+          "feeds_into": [
+            "reading-contract"
+          ],
+          "alternatives": [],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "peer-review",
@@ -242,7 +347,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/peer-review/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "reading-contract",
@@ -253,7 +359,29 @@
       "source_name": "BootLoops-ai/skills",
       "source_url": "https://github.com/BootLoops-ai/skills/blob/ca892277dcf0468d995f0036f3bd6d753a8afe7d/skills/reading-contract/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": {
+        "tasks": [
+          "source-bound-reading"
+        ],
+        "inputs": [
+          "Actually accessible documents"
+        ],
+        "outputs": [
+          "claims with source locations and coverage limits"
+        ],
+        "requires": [
+          "Document-reading tools; conversion only if needed"
+        ],
+        "relations": {
+          "feeds_into": [
+            "scientific-critical-thinking"
+          ],
+          "alternatives": [],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "ref-check",
@@ -264,7 +392,27 @@
       "source_name": "BootLoops-ai/skills",
       "source_url": "https://github.com/BootLoops-ai/skills/blob/ca892277dcf0468d995f0036f3bd6d753a8afe7d/skills/ref-check/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": {
+        "tasks": [
+          "bibliography-verification"
+        ],
+        "inputs": [
+          "Bibliographic entry or conflicting metadata"
+        ],
+        "outputs": [
+          "verified fields and unresolved discrepancies"
+        ],
+        "requires": [
+          "Authoritative sources and network when required"
+        ],
+        "relations": {
+          "feeds_into": [],
+          "alternatives": [],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "research-lookup",
@@ -275,7 +423,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/research-lookup/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "scholar-evaluation",
@@ -286,7 +435,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scholar-evaluation/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "scientific-brainstorming",
@@ -297,7 +447,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-brainstorming/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "scientific-critical-thinking",
@@ -308,7 +459,27 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-critical-thinking/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": {
+        "tasks": [
+          "evidence-appraisal"
+        ],
+        "inputs": [
+          "Claims and traceable evidence"
+        ],
+        "outputs": [
+          "evidence-bounded assessment"
+        ],
+        "requires": [
+          "Evidence must be available before appraisal"
+        ],
+        "relations": {
+          "feeds_into": [],
+          "alternatives": [],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "exploratory-data-analysis",
@@ -319,7 +490,30 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/exploratory-data-analysis/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": {
+        "tasks": [
+          "tabular-quality-audit"
+        ],
+        "inputs": [
+          "Authorized local supported file"
+        ],
+        "outputs": [
+          "bounded data profile and quality flags"
+        ],
+        "requires": [
+          "Bundled core CLIs declare Python 3.11+; optional formats have additional dependencies"
+        ],
+        "relations": {
+          "feeds_into": [
+            "statistical-analysis",
+            "scientific-visualization"
+          ],
+          "alternatives": [],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "independence-bookkeeping",
@@ -330,7 +524,27 @@
       "source_name": "BootLoops-ai/skills",
       "source_url": "https://github.com/BootLoops-ai/skills/blob/ca892277dcf0468d995f0036f3bd6d753a8afe7d/skills/independence-bookkeeping/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": {
+        "tasks": [
+          "validation-independence-audit"
+        ],
+        "inputs": [
+          "Data/reference usage history"
+        ],
+        "outputs": [
+          "record of independent and reused evidence"
+        ],
+        "requires": [
+          "Actual provenance; no independence inferred from a second transformation"
+        ],
+        "relations": {
+          "feeds_into": [],
+          "alternatives": [],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "pymc",
@@ -341,7 +555,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pymc/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "pymoo",
@@ -352,7 +567,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pymoo/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "scikit-learn",
@@ -363,7 +579,29 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scikit-learn/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": {
+        "tasks": [
+          "predictive-modeling"
+        ],
+        "inputs": [
+          "Prediction objective, checked data and justified split"
+        ],
+        "outputs": [
+          "model evaluation and split provenance"
+        ],
+        "requires": [
+          "Compatible scikit-learn environment"
+        ],
+        "relations": {
+          "feeds_into": [
+            "scientific-visualization"
+          ],
+          "alternatives": [],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "shap",
@@ -374,7 +612,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/shap/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "statistical-analysis",
@@ -385,7 +624,29 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/statistical-analysis/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": {
+        "tasks": [
+          "statistical-inference-planning"
+        ],
+        "inputs": [
+          "Research question, design, units and checked data"
+        ],
+        "outputs": [
+          "justified analysis and assumption checks"
+        ],
+        "requires": [
+          "Task-specific statistical runtime"
+        ],
+        "relations": {
+          "feeds_into": [
+            "scientific-visualization"
+          ],
+          "alternatives": [],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "statistical-power",
@@ -396,7 +657,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/statistical-power/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "statsmodels",
@@ -407,7 +669,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/statsmodels/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "markitdown",
@@ -418,7 +681,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/markitdown/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "scientific-schematics",
@@ -429,7 +693,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-schematics/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "scientific-slides",
@@ -440,7 +705,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-slides/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "scientific-visualization",
@@ -451,7 +717,29 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-visualization/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": {
+        "tasks": [
+          "scientific-data-plotting"
+        ],
+        "inputs": [
+          "Checked data, units and figure objective"
+        ],
+        "outputs": [
+          "figure with provenance and uncertainty handling"
+        ],
+        "requires": [
+          "Selected plotting library"
+        ],
+        "relations": {
+          "feeds_into": [],
+          "alternatives": [
+            "seaborn"
+          ],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "scientific-writing",
@@ -462,7 +750,8 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-writing/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "seaborn",
@@ -473,7 +762,29 @@
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/seaborn/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": {
+        "tasks": [
+          "statistical-data-plotting"
+        ],
+        "inputs": [
+          "Checked tabular data and plotting objective"
+        ],
+        "outputs": [
+          "statistical figure with explicit mappings"
+        ],
+        "requires": [
+          "Seaborn and compatible Python dependencies"
+        ],
+        "relations": {
+          "feeds_into": [],
+          "alternatives": [
+            "scientific-visualization"
+          ],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "mat-dft-vasp",
@@ -484,7 +795,32 @@
       "source_name": "learningmatter-mit/AtomisticSkills",
       "source_url": "https://github.com/learningmatter-mit/AtomisticSkills/blob/62574443f2a772e23dd5951f3712b65133b06715/skills/mat-dft-vasp/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": {
+        "tasks": [
+          "vasp-input-preparation",
+          "vasp-output-extraction"
+        ],
+        "inputs": [
+          "Structures/settings or VASP output directory"
+        ],
+        "outputs": [
+          "prepared inputs or parsed results; convergence needs separate checking"
+        ],
+        "requires": [
+          "AtomisticSkills src/ backend and compatible environment are external",
+          "Upstream venv/run and atomate2 MCP are not bundled",
+          "VASP/pseudopotentials and scheduler configuration when executing"
+        ],
+        "relations": {
+          "feeds_into": [],
+          "alternatives": [
+            "dft-vasp"
+          ],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "dft-vasp",
@@ -495,7 +831,36 @@
       "source_name": "jinzhezenggroup/computational-chemistry-agent-skills",
       "source_url": "https://github.com/jinzhezenggroup/computational-chemistry-agent-skills/blob/5c19e75b256d49849574c999b1965d94024ee072/quantum-chemistry/dft-vasp/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": {
+        "tasks": [
+          "vasp-input-preparation"
+        ],
+        "inputs": [
+          "Structure or prerequisite SCF artifacts and explicit method constraints"
+        ],
+        "outputs": [
+          "task-specific inputs and unresolved choices"
+        ],
+        "requires": [
+          "Task-specific VASP prerequisites; pseudopotentials supplied separately"
+        ],
+        "relations": {
+          "feeds_into": [
+            "dpdisp-submit"
+          ],
+          "alternatives": [
+            "mat-dft-vasp"
+          ],
+          "delegates_to": [
+            "dft-vasp/static",
+            "dft-vasp/relax",
+            "dft-vasp/dos",
+            "dft-vasp/band"
+          ]
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "dft-qe",
@@ -506,7 +871,8 @@
       "source_name": "jinzhezenggroup/computational-chemistry-agent-skills",
       "source_url": "https://github.com/jinzhezenggroup/computational-chemistry-agent-skills/blob/5c19e75b256d49849574c999b1965d94024ee072/quantum-chemistry/dft-qe/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "dpdata-cli",
@@ -517,7 +883,8 @@
       "source_name": "jinzhezenggroup/computational-chemistry-agent-skills",
       "source_url": "https://github.com/jinzhezenggroup/computational-chemistry-agent-skills/blob/5c19e75b256d49849574c999b1965d94024ee072/tools/dpdata-cli/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "dpdisp-submit",
@@ -528,7 +895,27 @@
       "source_name": "jinzhezenggroup/computational-chemistry-agent-skills",
       "source_url": "https://github.com/jinzhezenggroup/computational-chemistry-agent-skills/blob/5c19e75b256d49849574c999b1965d94024ee072/tools/dpdisp-submit/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": {
+        "tasks": [
+          "compute-job-submission"
+        ],
+        "inputs": [
+          "Prepared task, target environment and execution authorization"
+        ],
+        "outputs": [
+          "submission identifier and observed status"
+        ],
+        "requires": [
+          "Configured target scheduler, executable and credentials"
+        ],
+        "relations": {
+          "feeds_into": [],
+          "alternatives": [],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "literature-search-arxiv",
@@ -539,7 +926,8 @@
       "source_name": "google-deepmind/science-skills",
       "source_url": "https://github.com/google-deepmind/science-skills/blob/68832757cbbf941c620b71df5756cf6e5cc287b0/skills/literature_search_arxiv/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "literature-search-openalex",
@@ -550,7 +938,8 @@
       "source_name": "google-deepmind/science-skills",
       "source_url": "https://github.com/google-deepmind/science-skills/blob/68832757cbbf941c620b71df5756cf6e5cc287b0/skills/literature_search_openalex/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "uv",
@@ -561,7 +950,8 @@
       "source_name": "google-deepmind/science-skills",
       "source_url": "https://github.com/google-deepmind/science-skills/blob/68832757cbbf941c620b71df5756cf6e5cc287b0/skills/uv/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     },
     {
       "name": "credentials",
@@ -572,7 +962,8 @@
       "source_name": "google-deepmind/science-skills",
       "source_url": "https://github.com/google-deepmind/science-skills/blob/68832757cbbf941c620b71df5756cf6e5cc287b0/skills/credentials/SKILL.md",
       "bundled": true,
-      "runtime_ready": "not established by installation"
+      "runtime_ready": "not established by installation",
+      "capability": null
     }
   ]
 }

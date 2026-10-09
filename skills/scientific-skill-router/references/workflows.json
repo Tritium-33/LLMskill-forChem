@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "role": "Optional internal route contracts, not an execution engine or required user interface.",
+  "workflows": [
+    {
+      "id": "paper-analysis",
+      "when": "Read or assess a supplied DOI or paper; skip lookup if reliable text is already supplied.",
+      "reference": "doi-paper-analysis.md",
+      "capabilities": [
+        "paper-identity",
+        "source-bound-reading",
+        "evidence-appraisal"
+      ],
+      "skills": [
+        "paper-lookup",
+        "reading-contract",
+        "ref-check",
+        "scientific-critical-thinking"
+      ],
+      "cases": [
+        "paper-fulltext",
+        "paper-abstract-only",
+        "paper-metadata-conflict"
+      ],
+      "handoff": [
+        "identity",
+        "coverage",
+        "claims_with_locations",
+        "unresolved"
+      ],
+      "stop_conditions": [
+        "No full text: restrict claims to actually read material.",
+        "Unresolved identity conflict: do not conflate documents."
+      ]
+    },
+    {
+      "id": "vasp-triage",
+      "when": "Inspect an existing VASP calculation or diagnose its failure; input preparation is a separate domain route.",
+      "reference": "vasp-triage.md",
+      "capabilities": [
+        "vasp-output-extraction",
+        "vasp-output-inspection"
+      ],
+      "skills": [
+        "mat-dft-vasp",
+        "pymatgen"
+      ],
+      "cases": [
+        "vasp-complete",
+        "vasp-unconverged",
+        "vasp-interrupted",
+        "vasp-insufficient"
+      ],
+      "handoff": [
+        "run_type",
+        "file_inventory",
+        "termination",
+        "electronic_convergence",
+        "ionic_convergence",
+        "evidence_locations",
+        "eligible_for_requested_use"
+      ],
+      "stop_conditions": [
+        "Parsed energy alone is not convergence evidence.",
+        "Missing backend: use an available inspected parser or report blocked, never invent execution.",
+        "No automatic resubmission or modification of raw outputs."
+      ]
+    },
+    {
+      "id": "table-analysis",
+      "when": "Inspect a local scientific table and, if requested and justified, analyze or plot it.",
+      "reference": "table-analysis.md",
+      "capabilities": [
+        "tabular-quality-audit",
+        "statistical-inference-planning",
+        "scientific-data-plotting"
+      ],
+      "skills": [
+        "exploratory-data-analysis",
+        "statistical-analysis",
+        "scientific-visualization",
+        "seaborn",
+        "scikit-learn",
+        "independence-bookkeeping"
+      ],
+      "cases": [
+        "table-clean",
+        "table-missing",
+        "table-malformed",
+        "table-group-leakage"
+      ],
+      "handoff": [
+        "coverage",
+        "column_meanings",
+        "units",
+        "quality_flags",
+        "analysis_scope",
+        "unresolved"
+      ],
+      "stop_conditions": [
+        "Unresolved units/design: describe data but defer affected scientific inference.",
+        "No silent cleaning or held-out data leakage.",
+        "Prediction not requested: do not add a model."
+      ]
+    }
+  ]
+}

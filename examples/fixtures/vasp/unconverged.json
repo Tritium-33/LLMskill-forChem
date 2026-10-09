@@ -1,0 +1,11 @@
+{
+  "synthetic": true,
+  "kind": "declared-observations-not-raw-vasp",
+  "run_type": "relaxation",
+  "termination": "normal",
+  "electronic_convergence": false,
+  "ionic_convergence": false,
+  "parsed_energy_eV": -10.0,
+  "physical_validity": "not_assessed",
+  "source_locations": "fixture declarations only; no real OUTCAR or vasprun.xml"
+}

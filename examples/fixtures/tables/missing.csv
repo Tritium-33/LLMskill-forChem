@@ -1,0 +1,5 @@
+sample_id,group,split,temperature_K,response
+s01,A,train,298,1.0
+s02,A,train,303,
+s03,B,test,,0.9
+s04,B,test,303,1.1

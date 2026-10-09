@@ -39,3 +39,59 @@
 - **scientific-critical-thinking**：Analytical guidance needs no network. Optional figures via the scientific-schematics skill require OPENROUTER_API_KEY and outbound API access to OpenRouter.
 - **literature-search-arxiv**：Read the skill for runtime requirements.
 - **literature-search-openalex**：Read the skill for runtime requirements.
+
+## 首批路线的能力与交接
+
+以下为合集维护的适配说明，不是性能排名；未列出的技能仍可使用，需读取原文判断。
+
+### lit-review
+
+Tasks: novelty-audit
+Inputs: Specific novelty claim and accessible literature
+Outputs: source-grounded comparison and limits
+Requires: Search and full-text access
+alternatives: literature-review
+Evidence: See referenced cases; no general task-performance claim.
+
+### literature-review
+
+Tasks: literature-synthesis
+Inputs: Review question and available literature
+Outputs: search/screening record and synthesis
+Requires: Search and document access
+alternatives: lit-review
+Evidence: See referenced cases; no general task-performance claim.
+
+### paper-lookup
+
+Tasks: paper-identity, paper-discovery
+Inputs: DOI, title or research query
+Outputs: metadata and retrieved-source locations
+Requires: Network and selected scholarly endpoint availability
+feeds_into: reading-contract
+Evidence: See referenced cases; no general task-performance claim.
+
+### reading-contract
+
+Tasks: source-bound-reading
+Inputs: Actually accessible documents
+Outputs: claims with source locations and coverage limits
+Requires: Document-reading tools; conversion only if needed
+feeds_into: scientific-critical-thinking
+Evidence: See referenced cases; no general task-performance claim.
+
+### ref-check
+
+Tasks: bibliography-verification
+Inputs: Bibliographic entry or conflicting metadata
+Outputs: verified fields and unresolved discrepancies
+Requires: Authoritative sources and network when required
+Evidence: See referenced cases; no general task-performance claim.
+
+### scientific-critical-thinking
+
+Tasks: evidence-appraisal
+Inputs: Claims and traceable evidence
+Outputs: evidence-bounded assessment
+Requires: Evidence must be available before appraisal
+Evidence: See referenced cases; no general task-performance claim.

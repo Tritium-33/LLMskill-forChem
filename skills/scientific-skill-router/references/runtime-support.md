@@ -15,3 +15,15 @@
 - **dpdisp-submit**：Read the skill for runtime requirements.
 - **uv**：Read the skill for runtime requirements.
 - **credentials**：Read the skill for runtime requirements.
+
+## 首批路线的能力与交接
+
+以下为合集维护的适配说明，不是性能排名；未列出的技能仍可使用，需读取原文判断。
+
+### dpdisp-submit
+
+Tasks: compute-job-submission
+Inputs: Prepared task, target environment and execution authorization
+Outputs: submission identifier and observed status
+Requires: Configured target scheduler, executable and credentials
+Evidence: See referenced cases; no general task-performance claim.

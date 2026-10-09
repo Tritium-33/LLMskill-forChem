@@ -21,3 +21,25 @@
 - **scientific-visualization**：Requires Python 3.11+ and uv for pinned examples. Bundled CLIs are network-free and load Matplotlib, Pillow, or pypdf only when needed. Plotly static export with Kaleido v1 requires a compatible Chrome/Chromium installation.
 - **scientific-writing**：Requires Python 3.11+ only for optional dependency-free local CLIs; core guidance is platform-neutral. Bundled tools are offline and require no API keys.
 - **seaborn**：Requires Python 3.8+ with seaborn 0.13.2, NumPy, pandas, and Matplotlib; the tested current dependency stack requires Python 3.12+. Optional scipy/statsmodels for advanced regression or clustering, ipywidgets for notebook controls. Network only for installation or uncached example datasets.
+
+## 首批路线的能力与交接
+
+以下为合集维护的适配说明，不是性能排名；未列出的技能仍可使用，需读取原文判断。
+
+### scientific-visualization
+
+Tasks: scientific-data-plotting
+Inputs: Checked data, units and figure objective
+Outputs: figure with provenance and uncertainty handling
+Requires: Selected plotting library
+alternatives: seaborn
+Evidence: See referenced cases; no general task-performance claim.
+
+### seaborn
+
+Tasks: statistical-data-plotting
+Inputs: Checked tabular data and plotting objective
+Outputs: statistical figure with explicit mappings
+Requires: Seaborn and compatible Python dependencies
+alternatives: scientific-visualization
+Evidence: See referenced cases; no general task-performance claim.

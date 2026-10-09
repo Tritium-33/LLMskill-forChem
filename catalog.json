@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "package": "LLMskill-forChem",
   "version": "0.1.0",
   "skills": [
@@ -85,7 +85,28 @@
       "title": "pymatgen",
       "summary": "晶体结构、材料数据与电子结构文件分析",
       "example_prompt": "请使用 $pymatgen，帮助我完成晶体结构、材料数据与电子结构文件分析，先检查输入与所需依赖。",
-      "routing_group": "chemistry-materials"
+      "routing_group": "chemistry-materials",
+      "capability": {
+        "tasks": [
+          "materials-structure-analysis",
+          "vasp-output-inspection"
+        ],
+        "inputs": [
+          "Structures or supported materials output files"
+        ],
+        "outputs": [
+          "analysis with units, parser version and limitations"
+        ],
+        "requires": [
+          "Compatible pymatgen environment; remote services only when requested"
+        ],
+        "relations": {
+          "feeds_into": [],
+          "alternatives": [],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "pyopenms",
@@ -134,21 +155,88 @@
       "title": "文献深审与创新性审查",
       "summary": "围绕明确研究主张检索近邻工作，记录检索、阅读和证据缺口。",
       "example_prompt": "请审查这个化学研究设想与已有工作的重叠，记录检索范围和全文阅读情况。",
-      "routing_group": "research-evidence"
+      "routing_group": "research-evidence",
+      "capability": {
+        "tasks": [
+          "novelty-audit"
+        ],
+        "inputs": [
+          "Specific novelty claim and accessible literature"
+        ],
+        "outputs": [
+          "source-grounded comparison and limits"
+        ],
+        "requires": [
+          "Search and full-text access"
+        ],
+        "relations": {
+          "feeds_into": [],
+          "alternatives": [
+            "literature-review"
+          ],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "literature-review",
       "title": "literature-review",
       "summary": "系统、范围与叙述综述的检索筛选和综合",
       "example_prompt": "请使用 $literature-review，帮助我完成系统、范围与叙述综述的检索筛选和综合，先检查输入与所需依赖。",
-      "routing_group": "research-evidence"
+      "routing_group": "research-evidence",
+      "capability": {
+        "tasks": [
+          "literature-synthesis"
+        ],
+        "inputs": [
+          "Review question and available literature"
+        ],
+        "outputs": [
+          "search/screening record and synthesis"
+        ],
+        "requires": [
+          "Search and document access"
+        ],
+        "relations": {
+          "feeds_into": [],
+          "alternatives": [
+            "lit-review"
+          ],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "paper-lookup",
       "title": "paper-lookup",
       "summary": "跨学术数据库检索论文、引文与开放全文",
       "example_prompt": "请使用 $paper-lookup，帮助我完成跨学术数据库检索论文、引文与开放全文，先检查输入与所需依赖。",
-      "routing_group": "research-evidence"
+      "routing_group": "research-evidence",
+      "capability": {
+        "tasks": [
+          "paper-identity",
+          "paper-discovery"
+        ],
+        "inputs": [
+          "DOI, title or research query"
+        ],
+        "outputs": [
+          "metadata and retrieved-source locations"
+        ],
+        "requires": [
+          "Network and selected scholarly endpoint availability"
+        ],
+        "relations": {
+          "feeds_into": [
+            "reading-contract"
+          ],
+          "alternatives": [],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "peer-review",
@@ -162,14 +250,56 @@
       "title": "原文证据核查",
       "summary": "逐条核对论文或记录中的证据，区分事实、推断和未核实内容。",
       "example_prompt": "请核对这篇论文中支持结论的原文、页码和图表，区分原文事实与推断。",
-      "routing_group": "research-evidence"
+      "routing_group": "research-evidence",
+      "capability": {
+        "tasks": [
+          "source-bound-reading"
+        ],
+        "inputs": [
+          "Actually accessible documents"
+        ],
+        "outputs": [
+          "claims with source locations and coverage limits"
+        ],
+        "requires": [
+          "Document-reading tools; conversion only if needed"
+        ],
+        "relations": {
+          "feeds_into": [
+            "scientific-critical-thinking"
+          ],
+          "alternatives": [],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "ref-check",
       "title": "参考文献核验",
       "summary": "核对书目信息及引用是否支持正文，给出可追溯的修改建议。",
       "example_prompt": "请核验这份参考文献的题名、作者、年份和 DOI，并检查关键引用是否支持正文。",
-      "routing_group": "research-evidence"
+      "routing_group": "research-evidence",
+      "capability": {
+        "tasks": [
+          "bibliography-verification"
+        ],
+        "inputs": [
+          "Bibliographic entry or conflicting metadata"
+        ],
+        "outputs": [
+          "verified fields and unresolved discrepancies"
+        ],
+        "requires": [
+          "Authoritative sources and network when required"
+        ],
+        "relations": {
+          "feeds_into": [],
+          "alternatives": [],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "research-lookup",
@@ -197,21 +327,84 @@
       "title": "scientific-critical-thinking",
       "summary": "审查科研主张、证据质量与混杂因素",
       "example_prompt": "请使用 $scientific-critical-thinking，帮助我完成审查科研主张、证据质量与混杂因素，先检查输入与所需依赖。",
-      "routing_group": "research-evidence"
+      "routing_group": "research-evidence",
+      "capability": {
+        "tasks": [
+          "evidence-appraisal"
+        ],
+        "inputs": [
+          "Claims and traceable evidence"
+        ],
+        "outputs": [
+          "evidence-bounded assessment"
+        ],
+        "requires": [
+          "Evidence must be available before appraisal"
+        ],
+        "relations": {
+          "feeds_into": [],
+          "alternatives": [],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "exploratory-data-analysis",
       "title": "exploratory-data-analysis",
       "summary": "科学数据的结构、缺失值和异常值探索",
       "example_prompt": "请使用 $exploratory-data-analysis，帮助我完成科学数据的结构、缺失值和异常值探索，先检查输入与所需依赖。",
-      "routing_group": "data-modeling"
+      "routing_group": "data-modeling",
+      "capability": {
+        "tasks": [
+          "tabular-quality-audit"
+        ],
+        "inputs": [
+          "Authorized local supported file"
+        ],
+        "outputs": [
+          "bounded data profile and quality flags"
+        ],
+        "requires": [
+          "Bundled core CLIs declare Python 3.11+; optional formats have additional dependencies"
+        ],
+        "relations": {
+          "feeds_into": [
+            "statistical-analysis",
+            "scientific-visualization"
+          ],
+          "alternatives": [],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "independence-bookkeeping",
       "title": "验证独立性与数据泄漏检查",
       "summary": "检查验证路线的共享依赖、数据使用历史与循环验证。",
       "example_prompt": "请检查这份分子性质预测方案的训练、调参和测试数据是否独立。",
-      "routing_group": "data-modeling"
+      "routing_group": "data-modeling",
+      "capability": {
+        "tasks": [
+          "validation-independence-audit"
+        ],
+        "inputs": [
+          "Data/reference usage history"
+        ],
+        "outputs": [
+          "record of independent and reused evidence"
+        ],
+        "requires": [
+          "Actual provenance; no independence inferred from a second transformation"
+        ],
+        "relations": {
+          "feeds_into": [],
+          "alternatives": [],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "pymc",
@@ -232,7 +425,29 @@
       "title": "scikit-learn",
       "summary": "机器学习预处理、建模与交叉验证",
       "example_prompt": "请使用 $scikit-learn，帮助我完成机器学习预处理、建模与交叉验证，先检查输入与所需依赖。",
-      "routing_group": "data-modeling"
+      "routing_group": "data-modeling",
+      "capability": {
+        "tasks": [
+          "predictive-modeling"
+        ],
+        "inputs": [
+          "Prediction objective, checked data and justified split"
+        ],
+        "outputs": [
+          "model evaluation and split provenance"
+        ],
+        "requires": [
+          "Compatible scikit-learn environment"
+        ],
+        "relations": {
+          "feeds_into": [
+            "scientific-visualization"
+          ],
+          "alternatives": [],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "shap",
@@ -246,7 +461,29 @@
       "title": "statistical-analysis",
       "summary": "统计检验选择、假设检查与效应量报告",
       "example_prompt": "请使用 $statistical-analysis，帮助我完成统计检验选择、假设检查与效应量报告，先检查输入与所需依赖。",
-      "routing_group": "data-modeling"
+      "routing_group": "data-modeling",
+      "capability": {
+        "tasks": [
+          "statistical-inference-planning"
+        ],
+        "inputs": [
+          "Research question, design, units and checked data"
+        ],
+        "outputs": [
+          "justified analysis and assumption checks"
+        ],
+        "requires": [
+          "Task-specific statistical runtime"
+        ],
+        "relations": {
+          "feeds_into": [
+            "scientific-visualization"
+          ],
+          "alternatives": [],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "statistical-power",
@@ -288,7 +525,29 @@
       "title": "scientific-visualization",
       "summary": "多面板科研图设计、单位与可读性检查",
       "example_prompt": "请使用 $scientific-visualization，帮助我完成多面板科研图设计、单位与可读性检查，先检查输入与所需依赖。",
-      "routing_group": "writing-figures"
+      "routing_group": "writing-figures",
+      "capability": {
+        "tasks": [
+          "scientific-data-plotting"
+        ],
+        "inputs": [
+          "Checked data, units and figure objective"
+        ],
+        "outputs": [
+          "figure with provenance and uncertainty handling"
+        ],
+        "requires": [
+          "Selected plotting library"
+        ],
+        "relations": {
+          "feeds_into": [],
+          "alternatives": [
+            "seaborn"
+          ],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "scientific-writing",
@@ -302,7 +561,29 @@
       "title": "seaborn",
       "summary": "分布、分组比较与统计关系可视化",
       "example_prompt": "请使用 $seaborn，帮助我完成分布、分组比较与统计关系可视化，先检查输入与所需依赖。",
-      "routing_group": "writing-figures"
+      "routing_group": "writing-figures",
+      "capability": {
+        "tasks": [
+          "statistical-data-plotting"
+        ],
+        "inputs": [
+          "Checked tabular data and plotting objective"
+        ],
+        "outputs": [
+          "statistical figure with explicit mappings"
+        ],
+        "requires": [
+          "Seaborn and compatible Python dependencies"
+        ],
+        "relations": {
+          "feeds_into": [],
+          "alternatives": [
+            "scientific-visualization"
+          ],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "scientific-skill-router",
@@ -315,14 +596,68 @@
       "title": "mat-dft-vasp",
       "summary": "VASP 输入准备与结果提取；需另配上游运行环境",
       "example_prompt": "请使用 $mat-dft-vasp，帮助我完成VASP 输入准备与结果提取；需另配上游运行环境，先检查输入与所需依赖。",
-      "routing_group": "chemistry-materials"
+      "routing_group": "chemistry-materials",
+      "capability": {
+        "tasks": [
+          "vasp-input-preparation",
+          "vasp-output-extraction"
+        ],
+        "inputs": [
+          "Structures/settings or VASP output directory"
+        ],
+        "outputs": [
+          "prepared inputs or parsed results; convergence needs separate checking"
+        ],
+        "requires": [
+          "AtomisticSkills src/ backend and compatible environment are external",
+          "Upstream venv/run and atomate2 MCP are not bundled",
+          "VASP/pseudopotentials and scheduler configuration when executing"
+        ],
+        "relations": {
+          "feeds_into": [],
+          "alternatives": [
+            "dft-vasp"
+          ],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "dft-vasp",
       "title": "dft-vasp",
       "summary": "准备 VASP 静态、优化、DOS 与能带输入，不自动提交",
       "example_prompt": "请使用 $dft-vasp，帮助我完成准备 VASP 静态、优化、DOS 与能带输入，不自动提交，先检查输入与所需依赖。",
-      "routing_group": "chemistry-materials"
+      "routing_group": "chemistry-materials",
+      "capability": {
+        "tasks": [
+          "vasp-input-preparation"
+        ],
+        "inputs": [
+          "Structure or prerequisite SCF artifacts and explicit method constraints"
+        ],
+        "outputs": [
+          "task-specific inputs and unresolved choices"
+        ],
+        "requires": [
+          "Task-specific VASP prerequisites; pseudopotentials supplied separately"
+        ],
+        "relations": {
+          "feeds_into": [
+            "dpdisp-submit"
+          ],
+          "alternatives": [
+            "mat-dft-vasp"
+          ],
+          "delegates_to": [
+            "dft-vasp/static",
+            "dft-vasp/relax",
+            "dft-vasp/dos",
+            "dft-vasp/band"
+          ]
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "dft-qe",
@@ -343,7 +678,27 @@
       "title": "dpdisp-submit",
       "summary": "通过 DPDispatcher 管理已获授权的本地或集群作业",
       "example_prompt": "请使用 $dpdisp-submit，帮助我完成通过 DPDispatcher 管理已获授权的本地或集群作业，先检查输入与所需依赖。",
-      "routing_group": "runtime-support"
+      "routing_group": "runtime-support",
+      "capability": {
+        "tasks": [
+          "compute-job-submission"
+        ],
+        "inputs": [
+          "Prepared task, target environment and execution authorization"
+        ],
+        "outputs": [
+          "submission identifier and observed status"
+        ],
+        "requires": [
+          "Configured target scheduler, executable and credentials"
+        ],
+        "relations": {
+          "feeds_into": [],
+          "alternatives": [],
+          "delegates_to": []
+        },
+        "evidence": "See referenced cases; no general task-performance claim."
+      }
     },
     {
       "name": "literature-search-arxiv",

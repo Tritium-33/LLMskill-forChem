@@ -47,3 +47,35 @@
 - **dft-vasp**：Requires a user-provided structure and valid VASP pseudopotential resources/license in the target environment.
 - **dft-qe**：Requires a user-provided initial structure and enough DFT parameters to build a scientifically meaningful QE input.
 - **dpdata-cli**：Requires uvx (uv) for running dpdata
+
+## 首批路线的能力与交接
+
+以下为合集维护的适配说明，不是性能排名；未列出的技能仍可使用，需读取原文判断。
+
+### pymatgen
+
+Tasks: materials-structure-analysis, vasp-output-inspection
+Inputs: Structures or supported materials output files
+Outputs: analysis with units, parser version and limitations
+Requires: Compatible pymatgen environment; remote services only when requested
+Evidence: See referenced cases; no general task-performance claim.
+
+### mat-dft-vasp
+
+Tasks: vasp-input-preparation, vasp-output-extraction
+Inputs: Structures/settings or VASP output directory
+Outputs: prepared inputs or parsed results; convergence needs separate checking
+Requires: AtomisticSkills src/ backend and compatible environment are external; Upstream venv/run and atomate2 MCP are not bundled; VASP/pseudopotentials and scheduler configuration when executing
+alternatives: dft-vasp
+Evidence: See referenced cases; no general task-performance claim.
+
+### dft-vasp
+
+Tasks: vasp-input-preparation
+Inputs: Structure or prerequisite SCF artifacts and explicit method constraints
+Outputs: task-specific inputs and unresolved choices
+Requires: Task-specific VASP prerequisites; pseudopotentials supplied separately
+feeds_into: dpdisp-submit
+alternatives: mat-dft-vasp
+delegates_to: dft-vasp/static, dft-vasp/relax, dft-vasp/dos, dft-vasp/band
+Evidence: See referenced cases; no general task-performance claim.

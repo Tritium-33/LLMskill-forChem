@@ -1,0 +1,15 @@
+{
+  "synthetic": true,
+  "identifier": "TEST-PAPER-003",
+  "records": [
+    {
+      "title": "Study of material A",
+      "year": 2020
+    },
+    {
+      "title": "Study of material B",
+      "year": 2024
+    }
+  ],
+  "authoritative_resolution": null
+}
