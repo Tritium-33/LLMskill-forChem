@@ -1,0 +1,7 @@
+This skill is distributed by K-Dense Inc.
+The upstream repository identifies individual SKILL.md license fields as controlling.
+Skill license: BSD-3-Clause; see LICENSE-BSD-3-Clause.
+The root MIT notice is retained separately in LICENSE; it does not override this skill license.
+Copyright attribution retained from the upstream repository: Copyright (c) 2025 K-Dense Inc.
+Source: https://github.com/K-Dense-AI/scientific-agent-skills/tree/92ace75ac21efe19a620434e0ca4e356081fe807/skills/rdkit
+No external scientific software is bundled by this notice. Its license is separate.

@@ -8,7 +8,7 @@ The primary work is curating useful skills across sources, explaining task fit,
 and accumulating public usage examples and evidence of usefulness. Installation
 tooling supports that work. Prefer upstream reuse and narrow adaptations over
 new framework development. Separate linked recommendations from bundled skills,
-and packaging validation from observed task performance. The original five skills are research protocols; 42 K-Dense skills expand task coverage. Packaging checks do not establish scientific effectiveness.
+and packaging validation from observed task performance. The current distribution contains four BootLoops protocols, 39 K-Dense skills and one local router. Check docs/license-audit before adding or restoring third-party content. Packaging checks do not establish scientific effectiveness.
 
 - Edit `skills/` here as the source of truth. Installed skill folders are copies.
 - Keep stable skill names and preserve upstream licenses, notices and provenance.

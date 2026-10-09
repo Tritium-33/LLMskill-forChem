@@ -10,7 +10,7 @@ Skill 是供 AI 助手读取的任务指导和配套资源。安装后，你可�
 
 ## 可以用来做什么
 
-本仓库收录 **48 项技能**，包括按功能组织的47项具体技能，以及1项技能选择入口。不同来源的同类技能放在同一板块中。
+本仓库收录 **44 项技能**，包括按功能组织的43项具体技能，以及1项技能选择入口。不同来源的同类技能放在同一板块中。
 
 | 任务 | 技能示例 |
 | --- | --- |
@@ -19,9 +19,9 @@ Skill 是供 AI 助手读取的任务指导和配套资源。安装后，你可�
 | 文献检索与引用管理 | `paper-lookup`、`literature-review`、`citation-management` |
 | 科研论证与实验设计 | `hypothesis-generation`、`experimental-design`、`scientific-critical-thinking` |
 | 数据分析、统计与机器学习 | `statistical-analysis`、`scikit-learn`、`pymc`、`shap` |
-| 科研写作、绘图与汇报 | `scientific-writing`、`matplotlib`、`scientific-visualization`、`scientific-slides` |
+| 科研写作、绘图与汇报 | `scientific-writing`、`seaborn`、`scientific-visualization`、`scientific-slides` |
 | 原文、文献与参考文献核验 | `reading-contract`、`lit-review`、`ref-check` |
-| 验证独立性与研究方向梳理 | `independence-bookkeeping`、`research-direction-recovery` |
+| 验证独立性 | `independence-bookkeeping` |
 
 [完整功能目录、用途与依赖](docs/skills-catalog.md) · [使用指南](docs/usage.md)
 
@@ -126,7 +126,7 @@ flowchart TD
 以“检查这批 CIF 的晶胞参数，汇总成表并画图”为例：
 
 1. 助手判断需要结构处理和绘图；需要组合指导时，读取选择入口及相关板块索引。
-2. 选择 `pymatgen` 处理晶体结构，再选择 `matplotlib` 绘图，并读取两者的技能说明。
+2. 选择 `pymatgen` 处理晶体结构，再选择 `scientific-visualization` 绘图，并读取两者的技能说明。
 3. 检查实际环境是否具备所需软件，读取你提供的 CIF，生成汇总表，再用表中数据绘图。
 4. 返回表格、图片，以及读取失败的文件和单位等说明。缺少软件或输入时，应说明尚未完成的部分。
 
@@ -146,7 +146,7 @@ flowchart TD
 $scientific-skill-router 根据我的目标选择必要技能并完成任务。
 ```
 
-该入口为全部47项具体技能提供四个跨来源的功能板块索引：
+该入口为全部43项具体技能提供四个跨来源的功能板块索引：
 
 | 板块 | 覆盖内容 |
 | --- | --- |
@@ -168,11 +168,13 @@ $scientific-skill-router 根据我的目标选择必要技能并完成任务。
 ## 使用前需要了解
 
 - **技能文件与运行环境分别安装。** 科学计算可能需要额外软件；部分检索或图像生成路径需要网络、账号或 API 密钥，具体要求见各技能说明。
-- **按任务选择工具。** 例如，真实数据绘图可使用 `matplotlib`，不需要为了画数据图调用外部图像生成服务。
+- **按任务选择工具。** 例如，真实数据绘图可使用 `seaborn`，不需要为了画数据图调用外部图像生成服务。
 - **核对结果。** 技能被成功加载不等于计算收敛、引用正确或科学结论成立。文件安装的跨平台支持也不代表所有科学依赖都支持同一平台。
 
 ## 来源与许可
 
-技能主要来自 [K-Dense Scientific Agent Skills](https://github.com/K-Dense-AI/scientific-agent-skills)、[BootLoops Skills](https://github.com/BootLoops-ai/skills) 和 [CatMaster](https://github.com/q734738781/CatMaster)。各技能目录保留固定来源、版本和许可证；`scientific-skill-router` 为本仓库新增的选择入口。
+技能主要来自 [K-Dense Scientific Agent Skills](https://github.com/K-Dense-AI/scientific-agent-skills)、[BootLoops Skills](https://github.com/BootLoops-ai/skills)。各技能目录保留固定来源、版本和许可证；`scientific-skill-router` 为本仓库新增的选择入口。
 
 本仓库新增代码与说明采用 [MIT 许可证](LICENSE)。上游内容按各自许可证使用，详见 [第三方声明](THIRD_PARTY_NOTICES.md)。
+
+版权与再分发检查见 [逐项许可审查](docs/license-audit/README.md)。授权或随附许可未核清的技能暂停收录，不代表认定上游侵权。

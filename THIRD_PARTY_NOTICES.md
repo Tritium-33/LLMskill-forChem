@@ -1,6 +1,6 @@
 # Third-party sources and modifications
 
-LLMskill-forChem is a curated distribution with original installation tooling and
+LLMskill-forChem is a redistribution bundle with original installation tooling and
 Chinese usage documentation. It does not claim authorship of the upstream methods.
 Each skill carries a `SOURCE.json` with the pinned repository, commit, path, source
 hash and modification summary. Chinese UI metadata was added during packaging.
@@ -20,16 +20,12 @@ hash and modification summary. Chinese UI metadata was added during packaging.
   shell-pipeline examples with platform-neutral instructions. Other upstream skill
   text is retained unchanged. See individual `SOURCE.json` files.
 
-## CatMaster
+## Withdrawn content
 
-- Repository: https://github.com/q734738781/CatMaster
-- Commit: `06b856814f980ca35f97fb01d7b970b5b18fd230`
-- Path: `skills/research_reasoning/research-direction-recovery`
-- The repository-root Apache-2.0 license is included in the skill directory.
-- The upstream skill's `license: project-local` metadata is preserved verbatim;
-  it is an upstream label, not an SPDX license identifier invented by this package.
-  Consult the retained license and the linked upstream version for its terms.
-- Modifications: Chinese UI metadata added; skill text retained unchanged.
+CatMaster `research-direction-recovery`, and K-Dense `matplotlib`, `sympy` and
+`venue-templates` are no longer bundled pending clarification of skill-specific
+licensing or completion of attached third-party notices. See docs/license-audit/README.md.
+This is a conservative distribution decision, not an allegation against upstream.
 
 ## Original additions
 
@@ -42,11 +38,17 @@ implied.
 
 - Repository: https://github.com/K-Dense-AI/scientific-agent-skills
 - Commit: `92ace75ac21efe19a620434e0ca4e356081fe807`
-- 42 selected skills: see docs/kdense-skills.md and each SOURCE.json.
-- Repository MIT license, copyright (c) 2025 K-Dense Inc., retained in each directory. Original frontmatter library-license labels and bundled notices are preserved; these do not replace dependency licenses.
-- Added English display names, Chinese purpose/source metadata and provenance. Upstream SKILL.md and support files remain byte-identical.
-- No claim of affiliation, scientific validation, installed dependencies or configured external services.
+- 39 bundled skills: see docs/skills-catalog.md and each SOURCE.json.
+- The upstream README explicitly says individual SKILL.md license fields apply:
+  28 skills declare MIT, six Apache-2.0, and five BSD-3-Clause.
+- The upstream root MIT copyright notice, Copyright (c) 2025 K-Dense Inc., is
+  retained in each LICENSE. It does not override individual skill licensing.
+- Apache/BSD skills additionally carry LICENSE-Apache-2.0 or LICENSE-BSD-3-Clause
+  and a NOTICE recording the declared license, source and known attribution.
+- English display names, Chinese purpose/source metadata and provenance were added.
+  Retained upstream SKILL.md and support files are unchanged.
+- No affiliation, scientific validation, installed dependencies or configured services is claimed.
 
 ## Local routing skill
 
-`scientific-skill-router` is original LLMskill-forChem content under the root MIT license. Its indexes link to individually attributed K-Dense skills. SOURCE.json uses kind=original and a local version; there is no invented upstream repository or commit.
+`scientific-skill-router` is original LLMskill-forChem content under the root MIT license. Its indexes link to individually attributed skills across sources. SOURCE.json uses kind=original and a local version; there is no invented upstream repository or commit.

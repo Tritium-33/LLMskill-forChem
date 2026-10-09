@@ -15,7 +15,6 @@
 | `peer-review` | 有证据支持的论文评阅与修订意见 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/peer-review/SKILL.md) |
 | `reading-contract` | 逐条核对论文或记录中的证据，区分事实、推断和未核实内容。 | [BootLoops-ai/skills](https://github.com/BootLoops-ai/skills/blob/ca892277dcf0468d995f0036f3bd6d753a8afe7d/skills/reading-contract/SKILL.md) |
 | `ref-check` | 核对书目信息及引用是否支持正文，给出可追溯的修改建议。 | [BootLoops-ai/skills](https://github.com/BootLoops-ai/skills/blob/ca892277dcf0468d995f0036f3bd6d753a8afe7d/skills/ref-check/SKILL.md) |
-| `research-direction-recovery` | 结合目标与已有结果，识别有证据支持的下一步或停止条件。 | [q734738781/CatMaster](https://github.com/q734738781/CatMaster/blob/06b856814f980ca35f97fb01d7b970b5b18fd230/skills/research_reasoning/research-direction-recovery/SKILL.md) |
 | `research-lookup` | 通过外部搜索服务汇集科研证据与背景 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/research-lookup/SKILL.md) |
 | `scholar-evaluation` | 对科研作品进行可追溯的质量评估 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scholar-evaluation/SKILL.md) |
 | `scientific-brainstorming` | 生成和比较候选研究方向及其关键假设 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-brainstorming/SKILL.md) |
@@ -32,7 +31,6 @@
 - **peer-review**：Python 3.11+ standard library. Bundled CLIs are deterministic and local-only; they accept bounded JSON, CSV, or Markdown and make no network, model, image, or external-service calls.
 - **reading-contract**：Read the skill for runtime requirements.
 - **ref-check**：Read the skill for runtime requirements.
-- **research-direction-recovery**：Read the skill for runtime requirements.
 - **research-lookup**：Requires Python 3.10+ and network access; targets parallel-web-tools CLI 0.9.3 for Search, Extract, and Research. Explicit Chat requires requests and PARALLEL_API_KEY; optional Perplexity through openrouter.ai requires requests and OPENROUTER_API_KEY.
 - **scholar-evaluation**：Requires Python 3.11+ for optional bundled standard-library CLIs. All tooling is local JSON/CSV processing with no network, credentials, external models, or subprocesses.
 - **scientific-brainstorming**：Core guidance works in any Agent Skills-compatible host. Optional bundled CLIs require Python 3.11+ and use only the standard library; they make no network or LLM calls and require no credentials.

@@ -32,7 +32,7 @@ def build(root=ROOT):
   (out/(group+'.md')).write_text('\n'.join(lines)+'\n',encoding='utf-8')
  (out/'index.json').write_text(json.dumps({'schema_version':1,'scope':'All bundled task skills grouped by function across sources; router excluded','skills':rows},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  docs=root/'docs';docs.mkdir(exist_ok=True)
- lines=['# 科研技能功能目录','','按任务选择技能，来源仅用于追溯与许可说明。包含47项具体技能及独立的 `scientific-skill-router` 选择入口。技能文件已收录，不表示依赖已安装或科学效果已验证。','']
+ lines=['# 科研技能功能目录','',f'按任务选择技能，来源仅用于追溯与许可说明。包含{len(rows)}项具体技能及独立的 `scientific-skill-router` 选择入口。技能文件已收录，不表示依赖已安装或科学效果已验证。','']
  for group,(title,guidance) in GROUPS.items():
   members=[r for r in rows if r['group']==group]
   lines += ['## '+title+'（'+str(len(members))+'项）','',guidance,'','| 技能 | 中文用途 | 来源 |','| --- | --- | --- |']

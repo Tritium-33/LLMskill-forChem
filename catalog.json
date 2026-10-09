@@ -172,13 +172,6 @@
       "routing_group": "research-evidence"
     },
     {
-      "name": "research-direction-recovery",
-      "title": "研究方向纠偏",
-      "summary": "结合目标与已有结果，识别有证据支持的下一步或停止条件。",
-      "example_prompt": "请根据现有结果重新梳理研究目标，列出能改变下一步决策的最小验证。",
-      "routing_group": "research-evidence"
-    },
-    {
       "name": "research-lookup",
       "title": "research-lookup",
       "summary": "通过外部搜索服务汇集科研证据与背景",
@@ -270,24 +263,10 @@
       "routing_group": "data-modeling"
     },
     {
-      "name": "sympy",
-      "title": "sympy",
-      "summary": "符号代数、微积分与精确公式推导",
-      "example_prompt": "请使用 $sympy，帮助我完成符号代数、微积分与精确公式推导，先检查输入与所需依赖。",
-      "routing_group": "data-modeling"
-    },
-    {
       "name": "markitdown",
       "title": "markitdown",
       "summary": "将PDF、Office等文档转换为Markdown",
       "example_prompt": "请使用 $markitdown，帮助我完成将PDF、Office等文档转换为Markdown，先检查输入与所需依赖。",
-      "routing_group": "writing-figures"
-    },
-    {
-      "name": "matplotlib",
-      "title": "matplotlib",
-      "summary": "精细控制科研图表并导出出版格式",
-      "example_prompt": "请使用 $matplotlib，帮助我完成精细控制科研图表并导出出版格式，先检查输入与所需依赖。",
       "routing_group": "writing-figures"
     },
     {
@@ -323,13 +302,6 @@
       "title": "seaborn",
       "summary": "分布、分组比较与统计关系可视化",
       "example_prompt": "请使用 $seaborn，帮助我完成分布、分组比较与统计关系可视化，先检查输入与所需依赖。",
-      "routing_group": "writing-figures"
-    },
-    {
-      "name": "venue-templates",
-      "title": "venue-templates",
-      "summary": "期刊会议模板选择与投稿格式检查",
-      "example_prompt": "请使用 $venue-templates，帮助我完成期刊会议模板选择与投稿格式检查，先检查输入与所需依赖。",
       "routing_group": "writing-figures"
     },
     {

@@ -1,6 +1,6 @@
 # 科研技能功能目录
 
-按任务选择技能，来源仅用于追溯与许可说明。包含47项具体技能及独立的 `scientific-skill-router` 选择入口。技能文件已收录，不表示依赖已安装或科学效果已验证。
+按任务选择技能，来源仅用于追溯与许可说明。包含43项具体技能及独立的 `scientific-skill-router` 选择入口。技能文件已收录，不表示依赖已安装或科学效果已验证。
 
 ## 化学与材料（15项）
 
@@ -24,7 +24,7 @@
 | [rdkit](../skills/rdkit/SKILL.md) | 分子结构、描述符、指纹与子结构检索 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/rdkit/SKILL.md) |
 | [uncertainty-and-units](../skills/uncertainty-and-units/SKILL.md) | 物理单位检查、误差传播与不确定度预算 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/uncertainty-and-units/SKILL.md) |
 
-## 科研检索与论证（14项）
+## 科研检索与论证（13项）
 
 按找资料、核书目、证据综合、形成假设、设计实验和评阅区分；检索获得记录不等于已读全文。
 
@@ -39,13 +39,12 @@
 | [peer-review](../skills/peer-review/SKILL.md) | 有证据支持的论文评阅与修订意见 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/peer-review/SKILL.md) |
 | [reading-contract](../skills/reading-contract/SKILL.md) | 逐条核对论文或记录中的证据，区分事实、推断和未核实内容。 | [BootLoops-ai/skills](https://github.com/BootLoops-ai/skills/blob/ca892277dcf0468d995f0036f3bd6d753a8afe7d/skills/reading-contract/SKILL.md) |
 | [ref-check](../skills/ref-check/SKILL.md) | 核对书目信息及引用是否支持正文，给出可追溯的修改建议。 | [BootLoops-ai/skills](https://github.com/BootLoops-ai/skills/blob/ca892277dcf0468d995f0036f3bd6d753a8afe7d/skills/ref-check/SKILL.md) |
-| [research-direction-recovery](../skills/research-direction-recovery/SKILL.md) | 结合目标与已有结果，识别有证据支持的下一步或停止条件。 | [q734738781/CatMaster](https://github.com/q734738781/CatMaster/blob/06b856814f980ca35f97fb01d7b970b5b18fd230/skills/research_reasoning/research-direction-recovery/SKILL.md) |
 | [research-lookup](../skills/research-lookup/SKILL.md) | 通过外部搜索服务汇集科研证据与背景 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/research-lookup/SKILL.md) |
 | [scholar-evaluation](../skills/scholar-evaluation/SKILL.md) | 对科研作品进行可追溯的质量评估 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scholar-evaluation/SKILL.md) |
 | [scientific-brainstorming](../skills/scientific-brainstorming/SKILL.md) | 生成和比较候选研究方向及其关键假设 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-brainstorming/SKILL.md) |
 | [scientific-critical-thinking](../skills/scientific-critical-thinking/SKILL.md) | 审查科研主张、证据质量与混杂因素 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-critical-thinking/SKILL.md) |
 
-## 数据、统计与机器学习（10项）
+## 数据、统计与机器学习（9项）
 
 先明确解释、推断、预测还是优化目标；若任务只需基础统计，不强制建立机器学习模型。
 
@@ -60,22 +59,19 @@
 | [statistical-analysis](../skills/statistical-analysis/SKILL.md) | 统计检验选择、假设检查与效应量报告 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/statistical-analysis/SKILL.md) |
 | [statistical-power](../skills/statistical-power/SKILL.md) | 样本量、重复数和统计功效规划 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/statistical-power/SKILL.md) |
 | [statsmodels](../skills/statsmodels/SKILL.md) | 回归、广义线性模型和时间序列诊断 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/statsmodels/SKILL.md) |
-| [sympy](../skills/sympy/SKILL.md) | 符号代数、微积分与精确公式推导 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/sympy/SKILL.md) |
 
-## 写作与图表（8项）
+## 写作与图表（6项）
 
 区分真实数据图、概念示意图、文稿与幻灯片；外部图像服务不是真实数据绘图的必需工具。
 
 | 技能 | 中文用途 | 来源 |
 | --- | --- | --- |
 | [markitdown](../skills/markitdown/SKILL.md) | 将PDF、Office等文档转换为Markdown | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/markitdown/SKILL.md) |
-| [matplotlib](../skills/matplotlib/SKILL.md) | 精细控制科研图表并导出出版格式 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/matplotlib/SKILL.md) |
 | [scientific-schematics](../skills/scientific-schematics/SKILL.md) | 通过外部图像模型生成科学示意图草稿 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-schematics/SKILL.md) |
 | [scientific-slides](../skills/scientific-slides/SKILL.md) | 科研汇报幻灯片结构、制作与视觉检查 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-slides/SKILL.md) |
 | [scientific-visualization](../skills/scientific-visualization/SKILL.md) | 多面板科研图设计、单位与可读性检查 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-visualization/SKILL.md) |
 | [scientific-writing](../skills/scientific-writing/SKILL.md) | 有证据溯源的科研论文撰写与一致性检查 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-writing/SKILL.md) |
 | [seaborn](../skills/seaborn/SKILL.md) | 分布、分组比较与统计关系可视化 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/seaborn/SKILL.md) |
-| [venue-templates](../skills/venue-templates/SKILL.md) | 期刊会议模板选择与投稿格式检查 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/venue-templates/SKILL.md) |
 
 ## 如何选择
 
@@ -113,7 +109,6 @@
 - **peer-review**：Python 3.11+ standard library. Bundled CLIs are deterministic and local-only; they accept bounded JSON, CSV, or Markdown and make no network, model, image, or external-service calls.
 - **reading-contract**：Read the skill for runtime requirements.
 - **ref-check**：Read the skill for runtime requirements.
-- **research-direction-recovery**：Read the skill for runtime requirements.
 - **research-lookup**：Requires Python 3.10+ and network access; targets parallel-web-tools CLI 0.9.3 for Search, Extract, and Research. Explicit Chat requires requests and PARALLEL_API_KEY; optional Perplexity through openrouter.ai requires requests and OPENROUTER_API_KEY.
 - **scholar-evaluation**：Requires Python 3.11+ for optional bundled standard-library CLIs. All tooling is local JSON/CSV processing with no network, credentials, external models, or subprocesses.
 - **scientific-brainstorming**：Core guidance works in any Agent Skills-compatible host. Optional bundled CLIs require Python 3.11+ and use only the standard library; they make no network or LLM calls and require no credentials.
@@ -127,12 +122,9 @@
 - **statistical-analysis**：Requires Python 3.12+ and the documented isolated scientific Python environment; network access only for installation and documentation.
 - **statistical-power**：Requires Python >=3.12 with statsmodels, scipy, numpy, pandas, and matplotlib. Optional comparison uses pingouin; survival extensions use lifelines (requires pandas<3). Installation needs network access unless packages are cached. Calculations run locally without credentials.
 - **statsmodels**：Requires Python 3.10+ and statsmodels 0.15.0; the tested NumPy 2.5.3/SciPy 1.18.1 stack needs Python 3.12+. Plotting needs matplotlib; predictive metrics need scikit-learn. Network access is needed only for installation or documentation; no credentials.
-- **sympy**：Requires Python 3.9+ and SymPy 1.14.0. Optional NumPy/SciPy/Matplotlib, IPython/ipywidgets, or ANTLR 4.11 parser runtime for relevant examples. Compiled wrappers need a C/Fortran compiler and backend packages; emitting source needs no compiler. Network only for installation/docs.
 - **markitdown**：Python >=3.10,<3.15 and uv. Examples target MarkItDown 0.1.8. Core local conversion can run offline; URL, YouTube, audio transcription, LLM, Azure, and MCP workflows may use network or external services.
-- **matplotlib**：Requires Python 3.11+ and Matplotlib 3.11.2. Bundled examples also use NumPy and SciPy; pandas examples need pandas, and Jupyter widgets need ipympl. Installation needs network access; local plotting needs no credentials.
 - **scientific-schematics**：Requires Python 3.10+ with requests, network access, and an OpenRouter API key.
 - **scientific-slides**：Python 3.12+; requests for OpenRouter generation, Pillow for image PDFs, PyMuPDF for rendering, pypdf and python-pptx for validation and template editing. Generation needs network and OPENROUTER_API_KEY. Beamer needs TeX Live/MiKTeX; programmatic PPTX needs Node.js and PptxGenJS; rendering PPTX for review needs LibreOffice.
 - **scientific-visualization**：Requires Python 3.11+ and uv for pinned examples. Bundled CLIs are network-free and load Matplotlib, Pillow, or pypdf only when needed. Plotly static export with Kaleido v1 requires a compatible Chrome/Chromium installation.
 - **scientific-writing**：Requires Python 3.11+ only for optional dependency-free local CLIs; core guidance is platform-neutral. Bundled tools are offline and require no API keys.
 - **seaborn**：Requires Python 3.8+ with seaborn 0.13.2, NumPy, pandas, and Matplotlib; the tested current dependency stack requires Python 3.12+. Optional scipy/statsmodels for advanced regression or clustering, ipywidgets for notebook controls. Network only for installation or uncached example datasets.
-- **venue-templates**：Requires Python 3.11+ for helper scripts; LaTeX and Poppler command-line tools are optional for compilation and PDF inspection. Needs network access to verify current venue instructions.

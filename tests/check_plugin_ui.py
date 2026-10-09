@@ -6,6 +6,8 @@ from playwright.sync_api import sync_playwright, expect
 
 root = Path(sys.argv[1]).resolve()
 html = (root / "assets/panel.html").read_text(encoding="utf-8")
+catalog = json.loads((root / "catalog.json").read_text())["skills"]
+names = [entry["name"] for entry in catalog]
 output = Path(sys.argv[2]).resolve() if len(sys.argv) > 2 else None
 
 with sync_playwright() as pw:
@@ -14,18 +16,18 @@ with sync_playwright() as pw:
     errors = []
     page.on("pageerror", lambda error: errors.append(str(error)))
     page.goto((root / "assets/panel.html").as_uri())
-    expect(page.locator(".skill")).to_have_count(5)
-    expect(page.locator(".title")).to_have_text(["reading-contract", "lit-review", "ref-check", "independence-bookkeeping", "research-direction-recovery"])
-    expect(page.locator(".source a")).to_have_count(5)
+    expect(page.locator(".skill")).to_have_count(len(names))
+    expect(page.locator(".title")).to_have_text(names)
+    expect(page.locator(".source a")).to_have_count(sum(bool(entry["source"]["url"]) for entry in catalog))
     for link in page.locator(".source a").all():
         assert link.get_attribute("href").startswith("https://github.com/")
         assert "/blob/" in link.get_attribute("href")
         assert link.get_attribute("href").endswith("/SKILL.md")
-    page.locator("#search").fill("CatMaster")
+    page.locator("#search").fill("paper-lookup")
     expect(page.locator(".skill")).to_have_count(1)
-    expect(page.locator(".title")).to_have_text("research-direction-recovery")
+    expect(page.locator(".title")).to_have_text("paper-lookup")
     assert page.locator("textarea,form").count() == 0
-    page.locator("#search").fill("参考文献")
+    page.locator("#search").fill("ref-check")
     expect(page.locator(".skill")).to_have_count(1)
     # Clipboard success and refusal both preserve a paste-only workflow.
     page.evaluate("Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async t=>{window.copied=t}}})")
@@ -43,7 +45,7 @@ with sync_playwright() as pw:
     page.set_viewport_size({"width": 390, "height": 844})
     assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
     page.emulate_media(color_scheme="dark")
-    expect(page.locator(".skill")).to_have_count(5)
+    expect(page.locator(".skill")).to_have_count(len(names))
     page.emulate_media(color_scheme="light")
     page.set_viewport_size({"width": 660, "height": 760})
 
@@ -84,10 +86,10 @@ with sync_playwright() as pw:
     attachment = page.evaluate("contexts[0].content[0]")
     assert attachment["_meta"]["openai/title"] == "ref-check"
     assert "ref-check" in attachment["text"]
-    frame.get_by_role("button", name="插入research-direction-recovery").click()
-    expect(frame.locator("#status")).to_contain_text("已插入「research-direction-recovery」")
+    frame.get_by_role("button", name="插入paper-lookup").click()
+    expect(frame.locator("#status")).to_contain_text("已插入「paper-lookup」")
     assert page.evaluate("contexts[1].content.length") == 1
-    assert "research-direction-recovery" in page.evaluate("contexts[1].content[0].text")
+    assert "paper-lookup" in page.evaluate("contexts[1].content[0].text")
     # Host removing the attachment clears stale confirmation; no re-insertion.
     page.evaluate("document.querySelector('iframe').contentWindow.postMessage({jsonrpc:'2.0',method:'ui/notifications/host-context-changed',params:{'openai/modelContext':null}},'*')")
     expect(frame.locator("#status")).to_be_empty()

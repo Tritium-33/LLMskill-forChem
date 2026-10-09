@@ -267,17 +267,6 @@
       "runtime_ready": "not established by installation"
     },
     {
-      "name": "research-direction-recovery",
-      "group": "research-evidence",
-      "purpose": "结合目标与已有结果，识别有证据支持的下一步或停止条件。",
-      "example": "请根据现有结果重新梳理研究目标，列出能改变下一步决策的最小验证。",
-      "compatibility": "Read the skill for runtime requirements.",
-      "source_name": "q734738781/CatMaster",
-      "source_url": "https://github.com/q734738781/CatMaster/blob/06b856814f980ca35f97fb01d7b970b5b18fd230/skills/research_reasoning/research-direction-recovery/SKILL.md",
-      "bundled": true,
-      "runtime_ready": "not established by installation"
-    },
-    {
       "name": "research-lookup",
       "group": "research-evidence",
       "purpose": "通过外部搜索服务汇集科研证据与背景",
@@ -421,17 +410,6 @@
       "runtime_ready": "not established by installation"
     },
     {
-      "name": "sympy",
-      "group": "data-modeling",
-      "purpose": "符号代数、微积分与精确公式推导",
-      "example": "请使用 $sympy，帮助我完成符号代数、微积分与精确公式推导，先检查输入与所需依赖。",
-      "compatibility": "Requires Python 3.9+ and SymPy 1.14.0. Optional NumPy/SciPy/Matplotlib, IPython/ipywidgets, or ANTLR 4.11 parser runtime for relevant examples. Compiled wrappers need a C/Fortran compiler and backend packages; emitting source needs no compiler. Network only for installation/docs.",
-      "source_name": "K-Dense-AI/scientific-agent-skills",
-      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/sympy/SKILL.md",
-      "bundled": true,
-      "runtime_ready": "not established by installation"
-    },
-    {
       "name": "markitdown",
       "group": "writing-figures",
       "purpose": "将PDF、Office等文档转换为Markdown",
@@ -439,17 +417,6 @@
       "compatibility": "Python >=3.10,<3.15 and uv. Examples target MarkItDown 0.1.8. Core local conversion can run offline; URL, YouTube, audio transcription, LLM, Azure, and MCP workflows may use network or external services.",
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/markitdown/SKILL.md",
-      "bundled": true,
-      "runtime_ready": "not established by installation"
-    },
-    {
-      "name": "matplotlib",
-      "group": "writing-figures",
-      "purpose": "精细控制科研图表并导出出版格式",
-      "example": "请使用 $matplotlib，帮助我完成精细控制科研图表并导出出版格式，先检查输入与所需依赖。",
-      "compatibility": "Requires Python 3.11+ and Matplotlib 3.11.2. Bundled examples also use NumPy and SciPy; pandas examples need pandas, and Jupyter widgets need ipympl. Installation needs network access; local plotting needs no credentials.",
-      "source_name": "K-Dense-AI/scientific-agent-skills",
-      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/matplotlib/SKILL.md",
       "bundled": true,
       "runtime_ready": "not established by installation"
     },
@@ -505,17 +472,6 @@
       "compatibility": "Requires Python 3.8+ with seaborn 0.13.2, NumPy, pandas, and Matplotlib; the tested current dependency stack requires Python 3.12+. Optional scipy/statsmodels for advanced regression or clustering, ipywidgets for notebook controls. Network only for installation or uncached example datasets.",
       "source_name": "K-Dense-AI/scientific-agent-skills",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/seaborn/SKILL.md",
-      "bundled": true,
-      "runtime_ready": "not established by installation"
-    },
-    {
-      "name": "venue-templates",
-      "group": "writing-figures",
-      "purpose": "期刊会议模板选择与投稿格式检查",
-      "example": "请使用 $venue-templates，帮助我完成期刊会议模板选择与投稿格式检查，先检查输入与所需依赖。",
-      "compatibility": "Requires Python 3.11+ for helper scripts; LaTeX and Poppler command-line tools are optional for compilation and PDF inspection. Needs network access to verify current venue instructions.",
-      "source_name": "K-Dense-AI/scientific-agent-skills",
-      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/venue-templates/SKILL.md",
       "bundled": true,
       "runtime_ready": "not established by installation"
     }

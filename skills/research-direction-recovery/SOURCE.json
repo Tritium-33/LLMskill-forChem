@@ -1,9 +1,0 @@
-{
-  "repository": "https://github.com/q734738781/CatMaster",
-  "commit": "06b856814f980ca35f97fb01d7b970b5b18fd230",
-  "path": "skills/research_reasoning/research-direction-recovery",
-  "upstream_skill_sha256": "5f12f8eddb32344d6ecb7df6e75401b7632b64225f9c880b57548be14545f34c",
-  "modifications": [
-    "Added Chinese display metadata in agents/openai.yaml."
-  ]
-}

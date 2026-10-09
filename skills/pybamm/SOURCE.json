@@ -5,8 +5,9 @@
   "upstream_skill_sha256": "9d6f375f4d9def40072ea734f07e1a48c60a1cd906231cab1a4189a75499a1a4",
   "modifications": [
     "Added agents/openai.yaml: original English display name and Chinese purpose/source.",
-    "Added provenance and repository MIT license; upstream skill text and support files unchanged."
+    "Added provenance and repository MIT license; upstream skill text and support files unchanged.",
+    "2026-10-09 license audit: corrected skill-specific licensing metadata; added full applicable license and attribution where different from root MIT. Upstream content unchanged."
   ],
   "upstream_license_metadata": "MIT",
-  "distribution_license": "Repository MIT license; retain upstream metadata and bundled third-party notices."
+  "distribution_license": "MIT for the skill as declared upstream; root MIT notice retained separately; external dependencies have separate terms."
 }
