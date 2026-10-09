@@ -59,7 +59,7 @@ Windows 将示例候选路径替换为本机路径并按需加引号。`--candid
 | AtomisticSkills 固定版本候选比较 | 7 个上游文件哈希相同，无打包文件碰撞 |
 | 实际远端版本监测 | API 限流后只读 Git 回退成功，5 个上游仓库的 HEAD 均与已记录固定版本一致 |
 
-远端观察是当日快照，见 [版本记录](../examples/evidence/upstream-heads-2026-10-09.json)，不能替代未来的检查。网络错误和不完整基线另有回归测试，工具不会把失败写成“无更新”。GitHub Actions 的新检查配置尚待本轮推送后的远端运行。
+远端观察是当日快照，见 [版本记录](../examples/evidence/upstream-heads-2026-10-09.json)，不能替代未来的检查。网络错误和不完整基线另有回归测试，工具不会把失败写成“无更新”。GitHub Actions 随后在提交 `02d7182` 上通过 Windows/Ubuntu × Python 3.10/3.13 矩阵，见 [远端运行记录](https://github.com/Tritium-33/LLMskill-forChem/actions/runs/37919851920)。Python 3.10 按上游要求跳过 EDA 执行测试；该版本的安装与结构检查仍执行。
 
 论文/VASP 合成案例不算模型行为验证或科学计算证据。单项安装与打包回归不等于运行环境完整。未验证 DSH、真实 Codex 自动路由、科学模型性能或所有上游技能。
 
