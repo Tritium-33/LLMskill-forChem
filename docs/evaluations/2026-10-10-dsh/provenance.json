@@ -1,0 +1,17 @@
+{
+  "sourceReportSha256": "b2a3dea6e388597e9e6259390052ee96da849bd2e7ac46a17547ed2b07930ad7",
+  "publicReportSha256": "916070187a204371c375fc70309946c1fc6404180e3a5634d0477e027f9ee055",
+  "publicResultsSha256": "375aeeffd569e31905bf3915dcf22e655a09e2a3db3044596363faeb5684d20a",
+  "frozenReviewerReportSha256": "23d868b118197856f15600198562b6e7b922059108c229d601977e7f6da0b265",
+  "frozenReviewerScoresSha256": "70f746d4189935a7caac5af4f232c718cb0f4d5e4f0311ac352a6286d112b4e8",
+  "publicEdits": [
+    "Added public-distribution note and replaced exactly one machine-specific experiment root with <experiment-root>. Original questions, answers, ratings and conclusions unchanged."
+  ],
+  "notIncluded": [
+    "Raw provider/session logs and hidden reasoning",
+    "Private workspace paths, account configuration and session identifiers",
+    "Publisher PDFs, supplementary workbook and other original paper files",
+    "Private anonymization mapping and intermediate scripts"
+  ],
+  "reproducibilityLimit": "The public record preserves outputs, reviewer evidence and aggregated usage, but does not independently reproduce the private log audit or provider billing. Hashes identify versions; hashes alone do not verify claims."
+}

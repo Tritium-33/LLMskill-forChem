@@ -4,7 +4,7 @@
 
 ## 选择安装范围
 
-默认安装到当前用户的 `~/.agents/skills`；请确认宿主实际读取此目录。DSH 尚未实测：
+默认安装到当前用户的 `~/.agents/skills`；请确认宿主实际读取此目录。DSH 已在显式技能目录配置下进行限定范围的任务测试，以下默认目录安装链路仍需单独验证，见 [兼容性说明](compatibility.md)：
 
 ```text
 python tools/manage.py install --dry-run
@@ -114,4 +114,4 @@ CI 使用以下命令，将遗漏文本编码产生的警告视为错误，即�
 python -X warn_default_encoding -W error::EncodingWarning -m unittest discover -s tests -v
 ```
 
-这些结果验证的是安装与打包工具，不代表宿主发现行为、DSH 兼容性或各项科学计算已验证。
+这些结果只验证安装与打包工具。后续 DSH 实际技能加载与文献任务证据另见 [首轮评估](evaluations/2026-10-10-dsh/README.md)，不代表默认目录、全部技能或各项科学计算已验证。

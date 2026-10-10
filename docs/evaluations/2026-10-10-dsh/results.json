@@ -1,0 +1,666 @@
+{
+  "scope": "7 tasks on one published paper, 3 configurations, one run per task/configuration; exploratory observations, not causal estimates or correctness rates",
+  "testedCommit": "cf65781d4058cb6c0e9dfcab3842149450351e04",
+  "environment": {
+    "os": "Windows",
+    "harness": "@deepseek-ai/dsh 0.2.0-rc.2",
+    "profile": "headless",
+    "node": "v24.19.0",
+    "model": "deepseek-flash",
+    "provider": "deepseek-official",
+    "reasoningEffort": "high",
+    "maxTokens": 256000
+  },
+  "groups": {
+    "A": "No project skills or skill tool; general agent tools available",
+    "B": "Concrete skills without collection router",
+    "C": "Concrete skills plus optional router; intended router-first directive absent from actual initial context"
+  },
+  "tokenAccounting": "Recorded provider usage, including delegated sessions; output includes reasoning. No currency conversion. No independent billing verification.",
+  "review": "Context-isolated GPT-6 Astra Medium; scores frozen before mapping; six ordinal dimensions 0–4, not accuracy percentages or domain-expert certification",
+  "dimensions": {
+    "C1": "Instruction following",
+    "C2": "Factual accuracy",
+    "C3": "Citation validity and support",
+    "C4": "Coverage and limitations",
+    "C5": "Reasoning and uncertainty",
+    "C6": "Clarity and usefulness"
+  },
+  "runs": [
+    {
+      "task": "T1",
+      "group": "A",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n帮我分析一下这篇论文：10.1038/s41467-026-68735-3。\r\n",
+      "primarySkillsLoaded": [],
+      "delegatedSkillsLoaded": [],
+      "tokens": {
+        "inputTokensUncached": 77914,
+        "cacheReadTokens": 3633407,
+        "cacheWriteTokens": 0,
+        "outputTokens": 32317,
+        "logicalPromptTokens": 3711321,
+        "totalTokens": 3743638,
+        "modelRequests": 54,
+        "directModelRequests": 54,
+        "delegatedModelRequests": 0
+      },
+      "wallClockSeconds": 260.4,
+      "qualityScores": {
+        "C1": 3,
+        "C2": 1,
+        "C3": 1,
+        "C4": 3,
+        "C5": 1,
+        "C6": 2
+      },
+      "qualityConfidence": "高"
+    },
+    {
+      "task": "T1",
+      "group": "B",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n帮我分析一下这篇论文：10.1038/s41467-026-68735-3。\r\n",
+      "primarySkillsLoaded": [
+        "peer-review"
+      ],
+      "delegatedSkillsLoaded": [],
+      "tokens": {
+        "inputTokensUncached": 93010,
+        "cacheReadTokens": 4348928,
+        "cacheWriteTokens": 0,
+        "outputTokens": 57401,
+        "logicalPromptTokens": 4441938,
+        "totalTokens": 4499339,
+        "modelRequests": 50,
+        "directModelRequests": 50,
+        "delegatedModelRequests": 0
+      },
+      "wallClockSeconds": 353.5,
+      "qualityScores": {
+        "C1": 4,
+        "C2": 2,
+        "C3": 2,
+        "C4": 3,
+        "C5": 2,
+        "C6": 3
+      },
+      "qualityConfidence": "高"
+    },
+    {
+      "task": "T1",
+      "group": "C",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n帮我分析一下这篇论文：10.1038/s41467-026-68735-3。\r\n",
+      "primarySkillsLoaded": [
+        "scientific-skill-router",
+        "reading-contract",
+        "scientific-critical-thinking"
+      ],
+      "delegatedSkillsLoaded": [],
+      "tokens": {
+        "inputTokensUncached": 164166,
+        "cacheReadTokens": 4977664,
+        "cacheWriteTokens": 0,
+        "outputTokens": 63603,
+        "logicalPromptTokens": 5141830,
+        "totalTokens": 5205433,
+        "modelRequests": 40,
+        "directModelRequests": 40,
+        "delegatedModelRequests": 0
+      },
+      "wallClockSeconds": 369.1,
+      "qualityScores": {
+        "C1": 4,
+        "C2": 2,
+        "C3": 2,
+        "C4": 4,
+        "C5": 2,
+        "C6": 3
+      },
+      "qualityConfidence": "高"
+    },
+    {
+      "task": "T2",
+      "group": "A",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n这篇论文里，机器学习和 DFT 分别做了什么？作者怎么判断机器学习的预测靠不靠谱？\r\n",
+      "primarySkillsLoaded": [],
+      "delegatedSkillsLoaded": [],
+      "tokens": {
+        "inputTokensUncached": 42943,
+        "cacheReadTokens": 423039,
+        "cacheWriteTokens": 0,
+        "outputTokens": 9180,
+        "logicalPromptTokens": 465982,
+        "totalTokens": 475162,
+        "modelRequests": 14,
+        "directModelRequests": 14,
+        "delegatedModelRequests": 0
+      },
+      "wallClockSeconds": 75.3,
+      "qualityScores": {
+        "C1": 4,
+        "C2": 3,
+        "C3": 3,
+        "C4": 4,
+        "C5": 2,
+        "C6": 3
+      },
+      "qualityConfidence": "高"
+    },
+    {
+      "task": "T2",
+      "group": "B",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n这篇论文里，机器学习和 DFT 分别做了什么？作者怎么判断机器学习的预测靠不靠谱？\r\n",
+      "primarySkillsLoaded": [],
+      "delegatedSkillsLoaded": [],
+      "tokens": {
+        "inputTokensUncached": 45860,
+        "cacheReadTokens": 876288,
+        "cacheWriteTokens": 0,
+        "outputTokens": 9584,
+        "logicalPromptTokens": 922148,
+        "totalTokens": 931732,
+        "modelRequests": 24,
+        "directModelRequests": 24,
+        "delegatedModelRequests": 0
+      },
+      "wallClockSeconds": 82,
+      "qualityScores": {
+        "C1": 4,
+        "C2": 3,
+        "C3": 3,
+        "C4": 4,
+        "C5": 3,
+        "C6": 3
+      },
+      "qualityConfidence": "高"
+    },
+    {
+      "task": "T2",
+      "group": "C",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n这篇论文里，机器学习和 DFT 分别做了什么？作者怎么判断机器学习的预测靠不靠谱？\r\n",
+      "primarySkillsLoaded": [
+        "reading-contract"
+      ],
+      "delegatedSkillsLoaded": [],
+      "tokens": {
+        "inputTokensUncached": 48826,
+        "cacheReadTokens": 827392,
+        "cacheWriteTokens": 0,
+        "outputTokens": 14622,
+        "logicalPromptTokens": 876218,
+        "totalTokens": 890840,
+        "modelRequests": 21,
+        "directModelRequests": 21,
+        "delegatedModelRequests": 0
+      },
+      "wallClockSeconds": 91.1,
+      "qualityScores": {
+        "C1": 4,
+        "C2": 3,
+        "C3": 4,
+        "C4": 4,
+        "C5": 4,
+        "C6": 3
+      },
+      "qualityConfidence": "高"
+    },
+    {
+      "task": "T3",
+      "group": "A",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n文中最高电流密度和 500 小时稳定性分别是在什么条件下测的？能放在一起比较吗？\r\n",
+      "primarySkillsLoaded": [],
+      "delegatedSkillsLoaded": [],
+      "tokens": {
+        "inputTokensUncached": 28315,
+        "cacheReadTokens": 522496,
+        "cacheWriteTokens": 0,
+        "outputTokens": 8503,
+        "logicalPromptTokens": 550811,
+        "totalTokens": 559314,
+        "modelRequests": 20,
+        "directModelRequests": 20,
+        "delegatedModelRequests": 0
+      },
+      "wallClockSeconds": 83.9,
+      "qualityScores": {
+        "C1": 4,
+        "C2": 3,
+        "C3": 3,
+        "C4": 3,
+        "C5": 3,
+        "C6": 3
+      },
+      "qualityConfidence": "高"
+    },
+    {
+      "task": "T3",
+      "group": "B",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n文中最高电流密度和 500 小时稳定性分别是在什么条件下测的？能放在一起比较吗？\r\n",
+      "primarySkillsLoaded": [
+        "reading-contract"
+      ],
+      "delegatedSkillsLoaded": [],
+      "tokens": {
+        "inputTokensUncached": 34950,
+        "cacheReadTokens": 642816,
+        "cacheWriteTokens": 0,
+        "outputTokens": 14757,
+        "logicalPromptTokens": 677766,
+        "totalTokens": 692523,
+        "modelRequests": 19,
+        "directModelRequests": 19,
+        "delegatedModelRequests": 0
+      },
+      "wallClockSeconds": 107.7,
+      "qualityScores": {
+        "C1": 4,
+        "C2": 3,
+        "C3": 4,
+        "C4": 4,
+        "C5": 3,
+        "C6": 3
+      },
+      "qualityConfidence": "高"
+    },
+    {
+      "task": "T3",
+      "group": "C",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n文中最高电流密度和 500 小时稳定性分别是在什么条件下测的？能放在一起比较吗？\r\n",
+      "primarySkillsLoaded": [
+        "reading-contract"
+      ],
+      "delegatedSkillsLoaded": [],
+      "tokens": {
+        "inputTokensUncached": 50064,
+        "cacheReadTokens": 1489920,
+        "cacheWriteTokens": 0,
+        "outputTokens": 15897,
+        "logicalPromptTokens": 1539984,
+        "totalTokens": 1555881,
+        "modelRequests": 32,
+        "directModelRequests": 32,
+        "delegatedModelRequests": 0
+      },
+      "wallClockSeconds": 133.5,
+      "qualityScores": {
+        "C1": 4,
+        "C2": 3,
+        "C3": 4,
+        "C4": 4,
+        "C5": 3,
+        "C6": 3
+      },
+      "qualityConfidence": "高"
+    },
+    {
+      "task": "T4",
+      "group": "A",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n帮我找几篇 2026 年 1 月 29 日以前，用钨改善 NiFe 氢氧化物或氧羟化物析氧性能的论文，最多五篇，给我 DOI 和每篇主要做了什么。\r\n",
+      "primarySkillsLoaded": [],
+      "delegatedSkillsLoaded": [],
+      "tokens": {
+        "inputTokensUncached": 40294,
+        "cacheReadTokens": 1506432,
+        "cacheWriteTokens": 0,
+        "outputTokens": 26634,
+        "logicalPromptTokens": 1546726,
+        "totalTokens": 1573360,
+        "modelRequests": 39,
+        "directModelRequests": 39,
+        "delegatedModelRequests": 0
+      },
+      "wallClockSeconds": 711.1,
+      "qualityScores": {
+        "C1": 3,
+        "C2": 4,
+        "C3": 4,
+        "C4": 4,
+        "C5": 4,
+        "C6": 3
+      },
+      "qualityConfidence": "中高"
+    },
+    {
+      "task": "T4",
+      "group": "B",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n帮我找几篇 2026 年 1 月 29 日以前，用钨改善 NiFe 氢氧化物或氧羟化物析氧性能的论文，最多五篇，给我 DOI 和每篇主要做了什么。\r\n",
+      "primarySkillsLoaded": [
+        "paper-lookup"
+      ],
+      "delegatedSkillsLoaded": [],
+      "tokens": {
+        "inputTokensUncached": 82037,
+        "cacheReadTokens": 4831744,
+        "cacheWriteTokens": 0,
+        "outputTokens": 51461,
+        "logicalPromptTokens": 4913781,
+        "totalTokens": 4965242,
+        "modelRequests": 64,
+        "directModelRequests": 64,
+        "delegatedModelRequests": 0
+      },
+      "wallClockSeconds": 1386.1,
+      "qualityScores": {
+        "C1": 2,
+        "C2": 4,
+        "C3": 4,
+        "C4": 4,
+        "C5": 3,
+        "C6": 3
+      },
+      "qualityConfidence": "中高"
+    },
+    {
+      "task": "T4",
+      "group": "C",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n帮我找几篇 2026 年 1 月 29 日以前，用钨改善 NiFe 氢氧化物或氧羟化物析氧性能的论文，最多五篇，给我 DOI 和每篇主要做了什么。\r\n",
+      "primarySkillsLoaded": [
+        "paper-lookup",
+        "literature-search-openalex"
+      ],
+      "delegatedSkillsLoaded": [],
+      "tokens": {
+        "inputTokensUncached": 75786,
+        "cacheReadTokens": 1889280,
+        "cacheWriteTokens": 0,
+        "outputTokens": 37689,
+        "logicalPromptTokens": 1965066,
+        "totalTokens": 2002755,
+        "modelRequests": 27,
+        "directModelRequests": 27,
+        "delegatedModelRequests": 0
+      },
+      "wallClockSeconds": 432.2,
+      "qualityScores": {
+        "C1": 2,
+        "C2": 3,
+        "C3": 4,
+        "C4": 4,
+        "C5": 3,
+        "C6": 3
+      },
+      "qualityConfidence": "高（主列表），中（附加评价）"
+    },
+    {
+      "task": "T5",
+      "group": "A",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n这篇论文的新意主要在哪里？和 2026 年 1 月 29 日以前的相关工作比，哪些是新的，哪些是已有思路？\r\n",
+      "primarySkillsLoaded": [],
+      "delegatedSkillsLoaded": [],
+      "tokens": {
+        "inputTokensUncached": 188945,
+        "cacheReadTokens": 6978560,
+        "cacheWriteTokens": 0,
+        "outputTokens": 109265,
+        "logicalPromptTokens": 7167505,
+        "totalTokens": 7276770,
+        "modelRequests": 141,
+        "directModelRequests": 61,
+        "delegatedModelRequests": 80
+      },
+      "wallClockSeconds": 363.9,
+      "qualityScores": {
+        "C1": 3,
+        "C2": 2,
+        "C3": 2,
+        "C4": 3,
+        "C5": 2,
+        "C6": 3
+      },
+      "qualityConfidence": "中高"
+    },
+    {
+      "task": "T5",
+      "group": "B",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n这篇论文的新意主要在哪里？和 2026 年 1 月 29 日以前的相关工作比，哪些是新的，哪些是已有思路？\r\n",
+      "primarySkillsLoaded": [
+        "lit-review"
+      ],
+      "delegatedSkillsLoaded": [
+        "lit-review",
+        "lit-review",
+        "reading-contract",
+        "lit-review",
+        "paper-lookup",
+        "lit-review",
+        "lit-review",
+        "reading-contract"
+      ],
+      "tokens": {
+        "inputTokensUncached": 601023,
+        "cacheReadTokens": 24686464,
+        "cacheWriteTokens": 0,
+        "outputTokens": 301299,
+        "logicalPromptTokens": 25287487,
+        "totalTokens": 25588786,
+        "modelRequests": 323,
+        "directModelRequests": 71,
+        "delegatedModelRequests": 252
+      },
+      "wallClockSeconds": 1291.2,
+      "qualityScores": {
+        "C1": 4,
+        "C2": 3,
+        "C3": 3,
+        "C4": 4,
+        "C5": 3,
+        "C6": 3
+      },
+      "qualityConfidence": "中高"
+    },
+    {
+      "task": "T5",
+      "group": "C",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n这篇论文的新意主要在哪里？和 2026 年 1 月 29 日以前的相关工作比，哪些是新的，哪些是已有思路？\r\n",
+      "primarySkillsLoaded": [
+        "lit-review",
+        "paper-lookup"
+      ],
+      "delegatedSkillsLoaded": [
+        "lit-review",
+        "lit-review",
+        "lit-review",
+        "lit-review",
+        "lit-review",
+        "lit-review",
+        "lit-review",
+        "lit-review"
+      ],
+      "tokens": {
+        "inputTokensUncached": 1143030,
+        "cacheReadTokens": 62039552,
+        "cacheWriteTokens": 0,
+        "outputTokens": 456376,
+        "logicalPromptTokens": 63182582,
+        "totalTokens": 63638958,
+        "modelRequests": 630,
+        "directModelRequests": 99,
+        "delegatedModelRequests": 531
+      },
+      "wallClockSeconds": 1097.8,
+      "qualityScores": {
+        "C1": 2,
+        "C2": 1,
+        "C3": 1,
+        "C4": 3,
+        "C5": 1,
+        "C6": 2
+      },
+      "qualityConfidence": "高（主要错误）；中（未核全引文）"
+    },
+    {
+      "task": "T6",
+      "group": "A",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n作者凭什么说 W 主要是在促进邻近活性位点，而不是自己直接参与反应？这些证据够有说服力吗？\r\n",
+      "primarySkillsLoaded": [],
+      "delegatedSkillsLoaded": [],
+      "tokens": {
+        "inputTokensUncached": 68582,
+        "cacheReadTokens": 549888,
+        "cacheWriteTokens": 0,
+        "outputTokens": 20254,
+        "logicalPromptTokens": 618470,
+        "totalTokens": 638724,
+        "modelRequests": 15,
+        "directModelRequests": 15,
+        "delegatedModelRequests": 0
+      },
+      "wallClockSeconds": 127.4,
+      "qualityScores": {
+        "C1": 4,
+        "C2": 3,
+        "C3": 3,
+        "C4": 4,
+        "C5": 3,
+        "C6": 3
+      },
+      "qualityConfidence": "高"
+    },
+    {
+      "task": "T6",
+      "group": "B",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n作者凭什么说 W 主要是在促进邻近活性位点，而不是自己直接参与反应？这些证据够有说服力吗？\r\n",
+      "primarySkillsLoaded": [
+        "scientific-critical-thinking"
+      ],
+      "delegatedSkillsLoaded": [],
+      "tokens": {
+        "inputTokensUncached": 108088,
+        "cacheReadTokens": 2998656,
+        "cacheWriteTokens": 0,
+        "outputTokens": 41900,
+        "logicalPromptTokens": 3106744,
+        "totalTokens": 3148644,
+        "modelRequests": 31,
+        "directModelRequests": 31,
+        "delegatedModelRequests": 0
+      },
+      "wallClockSeconds": 294.2,
+      "qualityScores": {
+        "C1": 4,
+        "C2": 2,
+        "C3": 3,
+        "C4": 4,
+        "C5": 2,
+        "C6": 3
+      },
+      "qualityConfidence": "高"
+    },
+    {
+      "task": "T6",
+      "group": "C",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n作者凭什么说 W 主要是在促进邻近活性位点，而不是自己直接参与反应？这些证据够有说服力吗？\r\n",
+      "primarySkillsLoaded": [
+        "scientific-critical-thinking",
+        "reading-contract"
+      ],
+      "delegatedSkillsLoaded": [],
+      "tokens": {
+        "inputTokensUncached": 94897,
+        "cacheReadTokens": 2893440,
+        "cacheWriteTokens": 0,
+        "outputTokens": 58213,
+        "logicalPromptTokens": 2988337,
+        "totalTokens": 3046550,
+        "modelRequests": 34,
+        "directModelRequests": 34,
+        "delegatedModelRequests": 0
+      },
+      "wallClockSeconds": 362.6,
+      "qualityScores": {
+        "C1": 4,
+        "C2": 2,
+        "C3": 2,
+        "C4": 4,
+        "C5": 2,
+        "C6": 3
+      },
+      "qualityConfidence": "高"
+    },
+    {
+      "task": "T7",
+      "group": "A",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n这篇论文用的是主动学习吗？和直接拿预训练模型做筛选有什么区别？\r\n",
+      "primarySkillsLoaded": [],
+      "delegatedSkillsLoaded": [],
+      "tokens": {
+        "inputTokensUncached": 53644,
+        "cacheReadTokens": 371963,
+        "cacheWriteTokens": 0,
+        "outputTokens": 7617,
+        "logicalPromptTokens": 425607,
+        "totalTokens": 433224,
+        "modelRequests": 12,
+        "directModelRequests": 12,
+        "delegatedModelRequests": 0
+      },
+      "wallClockSeconds": 58.5,
+      "qualityScores": {
+        "C1": 4,
+        "C2": 2,
+        "C3": 3,
+        "C4": 4,
+        "C5": 2,
+        "C6": 3
+      },
+      "qualityConfidence": "高"
+    },
+    {
+      "task": "T7",
+      "group": "B",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n这篇论文用的是主动学习吗？和直接拿预训练模型做筛选有什么区别？\r\n",
+      "primarySkillsLoaded": [
+        "reading-contract"
+      ],
+      "delegatedSkillsLoaded": [],
+      "tokens": {
+        "inputTokensUncached": 29219,
+        "cacheReadTokens": 257536,
+        "cacheWriteTokens": 0,
+        "outputTokens": 8854,
+        "logicalPromptTokens": 286755,
+        "totalTokens": 295609,
+        "modelRequests": 11,
+        "directModelRequests": 11,
+        "delegatedModelRequests": 0
+      },
+      "wallClockSeconds": 60.5,
+      "qualityScores": {
+        "C1": 4,
+        "C2": 3,
+        "C3": 4,
+        "C4": 4,
+        "C5": 3,
+        "C6": 3
+      },
+      "qualityConfidence": "高"
+    },
+    {
+      "task": "T7",
+      "group": "C",
+      "userInput": "所需论文材料位于 materials；可以按需要读取，并使用现有检索工具。\r\n\r\n这篇论文用的是主动学习吗？和直接拿预训练模型做筛选有什么区别？\r\n",
+      "primarySkillsLoaded": [],
+      "delegatedSkillsLoaded": [],
+      "tokens": {
+        "inputTokensUncached": 44815,
+        "cacheReadTokens": 664192,
+        "cacheWriteTokens": 0,
+        "outputTokens": 10315,
+        "logicalPromptTokens": 709007,
+        "totalTokens": 719322,
+        "modelRequests": 17,
+        "directModelRequests": 17,
+        "delegatedModelRequests": 0
+      },
+      "wallClockSeconds": 70.8,
+      "qualityScores": {
+        "C1": 4,
+        "C2": 2,
+        "C3": 3,
+        "C4": 4,
+        "C5": 2,
+        "C6": 3
+      },
+      "qualityConfidence": "高"
+    }
+  ]
+}

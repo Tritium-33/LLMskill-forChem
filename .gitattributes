@@ -7,3 +7,6 @@
 LICENSE* text eol=lf
 NOTICE text eol=lf
 *.cmd text eol=crlf
+
+# Preserve verbatim experiment inputs and the published report checksum.
+docs/evaluations/2026-10-10-dsh/report.md -text -eol whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

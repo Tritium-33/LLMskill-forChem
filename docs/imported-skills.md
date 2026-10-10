@@ -23,7 +23,7 @@ python tools/manage.py install --skill literature-search-openalex --skill uv --s
 
 自然语言示例：“为这个结构准备 QE 输入，暂不提交。”“使用 arXiv 检索这个主题，并区分预印本与正式发表记录。”也可以先用 `$scientific-skill-router` 选择所需技能。router 支持单项和组合任务；单项只需简短说明所用技能，组合任务按 README 附执行记录。
 
-技能目录中的 `PACKAGING.md` 记录打包边界，`SOURCE.json` 记录固定提交、路径及原文件 SHA-256。DeepMind 的目录按原始 frontmatter 名称改为连字符形式，文件正文未改。安装工具支持 Windows；上游 Bash、envsubst、tmux、集群及凭据示例可能需要 WSL/Linux 或适配，新增科学流程没有完成原生 Windows 验证，DSH 仍未实测。
+技能目录中的 `PACKAGING.md` 记录打包边界，`SOURCE.json` 记录固定提交、路径及原文件 SHA-256。DeepMind 的目录按原始 frontmatter 名称改为连字符形式，文件正文未改。安装工具支持 Windows；上游 Bash、envsubst、tmux、集群及凭据示例可能需要 WSL/Linux 或适配，新增科学计算流程没有完成原生 Windows 验证。后续 [Windows DSH 文献任务测试](evaluations/2026-10-10-dsh/README.md)中实际加载了 `literature-search-openalex`，但这不认证同源其他技能、默认安装路径或 DFT 执行能力。
 
 ## 验证范围
 

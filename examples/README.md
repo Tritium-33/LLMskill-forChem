@@ -27,7 +27,7 @@ python -m unittest discover -s tests -p test_workflows.py -v
 - `malformed.csv`：存在多余字段，命令应失败，不能当作成功的完整 profile。
 - `group-leakage.csv`：A、B 两组均跨 train/test，跨划分组数为 2。它是需要检查的重叠，不自动证明某个实际模型发生泄漏。
 
-全部脚本成功不等于统计推断有效。这里的 response 未指定物理单位，不能据此作实际化学结论；未测试 LLM 自动选 skill、DSH、在线 API、付费服务或真实 VASP 计算。
+全部脚本成功不等于统计推断有效。这里的 response 未指定物理单位，不能据此作实际化学结论；上述合成案例未测试 LLM 自动选 skill、DSH、在线 API、付费服务或真实 VASP 计算；另行实施的真实问答评估见文末。
 
 ## 后续行为评测
 
@@ -36,3 +36,7 @@ python -m unittest discover -s tests -p test_workflows.py -v
 比较编排收益时保持工具和技能集合一致，并使用干净上下文及多次运行。没有独立评测前，`cases.json` 的 `model_execution` 保持 `not_run`。
 
 首轮结果和限制见 [实施与验证记录](../docs/architecture-progress.md)。
+
+## 真实模型问答案例（独立于上述合成案例）
+
+2026-10-10 的 [Windows DSH 首轮对照](../docs/evaluations/2026-10-10-dsh/README.md)包含同一论文的 7 道问题、三组 21 份回复及独立盲审；可用于了解实际调用、质量和消耗。它不是本目录 11 个合成案例的执行记录，因此不改变 `cases.json` 中的 `model_execution` 状态，也不认证 VASP 或表格科学分析能力。

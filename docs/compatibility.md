@@ -6,7 +6,7 @@
 
 | 环境 | 安装入口 | 技能目录 | 当前验证边界 |
 | --- | --- | --- | --- |
-| Windows 原生 | `py -3 tools/manage.py install` | 当前用户的 `.agents\skills` | 已运行原生安装器测试；宿主科研任务仍待验证 |
+| Windows 原生 | `py -3 tools/manage.py install` | 当前用户的 `.agents\skills` | 安装器已测；限定配置的 DSH 文献任务已测，其他宿主/计算任务未认证 |
 | WSL / Linux | `python3 tools/manage.py install` | `~/.agents/skills` | 本地安装器检查已运行 |
 | macOS | `python3 tools/manage.py install` | `~/.agents/skills` | 按同一接口设计，未实测 |
 
@@ -20,7 +20,9 @@ Windows 窗口承载的智能体也可能在 WSL 中执行。目录由智能体�
 
 ## DeepSeek Harness
 
-**目前暂未实测 DSH 兼容性。** 以下内容依据文档整理，仅作配置参考；尚未验证技能发现、自然语言选择、脚本执行或完整任务效果。
+**2026-10-10：已完成限定配置的 Windows DSH 真实任务测试。** DSH `0.2.0-rc.2`、headless、`deepseek-flash`、显式 `customSkillDirs`，7 题 × 3 组 × 1 次。核实了技能目录暴露、正文成功加载及部分检索/核查执行，但回答质量不一致；默认目录、桌面 UI、全部技能与科学软件未验证。见 [完整报告与数据](evaluations/2026-10-10-dsh/README.md)。
+
+本轮将优先 router 规则放在配置目录的 `DSH_HOME/AGENTS.md`，运行器却使用各算例的另一 `DSH_HOME`；初始请求没有该规则。只有 T1-C 真正加载 router。这是测试接入缺口，不是证明 DSH 不支持个人指令，也不能把未触发归结为模型违背规则。下列默认发现机制仍是 2026-10-08 的文档说明，不冒充本轮已测试的安装路径。
 
 根据 [官方技能子系统文档](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/subsystems/skills.md)，默认本地提供器发现 `.dsh/skills`、`.agents/skills` 和配置的目录，项目级条目优先于用户级条目。
 
