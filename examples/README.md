@@ -40,3 +40,9 @@ python -m unittest discover -s tests -p test_workflows.py -v
 ## 真实模型问答案例（独立于上述合成案例）
 
 2026-10-10 的 [Windows DSH 首轮对照](../docs/evaluations/2026-10-10-dsh/README.md)包含同一论文的 7 道问题、三组 21 份回复及独立盲审；可用于了解实际调用、质量和消耗。它不是本目录 11 个合成案例的执行记录，因此不改变 `cases.json` 中的 `model_execution` 状态，也不认证 VASP 或表格科学分析能力。
+
+## 0.5.0 新增回归材料
+
+合成案例现在共 14 个；前文首轮 11 个是历史范围。新增 `paper-figure-conflict`、`paper-bounded-comparison`、`paper-cutoff-cap`，使用虚构材料检查证据映射、问题范围和日期/数量约束。`model_execution` 仍为 `not_run`，不可作为新版本行为提升的证明。
+
+运行记录检查的正反控制见 `tests/test_run_evidence.py`：模拟指令漏注入、失败/工作会话加载、未收尾与过晚返回，以及不完整日志。使用 `python -m unittest discover -s tests -p test_run_evidence.py -v` 可离线重跑；这些测试核验检查器逻辑，不生成或评判科研回答。[输入格式](../docs/run-evidence.md)。

@@ -15,22 +15,40 @@
         "paper-lookup",
         "reading-contract",
         "ref-check",
-        "scientific-critical-thinking"
+        "scientific-critical-thinking",
+        "lit-review",
+        "literature-review"
       ],
       "cases": [
         "paper-fulltext",
         "paper-abstract-only",
-        "paper-metadata-conflict"
+        "paper-metadata-conflict",
+        "paper-figure-conflict",
+        "paper-bounded-comparison",
+        "paper-cutoff-cap"
       ],
       "handoff": [
         "identity",
         "coverage",
         "claims_with_locations",
-        "unresolved"
+        "unresolved",
+        "conditions",
+        "scope",
+        "status"
       ],
       "stop_conditions": [
         "No full text: restrict claims to actually read material.",
-        "Unresolved identity conflict: do not conflate documents."
+        "Unresolved identity conflict: do not conflate documents.",
+        "Bounded comparison does not certify exhaustive novelty.",
+        "Apply date and paper-count limits to the entire answer."
+      ],
+      "references": [
+        "evidence-checks.md"
+      ],
+      "completion_checks": [
+        "Deliver the requested result, not a promise or uninspected file.",
+        "Resolve delegated work or explicitly report partial/unknown status.",
+        "Keep evidence gaps visible; tool success is not scientific validation."
       ]
     },
     {
@@ -64,6 +82,11 @@
         "Parsed energy alone is not convergence evidence.",
         "Missing backend: use an available inspected parser or report blocked, never invent execution.",
         "No automatic resubmission or modification of raw outputs."
+      ],
+      "completion_checks": [
+        "Deliver the requested result, not a promise or uninspected file.",
+        "Resolve delegated work or explicitly report partial/unknown status.",
+        "Keep evidence gaps visible; tool success is not scientific validation."
       ]
     },
     {
@@ -101,7 +124,13 @@
         "Unresolved units/design: describe data but defer affected scientific inference.",
         "No silent cleaning or held-out data leakage.",
         "Prediction not requested: do not add a model."
+      ],
+      "completion_checks": [
+        "Deliver the requested result, not a promise or uninspected file.",
+        "Resolve delegated work or explicitly report partial/unknown status.",
+        "Keep evidence gaps visible; tool success is not scientific validation."
       ]
     }
-  ]
+  ],
+  "shared_contract": "execution-contract.md"
 }

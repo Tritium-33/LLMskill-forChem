@@ -1,76 +1,112 @@
 ---
 name: scientific-skill-router
-description: 化学与材料科研技能选择入口，支持单项技能选择与组合任务。用户要求检索后阅读分析论文、检查数据后建模绘图，或不确定该用哪些技能时，先用本技能选择必要技能及执行顺序。单项任务可通过本入口选择一个技能，也支持直接调用；普通聊天和软件维护不触发。
+description: Select and coordinate chemistry and materials research skills for a natural-language request, including a single skill when appropriate. Use when the user needs help choosing skills, analyzing papers, or connecting research steps. Respect explicitly requested skills. Not for ordinary chat or repository maintenance.
 ---
 
 # Scientific skill router
 
-本技能可为简单任务选择一个技能，也可按需组合多个技能；只负责选择与串联，不代替领域技能，不启动子代理。
+Choose the smallest sufficient route, execute it, and deliver the requested result.
+This is instruction-based coordination, not a scheduler or a host-enforced policy.
+Do not recursively invoke this router. Do not start agents merely to choose skills.
 
-## 按任务读取一个板块
+## 1. Match the deliverable before choosing a skill
 
-| 用户希望得到什么 | 读取索引 |
+Infer scope from the request and supplied material; do not add a menu or mandatory
+planning/approval step. Respect explicit skills and constraints.
+
+| Requested result | Default scope |
 | --- | --- |
-| 分子/晶体处理，光谱分析，化学动力学、相平衡、电池或单位误差计算 | [chemistry-materials](references/chemistry-materials.md) |
-| 找论文、核对引用、梳理证据、形成假设、设计实验或评阅稿件 | [research-evidence](references/research-evidence.md) |
-| 检查数据、统计推断、建立预测模型、解释模型或做优化 | [data-modeling](references/data-modeling.md) |
-| 写论文、制作数据图/示意图/幻灯片、匹配格式或转换文档 | [writing-figures](references/writing-figures.md) |
+| A fact, a paper section, or an explanation | Focused reading/tool use; no comprehensive review |
+| “Analyze this paper” | Explain question → method → evidence → limits; not automatically a referee report |
+| A few related papers or “what is new here?” | Bounded search/comparison; state coverage; do not certify priority |
+| Explicit exhaustive novelty audit, systematic review, or referee report | The matching deep protocol, including its evidence obligations |
+| New simulation, data analysis, or artifact | Relevant domain route and its prerequisites |
 
-这些索引按功能覆盖本分发包全部52项具体技能，不按来源拆分。来源只用于追溯、许可和版本核对，选择时以任务适配性为依据。只在下一步确实跨板块时再读第二个索引；不要为简单任务加载所有索引或所有 SKILL.md。
+A bounded comparison is not a shortened execution of `lit-review`. Select that
+skill for a deep novelty audit or an explicitly requested use, then honor it in
+full; if it cannot finish, report incomplete coverage instead of claiming the
+audit passed. Similarly, do not use `peer-review` just because the input is a paper.
+For systematic screening/synthesis consider `literature-review`; for manuscript
+writing consider `scientific-writing` only when writing is requested.
 
-需要配置脚本环境、凭据或提交已授权作业时，另读 [runtime-support](references/runtime-support.md)；不将运行支持步骤默认加入每个科研任务。
+## 2. Load one relevant index, then the actual skill
 
-## 选择和执行
+| Task | Index |
+| --- | --- |
+| Molecular/material structures, spectra, physical chemistry, units | [chemistry-materials](references/chemistry-materials.md) |
+| Papers, evidence, hypotheses, experimental design, review | [research-evidence](references/research-evidence.md) |
+| Data checks, statistics, prediction, optimization | [data-modeling](references/data-modeling.md) |
+| Writing, figures, slides, document conversion | [writing-figures](references/writing-figures.md) |
 
-1. 优先尊重用户指定的技能、工具与任务范围。从目标交付物、输入格式和方法需求选主要技能，只有实际需要时才加入辅助技能。证据核验不等于每次启动全面文献审查。
-2. 检查当前会话的可用技能列表，再读取选中技能的真实 `SKILL.md`。索引表表示本分发包有该技能，不保证用户安装了全部技能。用会话给出的路径；缺失时可检查本分发包同级 `../<name>/SKILL.md`，仍不存在就说明缺失并用已有能力继续，不假装已经调用。
-3. 按所选 SKILL.md 执行；宿主没有通用的“调用技能”API时，读取指导并执行其步骤即可。不要凭记忆重写技能，也不要把技能再路由回本入口。
-4. 在实际运行脚本前核对软件版本、输入数据、凭据和服务可用性。需要的依赖未就绪时标明限制，优先采用能完成目标的现有本地路径；不能把认证/付费服务的缺失伪装成已检索或已生成。
-5. 简短告知“本次使用 X 处理 Y”；然后完成任务，说明结果与未验证项。选择或读取技能并不证明其脚本已成功运行。组合任务按数据依赖顺序串联，不把所有领域的检查堆到每次任务中。
+Read [runtime-support](references/runtime-support.md) only for a needed runtime
+step. Load another index only when crossing domains. Indexes describe this bundle,
+not what the host has installed. Check available skills, read the selected real
+`SKILL.md` and `PACKAGING.md` if present, and check dependencies before execution.
+Use host-provided paths or the sibling `../<name>/SKILL.md`; report missing skills
+honestly. Reading instructions is a valid skill use even without a dedicated API;
+mentioning a name, attempting a failed load, or selecting it is not successful use.
 
-## 与领域 router 的交接
+Choose one primary skill by task/input/method fit, available dependencies, and
+least unnecessary work. Add a complementary skill only for a concrete missing
+capability. Reuse sources and intermediate results. Do not randomize, favor a
+source brand, or infer a global quality weight from one test. Use applicable
+validation evidence as a tie-breaker, not as proof of scientific correctness.
 
-`scientific-skill-router` 是跨领域选择入口；`dft-vasp` 是 VASP 领域内的子任务选择入口，两者不是同级替代品。用户直接指定领域技能时沿用其选择；本机若要求先经过总入口，只做一次必要选择，不重复确认。
+## 3. Execute with bounded handoffs
 
-- 需要按静态、优化、DOS、能带准备 VASP 输入时，交给 `dft-vasp`。读取其真实 SKILL.md，由它选择同一安装目录下的 `static/SKILL.md`、`relax/SKILL.md`、`dos/SKILL.md` 或 `band/SKILL.md`。这些上游子技能名称较通用，使用父目录定位，不凭裸名称匹配其他来源的同名技能。
-- 已交接的 VASP 阶段不再回到总入口重新分类，也不同时启动 `mat-dft-vasp` 生成另一套输入。领域技能交付产物和状态后，总入口可继续原组合任务中的绘图、写作等后续阶段；这是继续任务，不是递归调用 router。
-- 原有成功流程、用户指定的预设或脚本路径适合 `mat-dft-vasp` 时，可直接选择该路径。输出解析或报错分析不强行路由到仅准备输入的 `dft-vasp`；先检查工具实际能力及项目验证记录。只有需要互补步骤时才组合，并明确每一步的参数来源和产物。
-- 总入口不替领域技能重写科学参数，不合并互相冲突的默认值。复用已有结构、设置和前置结果；输入不足时由最接近该问题的领域步骤集中询问，不逐层重复询问。只有用户要求执行或提交时才进入 `dpdisp-submit`。
-- 实际读取了哪些入口及子技能，就如实记录；在已有组合任务记录中合并为一条顺序链，不每层重复输出完整日志。直接调用领域技能仍遵循它自己的输出要求，不额外强制合集的完整前缀。
+For a multi-step task, briefly state the scope and next step, then proceed.
+Carry forward only inputs, source locations, findings, limitations, and status
+needed by the next step; do not reload whole contexts or repeat completed searches.
+Apply the [execution and delivery contract](references/execution-contract.md).
+This contract is for routes managed here; it does not modify upstream skill bodies
+or impose this bundle's reporting on directly invoked standalone skills.
 
-## 组合任务的输出记录
+Read only the matching internal route when needed:
 
-本入口负责合集组合任务的计划、串联和执行记录。单项技能被直接调用时，不强制附带完整记录，通过本入口只选一个技能时，简短说明所用技能和用途即可，不强制完整记录。普通聊天与仓库维护不受此规则约束。
+- Paper reading, retrieval, or comparison: [paper route](references/doi-paper-analysis.md).
+- Existing VASP outputs/failures: [VASP triage](references/vasp-triage.md).
+- Scientific tables and requested follow-up: [table analysis](references/table-analysis.md).
 
-组合任务开始时简述计划；阶段更新只记录新增操作；最终结果正文前列出 `【本轮技能】`（实际使用的英文名称及用途）和 `【执行步骤】`（按实际顺序编号的技能读取、工具操作、产物与状态）。包含失败、重试、跳过和未完成项，计划不得冒充完成，仅提及的技能不算使用。多技能共用一份记录；长记录可用前缀概览加实际生成的完整日志链接。记录可核查操作及可观察的分支依据，不披露内部推理或敏感信息，不为凑记录额外调用技能。只需选择建议而未执行任务时，明确所列是候选方案。
+The optional [machine-readable contracts](references/workflows.json) connect
+skills, handoffs, stopping conditions, and cases; they are not an execution engine.
 
-## 按需复用内部路线
+## 4. Preserve domain ownership
 
-用户直接描述任务即可，不新增菜单、表单、workflow 选择或必经确认步骤。只在需要相应多步交接时读取一条路线；简单任务直接用单项技能。
+- VASP input preparation: `dft-vasp` owns static/relax/DOS/band selection. Resolve
+  these subskills inside its directory, not by generic bare names. No return to
+  this router within that stage. Continue other stages only after the handoff.
+- An established compatible workflow may instead use `mat-dft-vasp`; its full
+  backend is not bundled. For output parsing/diagnosis inspect actual capabilities
+  and packaging. Do not create two competing input sets or merge conflicting
+  scientific defaults. Only requested execution/submission uses `dpdisp-submit`.
+- General molecule handling: `datamol`; detailed molecule operations: `rdkit`;
+  periodic structures: `pymatgen`. OpenMM molecular dynamics is not periodic AIMD.
+- Specific DOI/cross-source lookup: `paper-lookup`; specified backend: its lookup
+  skill; bibliography generation: `citation-management`; strict metadata conflicts:
+  `ref-check`. A real DOI does not establish support for the cited claim.
+- Data exploration: `exploratory-data-analysis`; inference planning:
+  `statistical-analysis`; prediction: `scikit-learn`. Do not add modeling to a
+  request for data inspection. Use `independence-bookkeeping` when independence
+  of evaluation is at issue, not as a default extra step.
+- Data figures: `seaborn`/`scientific-visualization`; conceptual illustrations:
+  `scientific-schematics`. The latter's service is not required for data plotting.
 
-- DOI 或论文阅读分析：[论文路线](references/doi-paper-analysis.md)。已有可信全文时跳过重复检索。
-- 已有 VASP 输出检查或报错诊断：[算例检查路线](references/vasp-triage.md)。输入准备仍交领域 router。
-- 本地科研表格检查及后续分析：[表格路线](references/table-analysis.md)。不因检查数据自动建模。
+## 5. Report actual execution, not intended execution
 
-这些路线复用现有技能并补充交接，不是独立执行引擎。需要机器可读的候选、产物与停止条件时才读取 [路线定义](references/workflows.json)；未安装依赖技能时不假装路线完整可执行。索引中 `capability` 是首批任务的适配说明，缺少该字段不代表技能不可用。按需核对已有上游流程，避免再造领域规则。
+For a single selected skill, briefly name it and its purpose. For a combination,
+put `【本轮技能】` (actual English names and purposes) and `【执行步骤】` before the
+answer. Number actual skill reads, tool operations, outputs, and states in order;
+include failures, skipped and incomplete work. A concise prefix may link an
+existing full log. Reuse one record across domain handoffs. Never fabricate logs,
+report private reasoning, expose credentials, or add tools merely to fill a trace.
 
-## 同用途技能的取舍
+Deliver the answer in chat unless a different deliverable was requested. Files
+and promises of future agent results cannot replace the requested answer. Report
+only observed completion; scientific verification is separate from tool success.
 
-- 不按来源、名称相似度或随机方式选择。先尊重用户指定，再比较目标交付物、输入和方法是否匹配；在能满足目标的方案中，优先依赖已就绪、步骤较少的方案。
-- 通常选一个主技能。仅当另一个提供当前任务需要的独特检查或工具时加入，并说明分工；复用已有搜索结果、阅读记录和中间产物，不重复跑完整流程。同一检索结果的再次加工不算独立验证。
-- 一般综述的检索、筛选与综合默认选 `literature-review`；围绕创新性主张进行深入阅读与证据审查默认选 `lit-review`。不要把前者当作后者的简化替代，也不要把所有综述自动升级为创新性审查。
-- 多个方案仍等价时，沿用当前已在使用且满足任务的方法，并简短说明理由；只有差异会影响范围、成本或结果时才请用户选择。指令或科学参数冲突时核对任务约束与依据，不拼接成一套互相矛盾的要求。
-- 验证记录只在任务、版本与环境适用时作为取舍依据；没有记录就标为未验证。来源名气、全局分数、格式检查或一次脚本成功不构成科研质量排名。相同条件下使用稳定默认项，避免随机切换。
+## Maintenance
 
-## 容易混淆的入口
-
-- 找具体论文/DOI先看 `paper-lookup`；生成书目用 `citation-management`；需要系统筛选综合才用 `literature-review`。同板块的 `lit-review`、`ref-check` 可用于更严格的创新性与参考文献审查，仅在当前可用且任务需要时组合。
-- 通用分子处理选 `datamol`，精细分子操作选 `rdkit`；周期性材料结构选 `pymatgen`。`molecular-dynamics` 面向 OpenMM 生物分子/小分子，不自动等同周期性材料 AIMD。
-- VASP 输入与结果提取优先比较 `mat-dft-vasp`（带脚本，但上游完整运行后端未随包安装）和 `dft-vasp`（按静态、优化、DOS、能带准备输入）。一次任务选一个主要路径，不混用默认参数。QE 输入用 `dft-qe`；需要转换时加 `dpdata-cli`；只有用户要求执行或提交时才考虑 `dpdisp-submit`。先读相应 `PACKAGING.md` 与现有项目约束，解析成功不等于计算收敛。
-- 指定 arXiv 或 OpenAlex 后端、需要其脚本接口时，分别考虑 `literature-search-arxiv` 与 `literature-search-openalex`；一般跨来源查找仍用 `paper-lookup`。不要重复检索同一问题；按需读取配套 `uv`、`credentials`，不暴露凭据。
-- 数据探索 → `exploratory-data-analysis`；选择统计检验 → `statistical-analysis`；样本量 → `statistical-power`；预测模型 → `scikit-learn`。审查验证路线或数据泄漏时使用同板块的 `independence-bookkeeping`；只有任务明确需要时才扩展到 PyMC/SHAP/多目标优化。
-- 真实数据图选 `seaborn` 或 `scientific-visualization`；概念示意图才考虑 `scientific-schematics`。后者的外部图像服务不是数据绘图的必需依赖。
-
-## 维护
-
-索引由仓库 `catalog.json` 中的板块信息及各技能的来源/依赖元数据生成；在仓库运行 `python tools/build_skill_index.py`。上游正文不合并、不删除，英文技能名称不改。索引更新后重新部署本技能。原始来源与运行限制保留在各板块中。
+`catalog.json` is the source for generated functional indexes; rebuild with
+`python tools/build_skill_index.py` in the repository. Preserve English upstream
+names, upstream bodies, licenses, and provenance. Reinstall changed copies using
+the installer; editing this source does not update an already installed copy.

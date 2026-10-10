@@ -29,7 +29,7 @@ audit = module('audit_dependencies')
 class ArchitectureTests(unittest.TestCase):
     def test_references_resolve(self):
         summary = architecture.validate()
-        self.assertEqual(summary['cases'], 11)
+        self.assertEqual(summary['cases'], 14)
         self.assertEqual(summary['workflows'], 3)
 
     def test_unknown_skill_and_escape_rejected(self):
@@ -63,6 +63,26 @@ class ArchitectureTests(unittest.TestCase):
         self.assertIn('src.utils.dft.vasp_parser', row['external_import_candidates'])
         self.assertEqual(row['runtime_status'], 'not_checked')
         self.assertEqual(row['parse_errors'], [])
+
+    def test_broken_contract_and_missing_completion_gate_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            shutil.copy2(ROOT / 'catalog.json', root / 'catalog.json')
+            shutil.copytree(ROOT / 'skills/dft-vasp', root / 'skills/dft-vasp')
+            shutil.copytree(ROOT / 'skills/scientific-skill-router/references',
+                            root / 'skills/scientific-skill-router/references')
+            shutil.copytree(ROOT / 'examples', root / 'examples')
+            path = root / 'skills/scientific-skill-router/references/workflows.json'
+            original = path.read_text(encoding='utf-8')
+            for field, value in [('shared_contract', 'missing.md'), ('completion_checks', [])]:
+                data = json.loads(original)
+                if field == 'shared_contract':
+                    data[field] = value
+                else:
+                    data['workflows'][0][field] = value
+                path.write_text(json.dumps(data), encoding='utf-8')
+                with self.assertRaises(ValueError):
+                    architecture.validate(root)
 
 
 @unittest.skipIf(sys.version_info < (3, 11), 'Upstream EDA core declares Python 3.11+')

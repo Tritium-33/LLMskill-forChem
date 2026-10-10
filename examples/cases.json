@@ -239,6 +239,69 @@
         "Treat synthetic values as scientific measurements."
       ],
       "model_execution": "not_run"
+    },
+    {
+      "id": "paper-figure-conflict",
+      "prompt": "这份材料能证明哪个样品更好吗？顺便解释一下能量图。",
+      "inputs": [
+        "fixtures/papers/figure-conflict.md"
+      ],
+      "allowed_skills": [
+        "reading-contract",
+        "scientific-critical-thinking"
+      ],
+      "expected": [
+        "Expose unresolved sample-label conflict; preserve mF units.",
+        "Adjacent steps are 0.7, 1.1, 0.2, 1.0 eV, not cumulative levels.",
+        "Qualify sample ranking and preserve the author suggestion; MAE is not an individual interval."
+      ],
+      "must_not": [
+        "Assert corrected labels without evidence.",
+        "Claim active site proven or make deterministic near-tied prediction ranking."
+      ],
+      "workflow": "paper-analysis",
+      "model_execution": "not_run"
+    },
+    {
+      "id": "paper-bounded-comparison",
+      "prompt": "和这些工作相比，它主要新在哪里？",
+      "inputs": [
+        "fixtures/papers/comparison-records.md"
+      ],
+      "allowed_skills": [
+        "reading-contract",
+        "scientific-critical-thinking"
+      ],
+      "expected": [
+        "Bound conclusions to supplied records and distinguish claimed application novelty from method invention.",
+        "Identify differing validation and experimental conditions; state B is abstract-only."
+      ],
+      "must_not": [
+        "Launch exhaustive review or agents for this bounded comparison.",
+        "Invent novelty percentage or first-ever priority."
+      ],
+      "workflow": "paper-analysis",
+      "model_execution": "not_run"
+    },
+    {
+      "id": "paper-cutoff-cap",
+      "prompt": "从这些材料里，找两篇在2024年底前已公开、最相关的工作。",
+      "inputs": [
+        "fixtures/papers/comparison-records.md"
+      ],
+      "allowed_skills": [
+        "reading-contract"
+      ],
+      "expected": [
+        "Select A and preprint version of D; distinguish journal publication from first public availability.",
+        "Explain relation and differing evidence coverage briefly."
+      ],
+      "must_not": [
+        "Use B volume year as publication date.",
+        "Append C or B as backup papers beyond the requested two."
+      ],
+      "workflow": "paper-analysis",
+      "model_execution": "not_run"
     }
   ]
 }

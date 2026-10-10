@@ -46,12 +46,19 @@ def validate(root=ROOT):
         for target in relations['delegates_to']:
             inside(root / 'skills', target + '/SKILL.md')
     refs = root / 'skills/scientific-skill-router/references'
-    routes = read(refs / 'workflows.json')['workflows']
+    contracts = read(refs / 'workflows.json')
+    inside(refs, contracts['shared_contract'])
+    routes = contracts['workflows']
     route_ids = unique(routes, 'id')
     cases = read(root / 'examples/cases.json')['cases']
     case_ids = unique(cases, 'id')
     for route in routes:
         inside(refs, route['reference'])
+        for reference in route.get('references', []):
+            inside(refs, reference)
+        if not isinstance(route.get('completion_checks'), list) or not route['completion_checks'] or not all(
+                isinstance(v, str) and v.strip() for v in route['completion_checks']):
+            raise ValueError('Route lacks completion checks')
         if not set(route['skills']) <= names or not set(route['capabilities']) <= tasks:
             raise ValueError(f'Unknown skill/capability in {route["id"]}')
         provided = {t for r in rows if r['name'] in route['skills']
