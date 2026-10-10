@@ -45,4 +45,6 @@ python -m unittest discover -s tests -p test_workflows.py -v
 
 合成案例现在共 14 个；前文首轮 11 个是历史范围。新增 `paper-figure-conflict`、`paper-bounded-comparison`、`paper-cutoff-cap`，使用虚构材料检查证据映射、问题范围和日期/数量约束。`model_execution` 仍为 `not_run`，不可作为新版本行为提升的证明。
 
-运行记录检查的正反控制见 `tests/test_run_evidence.py`：模拟指令漏注入、失败/工作会话加载、未收尾与过晚返回，以及不完整日志。使用 `python -m unittest discover -s tests -p test_run_evidence.py -v` 可离线重跑；这些测试核验检查器逻辑，不生成或评判科研回答。[输入格式](../docs/run-evidence.md)。
+运行记录检查的正反控制见 `tests/test_run_evidence.py`：模拟指令漏注入、失败/工作会话加载、未收尾与过晚返回，以及不完整日志。使用 `python -m unittest discover -s tests -p test_run_evidence.py -v` 可离线重跑；这些测试核验检查器逻辑，不生成或评判科研回答。[输入格式](../docs/maintenance/run-evidence.md)。
+
+0.6.0 将具体证据核验清单归入 [评审参考](review-checks.md)，不再随 router 阅读路线加载。独立行为评测时，仅把题目和输入提供给回答模型，不提供这份清单及案例期望。

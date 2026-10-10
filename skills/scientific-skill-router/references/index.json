@@ -3,6 +3,7 @@
   "scope": "All bundled task skills grouped by function across sources; router excluded",
   "skills": [
     {
+      "routing_hint": "Validate analytical methods, accuracy, precision and detection limits.",
       "name": "analytical-method-validation",
       "group": "chemistry-materials",
       "purpose": "分析方法的准确度、精密度与检出限验证",
@@ -15,6 +16,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Chemical kinetics, reactors and ignition delay using Cantera.",
       "name": "cantera",
       "group": "chemistry-materials",
       "purpose": "化学反应动力学、反应器与点火延迟",
@@ -27,9 +29,10 @@
       "capability": null
     },
     {
+      "routing_hint": "Routine molecule cleaning, descriptors and conformers; RDKit for finer control.",
       "name": "datamol",
       "group": "chemistry-materials",
-      "purpose": "常用分子标准化、描述符和构象处理",
+      "purpose": "常用分子标准化、描述符和构象处理；精细操作可用 rdkit",
       "example": "请使用 $datamol，帮助我完成常用分子标准化、描述符和构象处理，先检查输入与所需依赖。",
       "compatibility": "Requires Python 3.11+ and datamol 0.13.0 with RDKit 2024.09+. Installation needs network access; local molecular workflows need no credentials. Remote I/O needs the selected provider credentials.",
       "source_name": "K-Dense-AI/scientific-agent-skills",
@@ -39,6 +42,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Molecular property learning and chemical ML workflows.",
       "name": "deepchem",
       "group": "chemistry-materials",
       "purpose": "分子性质预测、特征化与化学机器学习",
@@ -51,6 +55,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Tandem mass spectra processing, similarity and library matching.",
       "name": "matchms",
       "group": "chemistry-materials",
       "purpose": "串联质谱清理、相似度与谱库匹配",
@@ -63,6 +68,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Medicinal chemistry alerts and compound-library filtering.",
       "name": "medchem",
       "group": "chemistry-materials",
       "purpose": "药物化学结构警示与分子库筛选",
@@ -75,9 +81,10 @@
       "capability": null
     },
     {
+      "routing_hint": "OpenMM molecular simulation and trajectory analysis; not periodic AIMD.",
       "name": "molecular-dynamics",
       "group": "chemistry-materials",
-      "purpose": "OpenMM分子动力学与轨迹分析",
+      "purpose": "OpenMM 分子动力学与轨迹分析；不等于周期材料 AIMD",
       "example": "请使用 $molecular-dynamics，帮助我完成OpenMM分子动力学与轨迹分析，先检查输入与所需依赖。",
       "compatibility": "Requires Python 3.11+ with OpenMM and MDAnalysis; matplotlib for plots. Optional PDBFixer and OpenFF need separate installation. Network access for installation; local simulation and analysis run offline.",
       "source_name": "K-Dense-AI/scientific-agent-skills",
@@ -87,6 +94,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Molecular fingerprints, descriptors and pretrained representations.",
       "name": "molfeat",
       "group": "chemistry-materials",
       "purpose": "分子指纹、描述符与预训练分子表征",
@@ -99,6 +107,7 @@
       "capability": null
     },
     {
+      "routing_hint": "One-dimensional NMR processing, peaks and integration.",
       "name": "nmrglue",
       "group": "chemistry-materials",
       "purpose": "一维核磁原始数据处理、谱峰与积分",
@@ -111,6 +120,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Battery charge/discharge modeling and parameter sensitivity.",
       "name": "pybamm",
       "group": "chemistry-materials",
       "purpose": "电池充放电建模与参数敏感性分析",
@@ -123,6 +133,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Phase equilibria from thermodynamic databases.",
       "name": "pycalphad",
       "group": "chemistry-materials",
       "purpose": "基于热力学数据库的相平衡计算",
@@ -135,6 +146,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Periodic structures, materials data and electronic-structure files.",
       "name": "pymatgen",
       "group": "chemistry-materials",
       "purpose": "晶体结构、材料数据与电子结构文件分析",
@@ -167,6 +179,7 @@
       }
     },
     {
+      "routing_hint": "LC-MS processing and feature detection.",
       "name": "pyopenms",
       "group": "chemistry-materials",
       "purpose": "液相色谱质谱数据处理与特征检测",
@@ -179,9 +192,10 @@
       "capability": null
     },
     {
+      "routing_hint": "Fine-grained molecular structure operations; datamol for routine processing.",
       "name": "rdkit",
       "group": "chemistry-materials",
-      "purpose": "分子结构、描述符、指纹与子结构检索",
+      "purpose": "精细分子结构、描述符、指纹与子结构操作；常规处理可用 datamol",
       "example": "请使用 $rdkit，帮助我完成分子结构、描述符、指纹与子结构检索，先检查输入与所需依赖。",
       "compatibility": "Tested with RDKit 2026.03.6 on Python 3.13; bundled scripts require the rdkit package. No credentials or network are needed after installation. Use conda-forge for the broadest binary support or PyPI package `rdkit` for supported platform wheels; `rdkit-pypi` is the legacy PyPI name.",
       "source_name": "K-Dense-AI/scientific-agent-skills",
@@ -191,6 +205,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Physical units, uncertainty propagation and budgets.",
       "name": "uncertainty-and-units",
       "group": "chemistry-materials",
       "purpose": "物理单位检查、误差传播与不确定度预算",
@@ -203,9 +218,10 @@
       "capability": null
     },
     {
+      "routing_hint": "Collect bibliography metadata and generate BibTeX; ref-check for strict audits.",
       "name": "citation-management",
       "group": "research-evidence",
-      "purpose": "书目信息获取、引用核对与BibTeX生成",
+      "purpose": "获取书目信息并生成 BibTeX；严格审查现有条目用 ref-check",
       "example": "请使用 $citation-management，帮助我完成书目信息获取、引用核对与BibTeX生成，先检查输入与所需依赖。",
       "compatibility": "Requires Python 3.9+ with requests. Google Scholar search additionally needs scholarly. Needs network access to api.openalex.org, api.crossref.org, eutils.ncbi.nlm.nih.gov, pmc.ncbi.nlm.nih.gov, doi.org, export.arxiv.org, and api.datacite.org.",
       "source_name": "K-Dense-AI/scientific-agent-skills",
@@ -215,6 +231,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Plan experiments, randomization, blocks and factor combinations.",
       "name": "experimental-design",
       "group": "research-evidence",
       "purpose": "实验设计、随机化、分区组与因素组合",
@@ -227,6 +244,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Turn observations into testable hypotheses and distinguishing predictions.",
       "name": "hypothesis-generation",
       "group": "research-evidence",
       "purpose": "将观察转化为可检验假设与区分性预测",
@@ -239,9 +257,10 @@
       "capability": null
     },
     {
+      "routing_hint": "Deep novelty-claim audit with full reading obligations; not a brief comparison.",
       "name": "lit-review",
       "group": "research-evidence",
-      "purpose": "围绕明确研究主张检索近邻工作，记录检索、阅读和证据缺口。",
+      "purpose": "深入审查明确的创新性主张，需完整阅读与检索记录；简短新意对比不默认使用",
       "example": "请审查这个化学研究设想与已有工作的重叠，记录检索范围和全文阅读情况。",
       "compatibility": "Read the skill for runtime requirements.",
       "source_name": "BootLoops-ai/skills",
@@ -272,9 +291,10 @@
       }
     },
     {
+      "routing_hint": "Systematic, scoping or narrative synthesis with search and screening.",
       "name": "literature-review",
       "group": "research-evidence",
-      "purpose": "系统、范围与叙述综述的检索筛选和综合",
+      "purpose": "系统、范围与叙述综述的检索筛选和综合；仅找论文用 paper-lookup",
       "example": "请使用 $literature-review，帮助我完成系统、范围与叙述综述的检索筛选和综合，先检查输入与所需依赖。",
       "compatibility": "Python 3.10+ with requests; network for DOI checks and searches. Optional parallel-cli requires Parallel authentication. PDF export needs Pandoc and XeLaTeX; AI schematics need OPENROUTER_API_KEY.",
       "source_name": "K-Dense-AI/scientific-agent-skills",
@@ -305,6 +325,7 @@
       }
     },
     {
+      "routing_hint": "Find papers, DOI records and open full text across databases.",
       "name": "paper-lookup",
       "group": "research-evidence",
       "purpose": "跨学术数据库检索论文、引文与开放全文",
@@ -339,9 +360,10 @@
       }
     },
     {
+      "routing_hint": "A requested manuscript review; not ordinary paper explanation.",
       "name": "peer-review",
       "group": "research-evidence",
-      "purpose": "有证据支持的论文评阅与修订意见",
+      "purpose": "按要求提供论文评阅与修订意见；普通论文解读不默认使用",
       "example": "请使用 $peer-review，帮助我完成有证据支持的论文评阅与修订意见，先检查输入与所需依赖。",
       "compatibility": "Python 3.11+ standard library. Bundled CLIs are deterministic and local-only; they accept bounded JSON, CSV, or Markdown and make no network, model, image, or external-service calls.",
       "source_name": "K-Dense-AI/scientific-agent-skills",
@@ -351,6 +373,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Source-bound reading: separate facts, inference and missing evidence.",
       "name": "reading-contract",
       "group": "research-evidence",
       "purpose": "逐条核对论文或记录中的证据，区分事实、推断和未核实内容。",
@@ -384,6 +407,7 @@
       }
     },
     {
+      "routing_hint": "Strict verification of bibliography fields and citation support.",
       "name": "ref-check",
       "group": "research-evidence",
       "purpose": "核对书目信息及引用是否支持正文，给出可追溯的修改建议。",
@@ -415,6 +439,7 @@
       }
     },
     {
+      "routing_hint": "Gather manuscript/background evidence using its external search services.",
       "name": "research-lookup",
       "group": "research-evidence",
       "purpose": "通过外部搜索服务汇集科研证据与背景",
@@ -427,6 +452,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Structured assessment of scholarly work; not a general paper summary.",
       "name": "scholar-evaluation",
       "group": "research-evidence",
       "purpose": "对科研作品进行可追溯的质量评估",
@@ -439,6 +465,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Generate and compare research ideas and their assumptions.",
       "name": "scientific-brainstorming",
       "group": "research-evidence",
       "purpose": "生成和比较候选研究方向及其关键假设",
@@ -451,6 +478,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Appraise scientific claims, evidence and confounders when evaluation is requested.",
       "name": "scientific-critical-thinking",
       "group": "research-evidence",
       "purpose": "审查科研主张、证据质量与混杂因素",
@@ -482,9 +510,10 @@
       }
     },
     {
+      "routing_hint": "Inspect supported data formats, missingness and anomalies; no automatic modeling.",
       "name": "exploratory-data-analysis",
       "group": "data-modeling",
-      "purpose": "科学数据的结构、缺失值和异常值探索",
+      "purpose": "检查支持格式的数据、缺失值与异常；不因检查自动建模",
       "example": "请使用 $exploratory-data-analysis，帮助我完成科学数据的结构、缺失值和异常值探索，先检查输入与所需依赖。",
       "compatibility": "Bundled core CLIs require Python 3.11+ and are local/network-free; the complete pinned optional snapshot requires Python 3.12+, uv, and format-specific libraries listed below.",
       "source_name": "K-Dense-AI/scientific-agent-skills",
@@ -516,6 +545,7 @@
       }
     },
     {
+      "routing_hint": "Audit shared dependencies and data use in independent validation.",
       "name": "independence-bookkeeping",
       "group": "data-modeling",
       "purpose": "检查验证路线的共享依赖、数据使用历史与循环验证。",
@@ -547,6 +577,7 @@
       }
     },
     {
+      "routing_hint": "Bayesian modeling, posterior checks and uncertainty inference.",
       "name": "pymc",
       "group": "data-modeling",
       "purpose": "贝叶斯建模、后验检查与不确定度推断",
@@ -559,6 +590,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Constrained and multi-objective optimization and Pareto solutions.",
       "name": "pymoo",
       "group": "data-modeling",
       "purpose": "多目标优化、约束与帕累托解分析",
@@ -571,6 +603,7 @@
       "capability": null
     },
     {
+      "routing_hint": "ML preprocessing, prediction and cross-validation; only when modeling is needed.",
       "name": "scikit-learn",
       "group": "data-modeling",
       "purpose": "机器学习预处理、建模与交叉验证",
@@ -604,6 +637,7 @@
       }
     },
     {
+      "routing_hint": "Feature attribution and diagnostics for model predictions.",
       "name": "shap",
       "group": "data-modeling",
       "purpose": "模型预测的特征归因、解释与诊断",
@@ -616,6 +650,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Choose statistical tests, check assumptions and report effect sizes.",
       "name": "statistical-analysis",
       "group": "data-modeling",
       "purpose": "统计检验选择、假设检查与效应量报告",
@@ -649,6 +684,7 @@
       }
     },
     {
+      "routing_hint": "Plan sample sizes, replicates and statistical power.",
       "name": "statistical-power",
       "group": "data-modeling",
       "purpose": "样本量、重复数和统计功效规划",
@@ -661,6 +697,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Fit regression, generalized linear and time-series models.",
       "name": "statsmodels",
       "group": "data-modeling",
       "purpose": "回归、广义线性模型和时间序列诊断",
@@ -673,6 +710,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Convert supported PDF/Office and other documents to Markdown.",
       "name": "markitdown",
       "group": "writing-figures",
       "purpose": "将PDF、Office等文档转换为Markdown",
@@ -685,9 +723,10 @@
       "capability": null
     },
     {
+      "routing_hint": "Conceptual scientific illustrations via an external image service; not data plots.",
       "name": "scientific-schematics",
       "group": "writing-figures",
-      "purpose": "通过外部图像模型生成科学示意图草稿",
+      "purpose": "通过外部图像模型生成概念示意图；真实数据图用绘图技能",
       "example": "请使用 $scientific-schematics，帮助我完成通过外部图像模型生成科学示意图草稿，先检查输入与所需依赖。",
       "compatibility": "Requires Python 3.10+ with requests, network access, and an OpenRouter API key.",
       "source_name": "K-Dense-AI/scientific-agent-skills",
@@ -697,6 +736,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Research slide preparation and visual checking.",
       "name": "scientific-slides",
       "group": "writing-figures",
       "purpose": "科研汇报幻灯片结构、制作与视觉检查",
@@ -709,6 +749,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Scientific figure design, multiple panels, units and readability.",
       "name": "scientific-visualization",
       "group": "writing-figures",
       "purpose": "多面板科研图设计、单位与可读性检查",
@@ -742,6 +783,7 @@
       }
     },
     {
+      "routing_hint": "Evidence-grounded manuscript drafting and consistency checks.",
       "name": "scientific-writing",
       "group": "writing-figures",
       "purpose": "有证据溯源的科研论文撰写与一致性检查",
@@ -754,6 +796,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Statistical distribution, group-comparison and relationship plots.",
       "name": "seaborn",
       "group": "writing-figures",
       "purpose": "分布、分组比较与统计关系可视化",
@@ -787,6 +830,7 @@
       }
     },
     {
+      "routing_hint": "VASP input presets and output parsing; requires a separately supplied upstream backend.",
       "name": "mat-dft-vasp",
       "group": "chemistry-materials",
       "purpose": "VASP 输入准备与结果提取；需另配上游运行环境",
@@ -823,6 +867,7 @@
       }
     },
     {
+      "routing_hint": "Prepare static/relax/DOS/band inputs via domain subskills; does not submit jobs.",
       "name": "dft-vasp",
       "group": "chemistry-materials",
       "purpose": "准备 VASP 静态、优化、DOS 与能带输入，不自动提交",
@@ -863,6 +908,7 @@
       }
     },
     {
+      "routing_hint": "Prepare Quantum ESPRESSO inputs from structures and specified settings.",
       "name": "dft-qe",
       "group": "chemistry-materials",
       "purpose": "根据结构与指定参数准备 Quantum ESPRESSO 输入",
@@ -875,6 +921,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Convert atomistic structures and calculation data formats.",
       "name": "dpdata-cli",
       "group": "chemistry-materials",
       "purpose": "原子结构和计算数据格式转换",
@@ -887,6 +934,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Execute explicitly authorized local or cluster jobs; not input preparation.",
       "name": "dpdisp-submit",
       "group": "runtime-support",
       "purpose": "通过 DPDispatcher 管理已获授权的本地或集群作业",
@@ -918,6 +966,7 @@
       }
     },
     {
+      "routing_hint": "Use the arXiv-specific search/download backend.",
       "name": "literature-search-arxiv",
       "group": "research-evidence",
       "purpose": "检索 arXiv 预印本、下载论文及源文件",
@@ -930,6 +979,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Use the OpenAlex-specific publication and citation backend.",
       "name": "literature-search-openalex",
       "group": "research-evidence",
       "purpose": "检索 OpenAlex 论文、作者、机构及引文元数据",
@@ -942,6 +992,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Set up uv when a selected script needs it; not part of every task.",
       "name": "uv",
       "group": "runtime-support",
       "purpose": "配置 uv 并运行带独立依赖的 Python 脚本",
@@ -954,6 +1005,7 @@
       "capability": null
     },
     {
+      "routing_hint": "Check required credentials without exposing secrets; only when needed.",
       "name": "credentials",
       "group": "runtime-support",
       "purpose": "检查服务凭据是否就绪，避免在会话中暴露密钥",

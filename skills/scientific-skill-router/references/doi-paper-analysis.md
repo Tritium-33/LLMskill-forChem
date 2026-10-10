@@ -1,8 +1,8 @@
 # Paper reading, retrieval, and comparison
 
 Select scope from the user's actual request, not the number of available skills.
-Read the [evidence checks](evidence-checks.md) before making evaluative claims.
-Use the shared [execution contract](execution-contract.md) for handoff and delivery.
+Verify that cited passages support the attached claims; identity alone is not support.
+Preserve conditions and author qualifications, and mark unresolved evidence conflicts.
 
 | Need | Action | Handoff / limit |
 | --- | --- | --- |

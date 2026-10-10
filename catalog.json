@@ -8,77 +8,88 @@
       "title": "analytical-method-validation",
       "summary": "分析方法的准确度、精密度与检出限验证",
       "example_prompt": "请使用 $analytical-method-validation，帮助我完成分析方法的准确度、精密度与检出限验证，先检查输入与所需依赖。",
-      "routing_group": "chemistry-materials"
+      "routing_group": "chemistry-materials",
+      "routing_hint": "Validate analytical methods, accuracy, precision and detection limits."
     },
     {
       "name": "cantera",
       "title": "cantera",
       "summary": "化学反应动力学、反应器与点火延迟",
       "example_prompt": "请使用 $cantera，帮助我完成化学反应动力学、反应器与点火延迟，先检查输入与所需依赖。",
-      "routing_group": "chemistry-materials"
+      "routing_group": "chemistry-materials",
+      "routing_hint": "Chemical kinetics, reactors and ignition delay using Cantera."
     },
     {
       "name": "datamol",
       "title": "datamol",
-      "summary": "常用分子标准化、描述符和构象处理",
+      "summary": "常用分子标准化、描述符和构象处理；精细操作可用 rdkit",
       "example_prompt": "请使用 $datamol，帮助我完成常用分子标准化、描述符和构象处理，先检查输入与所需依赖。",
-      "routing_group": "chemistry-materials"
+      "routing_group": "chemistry-materials",
+      "routing_hint": "Routine molecule cleaning, descriptors and conformers; RDKit for finer control."
     },
     {
       "name": "deepchem",
       "title": "deepchem",
       "summary": "分子性质预测、特征化与化学机器学习",
       "example_prompt": "请使用 $deepchem，帮助我完成分子性质预测、特征化与化学机器学习，先检查输入与所需依赖。",
-      "routing_group": "chemistry-materials"
+      "routing_group": "chemistry-materials",
+      "routing_hint": "Molecular property learning and chemical ML workflows."
     },
     {
       "name": "matchms",
       "title": "matchms",
       "summary": "串联质谱清理、相似度与谱库匹配",
       "example_prompt": "请使用 $matchms，帮助我完成串联质谱清理、相似度与谱库匹配，先检查输入与所需依赖。",
-      "routing_group": "chemistry-materials"
+      "routing_group": "chemistry-materials",
+      "routing_hint": "Tandem mass spectra processing, similarity and library matching."
     },
     {
       "name": "medchem",
       "title": "medchem",
       "summary": "药物化学结构警示与分子库筛选",
       "example_prompt": "请使用 $medchem，帮助我完成药物化学结构警示与分子库筛选，先检查输入与所需依赖。",
-      "routing_group": "chemistry-materials"
+      "routing_group": "chemistry-materials",
+      "routing_hint": "Medicinal chemistry alerts and compound-library filtering."
     },
     {
       "name": "molecular-dynamics",
       "title": "molecular-dynamics",
-      "summary": "OpenMM分子动力学与轨迹分析",
+      "summary": "OpenMM 分子动力学与轨迹分析；不等于周期材料 AIMD",
       "example_prompt": "请使用 $molecular-dynamics，帮助我完成OpenMM分子动力学与轨迹分析，先检查输入与所需依赖。",
-      "routing_group": "chemistry-materials"
+      "routing_group": "chemistry-materials",
+      "routing_hint": "OpenMM molecular simulation and trajectory analysis; not periodic AIMD."
     },
     {
       "name": "molfeat",
       "title": "molfeat",
       "summary": "分子指纹、描述符与预训练分子表征",
       "example_prompt": "请使用 $molfeat，帮助我完成分子指纹、描述符与预训练分子表征，先检查输入与所需依赖。",
-      "routing_group": "chemistry-materials"
+      "routing_group": "chemistry-materials",
+      "routing_hint": "Molecular fingerprints, descriptors and pretrained representations."
     },
     {
       "name": "nmrglue",
       "title": "nmrglue",
       "summary": "一维核磁原始数据处理、谱峰与积分",
       "example_prompt": "请使用 $nmrglue，帮助我完成一维核磁原始数据处理、谱峰与积分，先检查输入与所需依赖。",
-      "routing_group": "chemistry-materials"
+      "routing_group": "chemistry-materials",
+      "routing_hint": "One-dimensional NMR processing, peaks and integration."
     },
     {
       "name": "pybamm",
       "title": "pybamm",
       "summary": "电池充放电建模与参数敏感性分析",
       "example_prompt": "请使用 $pybamm，帮助我完成电池充放电建模与参数敏感性分析，先检查输入与所需依赖。",
-      "routing_group": "chemistry-materials"
+      "routing_group": "chemistry-materials",
+      "routing_hint": "Battery charge/discharge modeling and parameter sensitivity."
     },
     {
       "name": "pycalphad",
       "title": "pycalphad",
       "summary": "基于热力学数据库的相平衡计算",
       "example_prompt": "请使用 $pycalphad，帮助我完成基于热力学数据库的相平衡计算，先检查输入与所需依赖。",
-      "routing_group": "chemistry-materials"
+      "routing_group": "chemistry-materials",
+      "routing_hint": "Phase equilibria from thermodynamic databases."
     },
     {
       "name": "pymatgen",
@@ -106,54 +117,61 @@
           "delegates_to": []
         },
         "evidence": "See referenced cases; no general task-performance claim."
-      }
+      },
+      "routing_hint": "Periodic structures, materials data and electronic-structure files."
     },
     {
       "name": "pyopenms",
       "title": "pyopenms",
       "summary": "液相色谱质谱数据处理与特征检测",
       "example_prompt": "请使用 $pyopenms，帮助我完成液相色谱质谱数据处理与特征检测，先检查输入与所需依赖。",
-      "routing_group": "chemistry-materials"
+      "routing_group": "chemistry-materials",
+      "routing_hint": "LC-MS processing and feature detection."
     },
     {
       "name": "rdkit",
       "title": "rdkit",
-      "summary": "分子结构、描述符、指纹与子结构检索",
+      "summary": "精细分子结构、描述符、指纹与子结构操作；常规处理可用 datamol",
       "example_prompt": "请使用 $rdkit，帮助我完成分子结构、描述符、指纹与子结构检索，先检查输入与所需依赖。",
-      "routing_group": "chemistry-materials"
+      "routing_group": "chemistry-materials",
+      "routing_hint": "Fine-grained molecular structure operations; datamol for routine processing."
     },
     {
       "name": "uncertainty-and-units",
       "title": "uncertainty-and-units",
       "summary": "物理单位检查、误差传播与不确定度预算",
       "example_prompt": "请使用 $uncertainty-and-units，帮助我完成物理单位检查、误差传播与不确定度预算，先检查输入与所需依赖。",
-      "routing_group": "chemistry-materials"
+      "routing_group": "chemistry-materials",
+      "routing_hint": "Physical units, uncertainty propagation and budgets."
     },
     {
       "name": "citation-management",
       "title": "citation-management",
-      "summary": "书目信息获取、引用核对与BibTeX生成",
+      "summary": "获取书目信息并生成 BibTeX；严格审查现有条目用 ref-check",
       "example_prompt": "请使用 $citation-management，帮助我完成书目信息获取、引用核对与BibTeX生成，先检查输入与所需依赖。",
-      "routing_group": "research-evidence"
+      "routing_group": "research-evidence",
+      "routing_hint": "Collect bibliography metadata and generate BibTeX; ref-check for strict audits."
     },
     {
       "name": "experimental-design",
       "title": "experimental-design",
       "summary": "实验设计、随机化、分区组与因素组合",
       "example_prompt": "请使用 $experimental-design，帮助我完成实验设计、随机化、分区组与因素组合，先检查输入与所需依赖。",
-      "routing_group": "research-evidence"
+      "routing_group": "research-evidence",
+      "routing_hint": "Plan experiments, randomization, blocks and factor combinations."
     },
     {
       "name": "hypothesis-generation",
       "title": "hypothesis-generation",
       "summary": "将观察转化为可检验假设与区分性预测",
       "example_prompt": "请使用 $hypothesis-generation，帮助我完成将观察转化为可检验假设与区分性预测，先检查输入与所需依赖。",
-      "routing_group": "research-evidence"
+      "routing_group": "research-evidence",
+      "routing_hint": "Turn observations into testable hypotheses and distinguishing predictions."
     },
     {
       "name": "lit-review",
       "title": "文献深审与创新性审查",
-      "summary": "围绕明确研究主张检索近邻工作，记录检索、阅读和证据缺口。",
+      "summary": "深入审查明确的创新性主张，需完整阅读与检索记录；简短新意对比不默认使用",
       "example_prompt": "请审查这个化学研究设想与已有工作的重叠，记录检索范围和全文阅读情况。",
       "routing_group": "research-evidence",
       "capability": {
@@ -177,12 +195,13 @@
           "delegates_to": []
         },
         "evidence": "See referenced cases; no general task-performance claim."
-      }
+      },
+      "routing_hint": "Deep novelty-claim audit with full reading obligations; not a brief comparison."
     },
     {
       "name": "literature-review",
       "title": "literature-review",
-      "summary": "系统、范围与叙述综述的检索筛选和综合",
+      "summary": "系统、范围与叙述综述的检索筛选和综合；仅找论文用 paper-lookup",
       "example_prompt": "请使用 $literature-review，帮助我完成系统、范围与叙述综述的检索筛选和综合，先检查输入与所需依赖。",
       "routing_group": "research-evidence",
       "capability": {
@@ -206,7 +225,8 @@
           "delegates_to": []
         },
         "evidence": "See referenced cases; no general task-performance claim."
-      }
+      },
+      "routing_hint": "Systematic, scoping or narrative synthesis with search and screening."
     },
     {
       "name": "paper-lookup",
@@ -236,14 +256,16 @@
           "delegates_to": []
         },
         "evidence": "See referenced cases; no general task-performance claim."
-      }
+      },
+      "routing_hint": "Find papers, DOI records and open full text across databases."
     },
     {
       "name": "peer-review",
       "title": "peer-review",
-      "summary": "有证据支持的论文评阅与修订意见",
+      "summary": "按要求提供论文评阅与修订意见；普通论文解读不默认使用",
       "example_prompt": "请使用 $peer-review，帮助我完成有证据支持的论文评阅与修订意见，先检查输入与所需依赖。",
-      "routing_group": "research-evidence"
+      "routing_group": "research-evidence",
+      "routing_hint": "A requested manuscript review; not ordinary paper explanation."
     },
     {
       "name": "reading-contract",
@@ -272,7 +294,8 @@
           "delegates_to": []
         },
         "evidence": "See referenced cases; no general task-performance claim."
-      }
+      },
+      "routing_hint": "Source-bound reading: separate facts, inference and missing evidence."
     },
     {
       "name": "ref-check",
@@ -299,28 +322,32 @@
           "delegates_to": []
         },
         "evidence": "See referenced cases; no general task-performance claim."
-      }
+      },
+      "routing_hint": "Strict verification of bibliography fields and citation support."
     },
     {
       "name": "research-lookup",
       "title": "research-lookup",
       "summary": "通过外部搜索服务汇集科研证据与背景",
       "example_prompt": "请使用 $research-lookup，帮助我完成通过外部搜索服务汇集科研证据与背景，先检查输入与所需依赖。",
-      "routing_group": "research-evidence"
+      "routing_group": "research-evidence",
+      "routing_hint": "Gather manuscript/background evidence using its external search services."
     },
     {
       "name": "scholar-evaluation",
       "title": "scholar-evaluation",
       "summary": "对科研作品进行可追溯的质量评估",
       "example_prompt": "请使用 $scholar-evaluation，帮助我完成对科研作品进行可追溯的质量评估，先检查输入与所需依赖。",
-      "routing_group": "research-evidence"
+      "routing_group": "research-evidence",
+      "routing_hint": "Structured assessment of scholarly work; not a general paper summary."
     },
     {
       "name": "scientific-brainstorming",
       "title": "scientific-brainstorming",
       "summary": "生成和比较候选研究方向及其关键假设",
       "example_prompt": "请使用 $scientific-brainstorming，帮助我完成生成和比较候选研究方向及其关键假设，先检查输入与所需依赖。",
-      "routing_group": "research-evidence"
+      "routing_group": "research-evidence",
+      "routing_hint": "Generate and compare research ideas and their assumptions."
     },
     {
       "name": "scientific-critical-thinking",
@@ -347,12 +374,13 @@
           "delegates_to": []
         },
         "evidence": "See referenced cases; no general task-performance claim."
-      }
+      },
+      "routing_hint": "Appraise scientific claims, evidence and confounders when evaluation is requested."
     },
     {
       "name": "exploratory-data-analysis",
       "title": "exploratory-data-analysis",
-      "summary": "科学数据的结构、缺失值和异常值探索",
+      "summary": "检查支持格式的数据、缺失值与异常；不因检查自动建模",
       "example_prompt": "请使用 $exploratory-data-analysis，帮助我完成科学数据的结构、缺失值和异常值探索，先检查输入与所需依赖。",
       "routing_group": "data-modeling",
       "capability": {
@@ -377,7 +405,8 @@
           "delegates_to": []
         },
         "evidence": "See referenced cases; no general task-performance claim."
-      }
+      },
+      "routing_hint": "Inspect supported data formats, missingness and anomalies; no automatic modeling."
     },
     {
       "name": "independence-bookkeeping",
@@ -404,21 +433,24 @@
           "delegates_to": []
         },
         "evidence": "See referenced cases; no general task-performance claim."
-      }
+      },
+      "routing_hint": "Audit shared dependencies and data use in independent validation."
     },
     {
       "name": "pymc",
       "title": "pymc",
       "summary": "贝叶斯建模、后验检查与不确定度推断",
       "example_prompt": "请使用 $pymc，帮助我完成贝叶斯建模、后验检查与不确定度推断，先检查输入与所需依赖。",
-      "routing_group": "data-modeling"
+      "routing_group": "data-modeling",
+      "routing_hint": "Bayesian modeling, posterior checks and uncertainty inference."
     },
     {
       "name": "pymoo",
       "title": "pymoo",
       "summary": "多目标优化、约束与帕累托解分析",
       "example_prompt": "请使用 $pymoo，帮助我完成多目标优化、约束与帕累托解分析，先检查输入与所需依赖。",
-      "routing_group": "data-modeling"
+      "routing_group": "data-modeling",
+      "routing_hint": "Constrained and multi-objective optimization and Pareto solutions."
     },
     {
       "name": "scikit-learn",
@@ -447,14 +479,16 @@
           "delegates_to": []
         },
         "evidence": "See referenced cases; no general task-performance claim."
-      }
+      },
+      "routing_hint": "ML preprocessing, prediction and cross-validation; only when modeling is needed."
     },
     {
       "name": "shap",
       "title": "shap",
       "summary": "模型预测的特征归因、解释与诊断",
       "example_prompt": "请使用 $shap，帮助我完成模型预测的特征归因、解释与诊断，先检查输入与所需依赖。",
-      "routing_group": "data-modeling"
+      "routing_group": "data-modeling",
+      "routing_hint": "Feature attribution and diagnostics for model predictions."
     },
     {
       "name": "statistical-analysis",
@@ -483,42 +517,48 @@
           "delegates_to": []
         },
         "evidence": "See referenced cases; no general task-performance claim."
-      }
+      },
+      "routing_hint": "Choose statistical tests, check assumptions and report effect sizes."
     },
     {
       "name": "statistical-power",
       "title": "statistical-power",
       "summary": "样本量、重复数和统计功效规划",
       "example_prompt": "请使用 $statistical-power，帮助我完成样本量、重复数和统计功效规划，先检查输入与所需依赖。",
-      "routing_group": "data-modeling"
+      "routing_group": "data-modeling",
+      "routing_hint": "Plan sample sizes, replicates and statistical power."
     },
     {
       "name": "statsmodels",
       "title": "statsmodels",
       "summary": "回归、广义线性模型和时间序列诊断",
       "example_prompt": "请使用 $statsmodels，帮助我完成回归、广义线性模型和时间序列诊断，先检查输入与所需依赖。",
-      "routing_group": "data-modeling"
+      "routing_group": "data-modeling",
+      "routing_hint": "Fit regression, generalized linear and time-series models."
     },
     {
       "name": "markitdown",
       "title": "markitdown",
       "summary": "将PDF、Office等文档转换为Markdown",
       "example_prompt": "请使用 $markitdown，帮助我完成将PDF、Office等文档转换为Markdown，先检查输入与所需依赖。",
-      "routing_group": "writing-figures"
+      "routing_group": "writing-figures",
+      "routing_hint": "Convert supported PDF/Office and other documents to Markdown."
     },
     {
       "name": "scientific-schematics",
       "title": "scientific-schematics",
-      "summary": "通过外部图像模型生成科学示意图草稿",
+      "summary": "通过外部图像模型生成概念示意图；真实数据图用绘图技能",
       "example_prompt": "请使用 $scientific-schematics，帮助我完成通过外部图像模型生成科学示意图草稿，先检查输入与所需依赖。",
-      "routing_group": "writing-figures"
+      "routing_group": "writing-figures",
+      "routing_hint": "Conceptual scientific illustrations via an external image service; not data plots."
     },
     {
       "name": "scientific-slides",
       "title": "scientific-slides",
       "summary": "科研汇报幻灯片结构、制作与视觉检查",
       "example_prompt": "请使用 $scientific-slides，帮助我完成科研汇报幻灯片结构、制作与视觉检查，先检查输入与所需依赖。",
-      "routing_group": "writing-figures"
+      "routing_group": "writing-figures",
+      "routing_hint": "Research slide preparation and visual checking."
     },
     {
       "name": "scientific-visualization",
@@ -547,14 +587,16 @@
           "delegates_to": []
         },
         "evidence": "See referenced cases; no general task-performance claim."
-      }
+      },
+      "routing_hint": "Scientific figure design, multiple panels, units and readability."
     },
     {
       "name": "scientific-writing",
       "title": "scientific-writing",
       "summary": "有证据溯源的科研论文撰写与一致性检查",
       "example_prompt": "请使用 $scientific-writing，帮助我完成有证据溯源的科研论文撰写与一致性检查，先检查输入与所需依赖。",
-      "routing_group": "writing-figures"
+      "routing_group": "writing-figures",
+      "routing_hint": "Evidence-grounded manuscript drafting and consistency checks."
     },
     {
       "name": "seaborn",
@@ -583,7 +625,8 @@
           "delegates_to": []
         },
         "evidence": "See referenced cases; no general task-performance claim."
-      }
+      },
+      "routing_hint": "Statistical distribution, group-comparison and relationship plots."
     },
     {
       "name": "scientific-skill-router",
@@ -621,7 +664,8 @@
           "delegates_to": []
         },
         "evidence": "See referenced cases; no general task-performance claim."
-      }
+      },
+      "routing_hint": "VASP input presets and output parsing; requires a separately supplied upstream backend."
     },
     {
       "name": "dft-vasp",
@@ -657,21 +701,24 @@
           ]
         },
         "evidence": "See referenced cases; no general task-performance claim."
-      }
+      },
+      "routing_hint": "Prepare static/relax/DOS/band inputs via domain subskills; does not submit jobs."
     },
     {
       "name": "dft-qe",
       "title": "dft-qe",
       "summary": "根据结构与指定参数准备 Quantum ESPRESSO 输入",
       "example_prompt": "请使用 $dft-qe，帮助我完成根据结构与指定参数准备 Quantum ESPRESSO 输入，先检查输入与所需依赖。",
-      "routing_group": "chemistry-materials"
+      "routing_group": "chemistry-materials",
+      "routing_hint": "Prepare Quantum ESPRESSO inputs from structures and specified settings."
     },
     {
       "name": "dpdata-cli",
       "title": "dpdata-cli",
       "summary": "原子结构和计算数据格式转换",
       "example_prompt": "请使用 $dpdata-cli，帮助我完成原子结构和计算数据格式转换，先检查输入与所需依赖。",
-      "routing_group": "chemistry-materials"
+      "routing_group": "chemistry-materials",
+      "routing_hint": "Convert atomistic structures and calculation data formats."
     },
     {
       "name": "dpdisp-submit",
@@ -698,35 +745,40 @@
           "delegates_to": []
         },
         "evidence": "See referenced cases; no general task-performance claim."
-      }
+      },
+      "routing_hint": "Execute explicitly authorized local or cluster jobs; not input preparation."
     },
     {
       "name": "literature-search-arxiv",
       "title": "literature-search-arxiv",
       "summary": "检索 arXiv 预印本、下载论文及源文件",
       "example_prompt": "请使用 $literature-search-arxiv，帮助我完成检索 arXiv 预印本、下载论文及源文件，先检查输入与所需依赖。",
-      "routing_group": "research-evidence"
+      "routing_group": "research-evidence",
+      "routing_hint": "Use the arXiv-specific search/download backend."
     },
     {
       "name": "literature-search-openalex",
       "title": "literature-search-openalex",
       "summary": "检索 OpenAlex 论文、作者、机构及引文元数据",
       "example_prompt": "请使用 $literature-search-openalex，帮助我完成检索 OpenAlex 论文、作者、机构及引文元数据，先检查输入与所需依赖。",
-      "routing_group": "research-evidence"
+      "routing_group": "research-evidence",
+      "routing_hint": "Use the OpenAlex-specific publication and citation backend."
     },
     {
       "name": "uv",
       "title": "uv",
       "summary": "配置 uv 并运行带独立依赖的 Python 脚本",
       "example_prompt": "请使用 $uv，帮助我完成配置 uv 并运行带独立依赖的 Python 脚本，先检查输入与所需依赖。",
-      "routing_group": "runtime-support"
+      "routing_group": "runtime-support",
+      "routing_hint": "Set up uv when a selected script needs it; not part of every task."
     },
     {
       "name": "credentials",
       "title": "credentials",
       "summary": "检查服务凭据是否就绪，避免在会话中暴露密钥",
       "example_prompt": "请使用 $credentials，帮助我完成检查服务凭据是否就绪，避免在会话中暴露密钥，先检查输入与所需依赖。",
-      "routing_group": "runtime-support"
+      "routing_group": "runtime-support",
+      "routing_hint": "Check required credentials without exposing secrets; only when needed."
     }
   ]
 }

@@ -47,7 +47,6 @@ def validate(root=ROOT):
             inside(root / 'skills', target + '/SKILL.md')
     refs = root / 'skills/scientific-skill-router/references'
     contracts = read(refs / 'workflows.json')
-    inside(refs, contracts['shared_contract'])
     routes = contracts['workflows']
     route_ids = unique(routes, 'id')
     cases = read(root / 'examples/cases.json')['cases']

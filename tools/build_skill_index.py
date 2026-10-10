@@ -22,22 +22,14 @@ def build(root=ROOT):
   text=(root/'skills'/entry['name']/'SKILL.md').read_text(encoding='utf-8')
   front=text.split('---',2)[1]
   compatibility=next((line.split(':',1)[1].strip() for line in front.splitlines() if line.startswith('compatibility:')), 'Read the skill for runtime requirements.')
-  rows.append(dict(name=entry['name'],group=group,purpose=entry['summary'],example=entry['example_prompt'],compatibility=compatibility,source_name=source.get('repository',source.get('project','Local')).removeprefix('https://github.com/'),source_url=(f"{source['repository']}/blob/{source['commit']}/{source['path']}/SKILL.md" if source.get('repository') else None),bundled=True,runtime_ready='not established by installation',capability=entry.get('capability')))
+  hint=entry.get('routing_hint')
+  if not isinstance(hint,str) or not hint.strip():raise ValueError('Missing routing hint: '+entry['name'])
+  rows.append(dict(routing_hint=hint,name=entry['name'],group=group,purpose=entry['summary'],example=entry['example_prompt'],compatibility=compatibility,source_name=source.get('repository',source.get('project','Local')).removeprefix('https://github.com/'),source_url=(f"{source['repository']}/blob/{source['commit']}/{source['path']}/SKILL.md" if source.get('repository') else None),bundled=True,runtime_ready='not established by installation',capability=entry.get('capability')))
  out=root/'skills/scientific-skill-router/references';out.mkdir(parents=True,exist_ok=True)
  for group,(title,guidance) in GROUPS.items():
   members=[r for r in rows if r['group']==group]
-  lines=['# '+title,'',guidance,'','表中英文标识对应独立技能；先核对当前会话可用性，再读取其 SKILL.md。支持软件/账号是否可用需在任务中检查。','','| 技能 | 用于什么任务 | 来源 |','| --- | --- | --- |']
-  lines += [f"| `{r['name']}` | {r['purpose']} | "+(f"[{r['source_name']}]({r['source_url']})" if r['source_url'] else r['source_name'])+" |" for r in members]
-  lines+=['','## 选择后再核对依赖','']
-  lines += [f"- **{r['name']}**：{r['compatibility']}" for r in members]
-  described=[r for r in members if r['capability']]
-  if described:
-   lines+=['','## 首批路线的能力与交接','', '以下为合集维护的适配说明，不是性能排名；未列出的技能仍可使用，需读取原文判断。','']
-   for row in described:
-    cap=row['capability']; rel=cap['relations']
-    lines += [f"### {row['name']}", '', 'Tasks: '+', '.join(cap['tasks']), 'Inputs: '+'; '.join(cap['inputs']), 'Outputs: '+'; '.join(cap['outputs']), 'Requires: '+'; '.join(cap['requires'])]
-    lines += [key+': '+', '.join(values) for key,values in rel.items() if values]
-    lines += ['Evidence: '+cap['evidence'],'']
+  lines=['# '+group, '', 'Selection index only. Read the selected SKILL.md and PACKAGING.md for dependencies and execution.', 'Source names identify provenance, not priority. Availability is determined by the host.', '', '| Skill | Choose for / boundary | Source |', '| --- | --- | --- |']
+  lines += [f"| `{r['name']}` | {r['routing_hint']} | {r['source_name']} |" for r in members]
   (out/(group+'.md')).write_text('\n'.join(lines).rstrip()+'\n',encoding='utf-8')
  (out/'index.json').write_text(json.dumps({'schema_version':2,'scope':'All bundled task skills grouped by function across sources; router excluded','skills':rows},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  docs=root/'docs';docs.mkdir(exist_ok=True)
@@ -47,7 +39,7 @@ def build(root=ROOT):
   lines += ['## '+title+'（'+str(len(members))+'项）','',guidance,'','| 技能 | 中文用途 | 来源 |','| --- | --- | --- |']
   lines += [f"| [{r['name']}](../skills/{r['name']}/SKILL.md) | {r['purpose']} | "+(f"[{r['source_name']}]({r['source_url']})" if r['source_url'] else r['source_name'])+" |" for r in members]
   lines += ['']
- lines += ['## 如何选择','','直接描述任务，或使用 `$scientific-skill-router`。同一板块可以包含不同来源的技能；根据具体任务、输入和依赖选择，不以来源决定优先级。','','- 找论文：`paper-lookup`；组织综述：`literature-review`；深入审查创新性：`lit-review`。','- 生成/整理书目：`citation-management`；严格核验书目：`ref-check`；核对原文证据：`reading-contract`。','- 建模与交叉验证：`scikit-learn`；审查数据接触历史与验证独立性：`independence-bookkeeping`。','','## 依赖与使用限制','','以下是上游声明或原文指引，安装时没有逐项运行全部科学任务。外部API和科学软件需按任务确认。','']
+ lines += ['## 如何选择','','直接描述任务，或指定 `scientific-skill-router`。上表同时说明部分相近技能的区别；不随机选择或默认全部执行。具体运行要求见下方与对应技能正文。','','## 依赖与使用限制','','以下是上游声明或原文指引，安装时没有逐项运行全部科学任务。外部 API 和科学软件需按任务确认。','']
  lines += [f"- **{r['name']}**：{r['compatibility']}" for r in rows]
  (docs/'skills-catalog.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
  print(f'Indexed {len(rows)} skills across {len(GROUPS)} groups.')

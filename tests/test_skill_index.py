@@ -10,6 +10,30 @@ spec=importlib.util.spec_from_file_location('skill_index',ROOT/'tools/build_skil
 index=importlib.util.module_from_spec(spec);spec.loader.exec_module(index)
 
 class SkillIndexTests(unittest.TestCase):
+ def test_catalog_drives_short_model_index_and_human_directory(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   root=Path(tmp)
+   source=root/'skills/datamol';source.mkdir(parents=True)
+   for name in ['SOURCE.json','SKILL.md']:
+    shutil.copy2(ROOT/'skills/datamol'/name,source/name)
+   entry={'name':'datamol','routing_group':'chemistry-materials',
+          'summary':'新的中文用途', 'routing_hint':'A changed English selection boundary.',
+          'example_prompt':'使用示例'}
+   path=root/'catalog.json'
+   path.write_text(json.dumps({'skills':[entry]}),encoding='utf-8')
+   index.build(root)
+   model=(root/'skills/scientific-skill-router/references/chemistry-materials.md').read_text(encoding='utf-8')
+   human=(root/'docs/skills-catalog.md').read_text(encoding='utf-8')
+   self.assertIn(entry['routing_hint'],model)
+   self.assertIn(entry['summary'],human)
+   self.assertNotIn('## 选择后再核对依赖',model)
+   self.assertIn('## 依赖与使用限制',human)
+   generated=json.loads((root/'skills/scientific-skill-router/references/index.json').read_text(encoding='utf-8'))['skills'][0]
+   self.assertEqual(generated['routing_hint'],entry['routing_hint'])
+   self.assertEqual(generated['purpose'],entry['summary'])
+   del entry['routing_hint']
+   path.write_text(json.dumps({'skills':[entry]}),encoding='utf-8')
+   with self.assertRaisesRegex(ValueError,'routing hint'):index.build(root)
  def test_index_covers_each_task_skill_once(self):
   actual=json.loads((ROOT/'skills/scientific-skill-router/references/index.json').read_text(encoding="utf-8"))['skills']
   expected={p.parent.name for p in (ROOT/'skills').glob('*/SOURCE.json')} - {'scientific-skill-router'}

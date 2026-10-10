@@ -42,9 +42,6 @@
         "Bounded comparison does not certify exhaustive novelty.",
         "Apply date and paper-count limits to the entire answer."
       ],
-      "references": [
-        "evidence-checks.md"
-      ],
       "completion_checks": [
         "Deliver the requested result, not a promise or uninspected file.",
         "Resolve delegated work or explicitly report partial/unknown status.",
@@ -131,6 +128,5 @@
         "Keep evidence gaps visible; tool success is not scientific validation."
       ]
     }
-  ],
-  "shared_contract": "execution-contract.md"
+  ]
 }

@@ -1,68 +1,16 @@
-# 数据、统计与机器学习
+# data-modeling
 
-先明确解释、推断、预测还是优化目标；若任务只需基础统计，不强制建立机器学习模型。
+Selection index only. Read the selected SKILL.md and PACKAGING.md for dependencies and execution.
+Source names identify provenance, not priority. Availability is determined by the host.
 
-表中英文标识对应独立技能；先核对当前会话可用性，再读取其 SKILL.md。支持软件/账号是否可用需在任务中检查。
-
-| 技能 | 用于什么任务 | 来源 |
+| Skill | Choose for / boundary | Source |
 | --- | --- | --- |
-| `exploratory-data-analysis` | 科学数据的结构、缺失值和异常值探索 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/exploratory-data-analysis/SKILL.md) |
-| `independence-bookkeeping` | 检查验证路线的共享依赖、数据使用历史与循环验证。 | [BootLoops-ai/skills](https://github.com/BootLoops-ai/skills/blob/ca892277dcf0468d995f0036f3bd6d753a8afe7d/skills/independence-bookkeeping/SKILL.md) |
-| `pymc` | 贝叶斯建模、后验检查与不确定度推断 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pymc/SKILL.md) |
-| `pymoo` | 多目标优化、约束与帕累托解分析 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pymoo/SKILL.md) |
-| `scikit-learn` | 机器学习预处理、建模与交叉验证 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scikit-learn/SKILL.md) |
-| `shap` | 模型预测的特征归因、解释与诊断 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/shap/SKILL.md) |
-| `statistical-analysis` | 统计检验选择、假设检查与效应量报告 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/statistical-analysis/SKILL.md) |
-| `statistical-power` | 样本量、重复数和统计功效规划 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/statistical-power/SKILL.md) |
-| `statsmodels` | 回归、广义线性模型和时间序列诊断 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/statsmodels/SKILL.md) |
-
-## 选择后再核对依赖
-
-- **exploratory-data-analysis**：Bundled core CLIs require Python 3.11+ and are local/network-free; the complete pinned optional snapshot requires Python 3.12+, uv, and format-specific libraries listed below.
-- **independence-bookkeeping**：Read the skill for runtime requirements.
-- **pymc**：Requires Python 3.12+ with PyMC 6.3.2, PyTensor 3.3.2 and ArviZ 1.3-compatible dependencies; NumPy, pandas, Matplotlib, h5netcdf and h5py for bundled helpers/artifacts. Network access for installation only. Optional nutpie, NumPyro and BlackJAX samplers need separate dependencies.
-- **pymoo**：Requires Python 3.10+ and pymoo 0.6.2 with its NumPy, SciPy, matplotlib and autograd dependencies. Optional joblib for parallel runners, optuna for its algorithm wrapper, and dill for checkpoints. Network needed for installation only.
-- **scikit-learn**：Requires Python 3.11+ and scikit-learn 1.9.1. NumPy, SciPy, and joblib are dependencies; bundled scripts also require pandas and matplotlib. Installation needs network access; bundled examples use local datasets without credentials.
-- **shap**：Requires Python 3.12+ and uv for SHAP 0.52.0; model-specific libraries are optional.
-- **statistical-analysis**：Requires Python 3.12+ and the documented isolated scientific Python environment; network access only for installation and documentation.
-- **statistical-power**：Requires Python >=3.12 with statsmodels, scipy, numpy, pandas, and matplotlib. Optional comparison uses pingouin; survival extensions use lifelines (requires pandas<3). Installation needs network access unless packages are cached. Calculations run locally without credentials.
-- **statsmodels**：Requires Python 3.10+ and statsmodels 0.15.0; the tested NumPy 2.5.3/SciPy 1.18.1 stack needs Python 3.12+. Plotting needs matplotlib; predictive metrics need scikit-learn. Network access is needed only for installation or documentation; no credentials.
-
-## 首批路线的能力与交接
-
-以下为合集维护的适配说明，不是性能排名；未列出的技能仍可使用，需读取原文判断。
-
-### exploratory-data-analysis
-
-Tasks: tabular-quality-audit
-Inputs: Authorized local supported file
-Outputs: bounded data profile and quality flags
-Requires: Bundled core CLIs declare Python 3.11+; optional formats have additional dependencies
-feeds_into: statistical-analysis, scientific-visualization
-Evidence: See referenced cases; no general task-performance claim.
-
-### independence-bookkeeping
-
-Tasks: validation-independence-audit
-Inputs: Data/reference usage history
-Outputs: record of independent and reused evidence
-Requires: Actual provenance; no independence inferred from a second transformation
-Evidence: See referenced cases; no general task-performance claim.
-
-### scikit-learn
-
-Tasks: predictive-modeling
-Inputs: Prediction objective, checked data and justified split
-Outputs: model evaluation and split provenance
-Requires: Compatible scikit-learn environment
-feeds_into: scientific-visualization
-Evidence: See referenced cases; no general task-performance claim.
-
-### statistical-analysis
-
-Tasks: statistical-inference-planning
-Inputs: Research question, design, units and checked data
-Outputs: justified analysis and assumption checks
-Requires: Task-specific statistical runtime
-feeds_into: scientific-visualization
-Evidence: See referenced cases; no general task-performance claim.
+| `exploratory-data-analysis` | Inspect supported data formats, missingness and anomalies; no automatic modeling. | K-Dense-AI/scientific-agent-skills |
+| `independence-bookkeeping` | Audit shared dependencies and data use in independent validation. | BootLoops-ai/skills |
+| `pymc` | Bayesian modeling, posterior checks and uncertainty inference. | K-Dense-AI/scientific-agent-skills |
+| `pymoo` | Constrained and multi-objective optimization and Pareto solutions. | K-Dense-AI/scientific-agent-skills |
+| `scikit-learn` | ML preprocessing, prediction and cross-validation; only when modeling is needed. | K-Dense-AI/scientific-agent-skills |
+| `shap` | Feature attribution and diagnostics for model predictions. | K-Dense-AI/scientific-agent-skills |
+| `statistical-analysis` | Choose statistical tests, check assumptions and report effect sizes. | K-Dense-AI/scientific-agent-skills |
+| `statistical-power` | Plan sample sizes, replicates and statistical power. | K-Dense-AI/scientific-agent-skills |
+| `statsmodels` | Fit regression, generalized linear and time-series models. | K-Dense-AI/scientific-agent-skills |

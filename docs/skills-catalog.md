@@ -20,18 +20,18 @@
 | --- | --- | --- |
 | [analytical-method-validation](../skills/analytical-method-validation/SKILL.md) | 分析方法的准确度、精密度与检出限验证 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/analytical-method-validation/SKILL.md) |
 | [cantera](../skills/cantera/SKILL.md) | 化学反应动力学、反应器与点火延迟 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/cantera/SKILL.md) |
-| [datamol](../skills/datamol/SKILL.md) | 常用分子标准化、描述符和构象处理 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/datamol/SKILL.md) |
+| [datamol](../skills/datamol/SKILL.md) | 常用分子标准化、描述符和构象处理；精细操作可用 rdkit | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/datamol/SKILL.md) |
 | [deepchem](../skills/deepchem/SKILL.md) | 分子性质预测、特征化与化学机器学习 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/deepchem/SKILL.md) |
 | [matchms](../skills/matchms/SKILL.md) | 串联质谱清理、相似度与谱库匹配 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/matchms/SKILL.md) |
 | [medchem](../skills/medchem/SKILL.md) | 药物化学结构警示与分子库筛选 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/medchem/SKILL.md) |
-| [molecular-dynamics](../skills/molecular-dynamics/SKILL.md) | OpenMM分子动力学与轨迹分析 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/molecular-dynamics/SKILL.md) |
+| [molecular-dynamics](../skills/molecular-dynamics/SKILL.md) | OpenMM 分子动力学与轨迹分析；不等于周期材料 AIMD | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/molecular-dynamics/SKILL.md) |
 | [molfeat](../skills/molfeat/SKILL.md) | 分子指纹、描述符与预训练分子表征 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/molfeat/SKILL.md) |
 | [nmrglue](../skills/nmrglue/SKILL.md) | 一维核磁原始数据处理、谱峰与积分 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/nmrglue/SKILL.md) |
 | [pybamm](../skills/pybamm/SKILL.md) | 电池充放电建模与参数敏感性分析 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pybamm/SKILL.md) |
 | [pycalphad](../skills/pycalphad/SKILL.md) | 基于热力学数据库的相平衡计算 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pycalphad/SKILL.md) |
 | [pymatgen](../skills/pymatgen/SKILL.md) | 晶体结构、材料数据与电子结构文件分析 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pymatgen/SKILL.md) |
 | [pyopenms](../skills/pyopenms/SKILL.md) | 液相色谱质谱数据处理与特征检测 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pyopenms/SKILL.md) |
-| [rdkit](../skills/rdkit/SKILL.md) | 分子结构、描述符、指纹与子结构检索 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/rdkit/SKILL.md) |
+| [rdkit](../skills/rdkit/SKILL.md) | 精细分子结构、描述符、指纹与子结构操作；常规处理可用 datamol | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/rdkit/SKILL.md) |
 | [uncertainty-and-units](../skills/uncertainty-and-units/SKILL.md) | 物理单位检查、误差传播与不确定度预算 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/uncertainty-and-units/SKILL.md) |
 | [mat-dft-vasp](../skills/mat-dft-vasp/SKILL.md) | VASP 输入准备与结果提取；需另配上游运行环境 | [learningmatter-mit/AtomisticSkills](https://github.com/learningmatter-mit/AtomisticSkills/blob/62574443f2a772e23dd5951f3712b65133b06715/skills/mat-dft-vasp/SKILL.md) |
 | [dft-vasp](../skills/dft-vasp/SKILL.md) | 准备 VASP 静态、优化、DOS 与能带输入，不自动提交 | [jinzhezenggroup/computational-chemistry-agent-skills](https://github.com/jinzhezenggroup/computational-chemistry-agent-skills/blob/5c19e75b256d49849574c999b1965d94024ee072/quantum-chemistry/dft-vasp/SKILL.md) |
@@ -44,13 +44,13 @@
 
 | 技能 | 中文用途 | 来源 |
 | --- | --- | --- |
-| [citation-management](../skills/citation-management/SKILL.md) | 书目信息获取、引用核对与BibTeX生成 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/citation-management/SKILL.md) |
+| [citation-management](../skills/citation-management/SKILL.md) | 获取书目信息并生成 BibTeX；严格审查现有条目用 ref-check | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/citation-management/SKILL.md) |
 | [experimental-design](../skills/experimental-design/SKILL.md) | 实验设计、随机化、分区组与因素组合 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/experimental-design/SKILL.md) |
 | [hypothesis-generation](../skills/hypothesis-generation/SKILL.md) | 将观察转化为可检验假设与区分性预测 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/hypothesis-generation/SKILL.md) |
-| [lit-review](../skills/lit-review/SKILL.md) | 围绕明确研究主张检索近邻工作，记录检索、阅读和证据缺口。 | [BootLoops-ai/skills](https://github.com/BootLoops-ai/skills/blob/ca892277dcf0468d995f0036f3bd6d753a8afe7d/skills/lit-review/SKILL.md) |
-| [literature-review](../skills/literature-review/SKILL.md) | 系统、范围与叙述综述的检索筛选和综合 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/literature-review/SKILL.md) |
+| [lit-review](../skills/lit-review/SKILL.md) | 深入审查明确的创新性主张，需完整阅读与检索记录；简短新意对比不默认使用 | [BootLoops-ai/skills](https://github.com/BootLoops-ai/skills/blob/ca892277dcf0468d995f0036f3bd6d753a8afe7d/skills/lit-review/SKILL.md) |
+| [literature-review](../skills/literature-review/SKILL.md) | 系统、范围与叙述综述的检索筛选和综合；仅找论文用 paper-lookup | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/literature-review/SKILL.md) |
 | [paper-lookup](../skills/paper-lookup/SKILL.md) | 跨学术数据库检索论文、引文与开放全文 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/paper-lookup/SKILL.md) |
-| [peer-review](../skills/peer-review/SKILL.md) | 有证据支持的论文评阅与修订意见 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/peer-review/SKILL.md) |
+| [peer-review](../skills/peer-review/SKILL.md) | 按要求提供论文评阅与修订意见；普通论文解读不默认使用 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/peer-review/SKILL.md) |
 | [reading-contract](../skills/reading-contract/SKILL.md) | 逐条核对论文或记录中的证据，区分事实、推断和未核实内容。 | [BootLoops-ai/skills](https://github.com/BootLoops-ai/skills/blob/ca892277dcf0468d995f0036f3bd6d753a8afe7d/skills/reading-contract/SKILL.md) |
 | [ref-check](../skills/ref-check/SKILL.md) | 核对书目信息及引用是否支持正文，给出可追溯的修改建议。 | [BootLoops-ai/skills](https://github.com/BootLoops-ai/skills/blob/ca892277dcf0468d995f0036f3bd6d753a8afe7d/skills/ref-check/SKILL.md) |
 | [research-lookup](../skills/research-lookup/SKILL.md) | 通过外部搜索服务汇集科研证据与背景 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/research-lookup/SKILL.md) |
@@ -66,7 +66,7 @@
 
 | 技能 | 中文用途 | 来源 |
 | --- | --- | --- |
-| [exploratory-data-analysis](../skills/exploratory-data-analysis/SKILL.md) | 科学数据的结构、缺失值和异常值探索 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/exploratory-data-analysis/SKILL.md) |
+| [exploratory-data-analysis](../skills/exploratory-data-analysis/SKILL.md) | 检查支持格式的数据、缺失值与异常；不因检查自动建模 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/exploratory-data-analysis/SKILL.md) |
 | [independence-bookkeeping](../skills/independence-bookkeeping/SKILL.md) | 检查验证路线的共享依赖、数据使用历史与循环验证。 | [BootLoops-ai/skills](https://github.com/BootLoops-ai/skills/blob/ca892277dcf0468d995f0036f3bd6d753a8afe7d/skills/independence-bookkeeping/SKILL.md) |
 | [pymc](../skills/pymc/SKILL.md) | 贝叶斯建模、后验检查与不确定度推断 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pymc/SKILL.md) |
 | [pymoo](../skills/pymoo/SKILL.md) | 多目标优化、约束与帕累托解分析 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/pymoo/SKILL.md) |
@@ -83,7 +83,7 @@
 | 技能 | 中文用途 | 来源 |
 | --- | --- | --- |
 | [markitdown](../skills/markitdown/SKILL.md) | 将PDF、Office等文档转换为Markdown | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/markitdown/SKILL.md) |
-| [scientific-schematics](../skills/scientific-schematics/SKILL.md) | 通过外部图像模型生成科学示意图草稿 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-schematics/SKILL.md) |
+| [scientific-schematics](../skills/scientific-schematics/SKILL.md) | 通过外部图像模型生成概念示意图；真实数据图用绘图技能 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-schematics/SKILL.md) |
 | [scientific-slides](../skills/scientific-slides/SKILL.md) | 科研汇报幻灯片结构、制作与视觉检查 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-slides/SKILL.md) |
 | [scientific-visualization](../skills/scientific-visualization/SKILL.md) | 多面板科研图设计、单位与可读性检查 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-visualization/SKILL.md) |
 | [scientific-writing](../skills/scientific-writing/SKILL.md) | 有证据溯源的科研论文撰写与一致性检查 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-writing/SKILL.md) |
@@ -91,15 +91,11 @@
 
 ## 如何选择
 
-直接描述任务，或使用 `$scientific-skill-router`。同一板块可以包含不同来源的技能；根据具体任务、输入和依赖选择，不以来源决定优先级。
-
-- 找论文：`paper-lookup`；组织综述：`literature-review`；深入审查创新性：`lit-review`。
-- 生成/整理书目：`citation-management`；严格核验书目：`ref-check`；核对原文证据：`reading-contract`。
-- 建模与交叉验证：`scikit-learn`；审查数据接触历史与验证独立性：`independence-bookkeeping`。
+直接描述任务，或指定 `scientific-skill-router`。上表同时说明部分相近技能的区别；不随机选择或默认全部执行。具体运行要求见下方与对应技能正文。
 
 ## 依赖与使用限制
 
-以下是上游声明或原文指引，安装时没有逐项运行全部科学任务。外部API和科学软件需按任务确认。
+以下是上游声明或原文指引，安装时没有逐项运行全部科学任务。外部 API 和科学软件需按任务确认。
 
 - **analytical-method-validation**：Requires Python 3.11+. Scripts use only the standard library - no numpy, scipy, or network access. Statistical distributions are computed from first principles so results are reproducible in any conforming interpreter.
 - **cantera**：Requires Python 3.12-3.14, Cantera 3.2.0, and NumPy. Installation needs network access; simulations run locally without credentials. Custom mechanisms must be available as Cantera YAML files.

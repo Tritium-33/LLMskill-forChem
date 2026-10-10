@@ -1,97 +1,22 @@
-# 科研检索与论证
+# research-evidence
 
-按找资料、核书目、证据综合、形成假设、设计实验和评阅区分；检索获得记录不等于已读全文。
+Selection index only. Read the selected SKILL.md and PACKAGING.md for dependencies and execution.
+Source names identify provenance, not priority. Availability is determined by the host.
 
-表中英文标识对应独立技能；先核对当前会话可用性，再读取其 SKILL.md。支持软件/账号是否可用需在任务中检查。
-
-| 技能 | 用于什么任务 | 来源 |
+| Skill | Choose for / boundary | Source |
 | --- | --- | --- |
-| `citation-management` | 书目信息获取、引用核对与BibTeX生成 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/citation-management/SKILL.md) |
-| `experimental-design` | 实验设计、随机化、分区组与因素组合 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/experimental-design/SKILL.md) |
-| `hypothesis-generation` | 将观察转化为可检验假设与区分性预测 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/hypothesis-generation/SKILL.md) |
-| `lit-review` | 围绕明确研究主张检索近邻工作，记录检索、阅读和证据缺口。 | [BootLoops-ai/skills](https://github.com/BootLoops-ai/skills/blob/ca892277dcf0468d995f0036f3bd6d753a8afe7d/skills/lit-review/SKILL.md) |
-| `literature-review` | 系统、范围与叙述综述的检索筛选和综合 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/literature-review/SKILL.md) |
-| `paper-lookup` | 跨学术数据库检索论文、引文与开放全文 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/paper-lookup/SKILL.md) |
-| `peer-review` | 有证据支持的论文评阅与修订意见 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/peer-review/SKILL.md) |
-| `reading-contract` | 逐条核对论文或记录中的证据，区分事实、推断和未核实内容。 | [BootLoops-ai/skills](https://github.com/BootLoops-ai/skills/blob/ca892277dcf0468d995f0036f3bd6d753a8afe7d/skills/reading-contract/SKILL.md) |
-| `ref-check` | 核对书目信息及引用是否支持正文，给出可追溯的修改建议。 | [BootLoops-ai/skills](https://github.com/BootLoops-ai/skills/blob/ca892277dcf0468d995f0036f3bd6d753a8afe7d/skills/ref-check/SKILL.md) |
-| `research-lookup` | 通过外部搜索服务汇集科研证据与背景 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/research-lookup/SKILL.md) |
-| `scholar-evaluation` | 对科研作品进行可追溯的质量评估 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scholar-evaluation/SKILL.md) |
-| `scientific-brainstorming` | 生成和比较候选研究方向及其关键假设 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-brainstorming/SKILL.md) |
-| `scientific-critical-thinking` | 审查科研主张、证据质量与混杂因素 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills/blob/92ace75ac21efe19a620434e0ca4e356081fe807/skills/scientific-critical-thinking/SKILL.md) |
-| `literature-search-arxiv` | 检索 arXiv 预印本、下载论文及源文件 | [google-deepmind/science-skills](https://github.com/google-deepmind/science-skills/blob/68832757cbbf941c620b71df5756cf6e5cc287b0/skills/literature_search_arxiv/SKILL.md) |
-| `literature-search-openalex` | 检索 OpenAlex 论文、作者、机构及引文元数据 | [google-deepmind/science-skills](https://github.com/google-deepmind/science-skills/blob/68832757cbbf941c620b71df5756cf6e5cc287b0/skills/literature_search_openalex/SKILL.md) |
-
-## 选择后再核对依赖
-
-- **citation-management**：Requires Python 3.9+ with requests. Google Scholar search additionally needs scholarly. Needs network access to api.openalex.org, api.crossref.org, eutils.ncbi.nlm.nih.gov, pmc.ncbi.nlm.nih.gov, doi.org, export.arxiv.org, and api.datacite.org.
-- **experimental-design**：Requires Python >=3.12 with numpy, pandas, and pydoe 1.5.0 (DOE matrices). Network access is needed only to install packages; no credentials are required.
-- **hypothesis-generation**：Python 3.11+ standard library. Bundled CLIs are deterministic and local-only; they accept bounded JSON, CSV, or Markdown and require no network, credentials, models, image services, or external packages.
-- **lit-review**：Read the skill for runtime requirements.
-- **literature-review**：Python 3.10+ with requests; network for DOI checks and searches. Optional parallel-cli requires Parallel authentication. PDF export needs Pandoc and XeLaTeX; AI schematics need OPENROUTER_API_KEY.
-- **paper-lookup**：Needs network access and curl. The bundled scripts require Python 3.11+ and use only the standard library. No credentials are required; NCBI_API_KEY, S2_API_KEY, CORE_API_KEY, and OPENALEX_API_KEY raise rate limits or unlock full text where noted.
-- **peer-review**：Python 3.11+ standard library. Bundled CLIs are deterministic and local-only; they accept bounded JSON, CSV, or Markdown and make no network, model, image, or external-service calls.
-- **reading-contract**：Read the skill for runtime requirements.
-- **ref-check**：Read the skill for runtime requirements.
-- **research-lookup**：Requires Python 3.10+ and network access; targets parallel-web-tools CLI 0.9.3 for Search, Extract, and Research. Explicit Chat requires requests and PARALLEL_API_KEY; optional Perplexity through openrouter.ai requires requests and OPENROUTER_API_KEY.
-- **scholar-evaluation**：Requires Python 3.11+ for optional bundled standard-library CLIs. All tooling is local JSON/CSV processing with no network, credentials, external models, or subprocesses.
-- **scientific-brainstorming**：Core guidance works in any Agent Skills-compatible host. Optional bundled CLIs require Python 3.11+ and use only the standard library; they make no network or LLM calls and require no credentials.
-- **scientific-critical-thinking**：Analytical guidance needs no network. Optional figures via the scientific-schematics skill require OPENROUTER_API_KEY and outbound API access to OpenRouter.
-- **literature-search-arxiv**：Read the skill for runtime requirements.
-- **literature-search-openalex**：Read the skill for runtime requirements.
-
-## 首批路线的能力与交接
-
-以下为合集维护的适配说明，不是性能排名；未列出的技能仍可使用，需读取原文判断。
-
-### lit-review
-
-Tasks: novelty-audit
-Inputs: Specific novelty claim and accessible literature
-Outputs: source-grounded comparison and limits
-Requires: Search and full-text access
-alternatives: literature-review
-Evidence: See referenced cases; no general task-performance claim.
-
-### literature-review
-
-Tasks: literature-synthesis
-Inputs: Review question and available literature
-Outputs: search/screening record and synthesis
-Requires: Search and document access
-alternatives: lit-review
-Evidence: See referenced cases; no general task-performance claim.
-
-### paper-lookup
-
-Tasks: paper-identity, paper-discovery
-Inputs: DOI, title or research query
-Outputs: metadata and retrieved-source locations
-Requires: Network and selected scholarly endpoint availability
-feeds_into: reading-contract
-Evidence: See referenced cases; no general task-performance claim.
-
-### reading-contract
-
-Tasks: source-bound-reading
-Inputs: Actually accessible documents
-Outputs: claims with source locations and coverage limits
-Requires: Document-reading tools; conversion only if needed
-feeds_into: scientific-critical-thinking
-Evidence: See referenced cases; no general task-performance claim.
-
-### ref-check
-
-Tasks: bibliography-verification
-Inputs: Bibliographic entry or conflicting metadata
-Outputs: verified fields and unresolved discrepancies
-Requires: Authoritative sources and network when required
-Evidence: See referenced cases; no general task-performance claim.
-
-### scientific-critical-thinking
-
-Tasks: evidence-appraisal
-Inputs: Claims and traceable evidence
-Outputs: evidence-bounded assessment
-Requires: Evidence must be available before appraisal
-Evidence: See referenced cases; no general task-performance claim.
+| `citation-management` | Collect bibliography metadata and generate BibTeX; ref-check for strict audits. | K-Dense-AI/scientific-agent-skills |
+| `experimental-design` | Plan experiments, randomization, blocks and factor combinations. | K-Dense-AI/scientific-agent-skills |
+| `hypothesis-generation` | Turn observations into testable hypotheses and distinguishing predictions. | K-Dense-AI/scientific-agent-skills |
+| `lit-review` | Deep novelty-claim audit with full reading obligations; not a brief comparison. | BootLoops-ai/skills |
+| `literature-review` | Systematic, scoping or narrative synthesis with search and screening. | K-Dense-AI/scientific-agent-skills |
+| `paper-lookup` | Find papers, DOI records and open full text across databases. | K-Dense-AI/scientific-agent-skills |
+| `peer-review` | A requested manuscript review; not ordinary paper explanation. | K-Dense-AI/scientific-agent-skills |
+| `reading-contract` | Source-bound reading: separate facts, inference and missing evidence. | BootLoops-ai/skills |
+| `ref-check` | Strict verification of bibliography fields and citation support. | BootLoops-ai/skills |
+| `research-lookup` | Gather manuscript/background evidence using its external search services. | K-Dense-AI/scientific-agent-skills |
+| `scholar-evaluation` | Structured assessment of scholarly work; not a general paper summary. | K-Dense-AI/scientific-agent-skills |
+| `scientific-brainstorming` | Generate and compare research ideas and their assumptions. | K-Dense-AI/scientific-agent-skills |
+| `scientific-critical-thinking` | Appraise scientific claims, evidence and confounders when evaluation is requested. | K-Dense-AI/scientific-agent-skills |
+| `literature-search-arxiv` | Use the arXiv-specific search/download backend. | google-deepmind/science-skills |
+| `literature-search-openalex` | Use the OpenAlex-specific publication and citation backend. | google-deepmind/science-skills |

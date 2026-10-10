@@ -9,7 +9,7 @@ import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-spec = importlib.util.spec_from_file_location('run_evidence', ROOT / 'tools/check_run_evidence.py')
+spec = importlib.util.spec_from_file_location('run_evidence', ROOT / 'tools/maintenance/check_run_evidence.py')
 check = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(check)
 
@@ -94,7 +94,7 @@ class RunEvidenceTests(unittest.TestCase):
             path.write_text(json.dumps(record(), ensure_ascii=False), encoding='utf-8')
             before = path.read_bytes()
             proc = subprocess.run([sys.executable, '-X', 'warn_default_encoding', '-W', 'error::EncodingWarning',
-                                   str(ROOT / 'tools/check_run_evidence.py'), str(path),
+                                   str(ROOT / 'tools/maintenance/check_run_evidence.py'), str(path),
                                    '--required-skill', 'missing-skill'],
                                   capture_output=True, text=True, encoding='utf-8', timeout=10)
             self.assertEqual(proc.returncode, 1, proc.stderr)

@@ -74,12 +74,9 @@ class ArchitectureTests(unittest.TestCase):
             shutil.copytree(ROOT / 'examples', root / 'examples')
             path = root / 'skills/scientific-skill-router/references/workflows.json'
             original = path.read_text(encoding='utf-8')
-            for field, value in [('shared_contract', 'missing.md'), ('completion_checks', [])]:
+            for field, value in [('reference', 'missing.md'), ('completion_checks', [])]:
                 data = json.loads(original)
-                if field == 'shared_contract':
-                    data[field] = value
-                else:
-                    data['workflows'][0][field] = value
+                data['workflows'][0][field] = value
                 path.write_text(json.dumps(data), encoding='utf-8')
                 with self.assertRaises(ValueError):
                     architecture.validate(root)

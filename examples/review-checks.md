@@ -1,4 +1,7 @@
-# Evidence checks for reading and comparison
+# Evidence checks for case reviewers
+
+This is evaluation support, not router runtime guidance. Keep it and case
+expectations outside the answering model's context during independent tests.
 
 Use checks relevant to the claim; do not add unrelated work to a narrow question.
 A citation identifier establishes identity, not entailment. For every decisive

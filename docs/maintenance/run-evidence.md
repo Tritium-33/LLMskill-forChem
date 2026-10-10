@@ -43,8 +43,8 @@
 在仓库根目录，先将想验证的原始指令文字保存到 UTF-8 的 `expected-instruction.txt`。匹配是**精确子串**，不是语义判断；即便文字出现，也可能只是引用，并不能证明其指令优先级或实际被遵循。
 
 ```text
-python tools/check_run_evidence.py observed-run.json --instruction-file expected-instruction.txt --preflight
-python tools/check_run_evidence.py observed-run.json --instruction-file expected-instruction.txt --required-skill scientific-skill-router
+python tools/maintenance/check_run_evidence.py observed-run.json --instruction-file expected-instruction.txt --preflight
+python tools/maintenance/check_run_evidence.py observed-run.json --instruction-file expected-instruction.txt --required-skill scientific-skill-router
 ```
 
 Windows 路径含空格时加引号；在只有 `python3` 的系统上替换命令名。
