@@ -2,7 +2,7 @@
 
 > 本仓库新增代码由 **GPT-6 Astra** 生成，人工部分仅为向 LLM 提出需求和指定 skill。引用的上游技能及代码保留原作者署名、来源与许可证。
 
-> **Token 与耗时提示：** 技能目录、正文、工具结果与执行记录会占用上下文；整个任务的总 token 和耗时取决于实际执行路径。[首轮 Windows DSH 对照](docs/evaluations/2026-10-10-dsh/README.md)已记录 21 次运行，未证明普遍节省 token 或提升质量，部分任务开销显著。用量中含大量缓存读取，不能套用单一价格；“省搜集时间”不代表“省 token”。
+> **Token 与耗时提示：** 使用技能或 router 可能增加检索、上下文与执行开销。[GPT-6 Astra Medium / DeepSeek v4.1 Flash 实测](docs/evaluations/2026-10-11-astra-deepseek/README.md)中，两种模型的技能组均比各自无技能组消耗更多 token；router 相比自选技能，在一组中更省、另一组中更贵。尚无普遍省 token 或提升回答质量的证据。“省搜集时间”不代表“省 token”；统计含缓存读取，不能按单一价格换算费用。
 
 面向化学与材料研究者的开源技能集合，提供中文用途说明、按板块选择技能的入口，以及适用于 Windows 和 Linux/WSL 的安装工具。
 
@@ -87,11 +87,22 @@ python tools/manage.py install --group research-evidence --skill scientific-skil
 
 ## 已有测试与使用限制
 
-[六问 Astra / DeepSeek 三组实测](docs/evaluations/2026-10-11-astra-deepseek/README.md)提供逐题 token、耗时、回答质量观察及原始最终回答。两种宿主下 router 的成本变化方向不同，尚无稳定省 token 的证据；模型版本标识与测试边界见报告。
+最近一次对照使用同一篇论文、六个连续问题，分别测试 **A 无技能、B 要求使用合适技能、C 指定 router**。GPT-6 Astra Medium 与 DeepSeek v4.1 Flash 各完成18份回答。
 
-[首轮 Windows DSH 对照](docs/evaluations/2026-10-10-dsh/README.md)记录同一论文的 7 道问题、三组 21 份回复、资源消耗和独立上下文模型盲审。部分任务受益，部分增加消耗或出现错误；没有证明普遍优势，也不是专家认证。该轮 router 优先指令未实际注入，不能把组间差异归因为 router；新版本效果尚待复测。
+| 模型与宿主 | A 无技能：token / 秒 | B 自选技能：token / 秒 | C 指定 router：token / 秒 |
+| --- | ---: | ---: | ---: |
+| GPT-6 Astra Medium / Codex | 1,099,535 / 355.8 | 1,761,676 / 395.2 | 2,699,391 / 485.2 |
+| DeepSeek v4.1 Flash / DSH | 847,183 / 218 | 12,042,457 / 716 | 4,612,317 / 499 |
 
-该测试只覆盖指定 Windows/headless DSH 配置下的部分技能，不认证桌面 UI、默认目录或 VASP/DFT 能力。[完整验证范围](docs/validation.md)
+以上为六轮合计，DSH B 包含子代理消耗。技能与 router 均有实际读取记录；Astra 前四题的核心回答较接近，router 组在创新性题扩大了前作检索，同时增加消耗。DSH 中也观察到延迟交付、文献归属错误和过强批评。**更多步骤和更长回答不自动等于更准确，router 也不保证节省资源。**
+
+两边的工具、网络、缓存及委派条件不同，不能据此归因于纯模型差异或换算费用。质量评价是知晓组别的初步审计，不是专家认证或准确率排名。测试固定于提交 `cf65781`，不代表后续版本效果。
+
+[简要统计、逐题消耗与效果分析](docs/evaluations/2026-10-11-astra-deepseek/README.md) · [36份原始问题与最终回答](docs/evaluations/2026-10-11-astra-deepseek/answers.json)
+
+另有[首轮 Windows DSH 对照](docs/evaluations/2026-10-10-dsh/README.md)，包含七题、三组21份回复及独立上下文模型盲审。该轮未实际注入 router 优先指令，应与上述明确要求使用技能/router 的测试分开理解。
+
+现有测试只覆盖特定 Codex 与 Windows/headless DSH 环境下的部分文献任务，不认证 DSH 全面兼容、桌面 UI、默认目录或 VASP/DFT 计算能力。[完整验证范围](docs/validation.md)
 
 ## 可选：图形选择面板
 
