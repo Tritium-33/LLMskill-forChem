@@ -35,6 +35,64 @@
 
 各组缓存写入均为0。Astra宿主的input包含缓存，表中已拆开，未重复相加；reasoning输出属于output子集。不同宿主的输出口径与tokenizer不宜当作等价字数或金额。
 
+## 技能与 router 调用的定量分析
+
+### 计数口径
+
+- **读取/调用事件**：Astra按工具实际读取`SKILL.md`的操作计数；DSH按原始事件流中`tool_call(tool=skill)`计数，并核对对应`tool_result`。仅列目录、答案自述或读取辅助参考文件不计入。
+- **不同技能数**：同一组内按技能名去重，包含router。单项技能读取次数不含router，router另列。
+- **发生读取的轮次**：只统计当轮新发生的读取事件，不代表技能作用覆盖率。连续会话可以复用前文指令，无法据日志为这种复用分配可靠次数。
+- **统计范围**：两边均为三组主会话。DSH B的6个子代理计入此前资源总量，但其内部技能调用未在这里核实；不要把主会话调用数解释为整棵代理树调用总数。
+- **更正**：原DSH回执称C组调用7次；逐题原始事件流实际为3+1+0+0+1+1＝**6次**，均返回completed。以原始事件为准，不修改原回答。
+
+### 分组汇总
+
+| 模型 | 组 | 读取/调用事件合计 | 单项技能读取（不含router） | router读取 | 不同技能数（含router） | 发生读取的轮次 |
+|---|---|---:|---:|---:|---:|---:|
+| Astra | A | 0 | 0 | 0 | 0 | 0/6 |
+| Astra | B | 2 | 2 | 0 | 2 | 2/6 |
+| Astra | C | 6 | 5 | 1 | 5 | 3/6 |
+| DeepSeek | A | 0 | 0 | 0 | 0 | 0/6 |
+| DeepSeek | B | 4 | 4 | 0 | 4 | 2/6 |
+| DeepSeek | C | 6 | 5 | 1 | 6 | 4/6 |
+
+Astra C的Q5对`paper-lookup`先读取、再用`sed`补读，因此记为2次读取事件、1项不同技能。其六轮共6次事件、5项不同技能；若按“每题每技能只算一次加载”，则为5次，不能将补读理解为重新执行了一遍科研任务。
+
+### 每个技能实际读取多少次
+
+以下数值是读取/调用事件数；两边A组均为0，省略A列。
+
+| 技能 | Astra B | Astra C | DeepSeek B | DeepSeek C |
+|---|---:|---:|---:|---:|
+| `scientific-skill-router` | 0 | 1 | 0 | 1 |
+| `scientific-critical-thinking` | 1 | 1 | 1 | 1 |
+| `reading-contract` | 0 | 1 | 0 | 1 |
+| `scholar-evaluation` | 0 | 0 | 1 | 0 |
+| `paper-lookup` | 1 | 2 | 1 | 1 |
+| `lit-review` | 0 | 1 | 1 | 1 |
+| `independence-bookkeeping` | 0 | 0 | 0 | 1 |
+
+### 逐题读取顺序
+
+“—”表示本题没有新的读取事件，不表示没有沿用前文。顺序按工具事件记录；Astra以文件读取为接口，DSH以skill工具为接口。
+
+| 题 | Astra B | Astra C | DeepSeek B | DeepSeek C |
+|---|---|---|---|---|
+| Q1 | `scientific-critical-thinking` | `scientific-skill-router` → `scientific-critical-thinking` → `reading-contract` | `scholar-evaluation` → `scientific-critical-thinking` | `scientific-skill-router` → `reading-contract` → `scientific-critical-thinking` |
+| Q2 | — | — | — | `independence-bookkeeping` |
+| Q3 | — | — | — | — |
+| Q4 | — | — | — | — |
+| Q5 | `paper-lookup` | `paper-lookup` → `paper-lookup` | `lit-review` → `paper-lookup` | `paper-lookup` |
+| Q6 | — | `lit-review` | — | `lit-review` |
+
+### 与消耗、质量的关联
+
+- Astra的B→C：单项技能读取2→5次，router 0→1次，不同技能2→5项，发生读取的轮次2→3轮；总token增加53.2%。C的Q6新增`lit-review`，扩大前作检索，该题为1,118,019 token、113.894秒；B同题为280,099 token、56.827秒。可以观察到范围扩展及成本增加，不能把差额全部记为该skill或router的直接开销。
+- DeepSeek的B→C：单项技能调用4→5次，router 0→1次，不同技能4→6项，发生调用的轮次2→4轮；总token反而减少61.7%。B另有6个子代理且发生延迟交付，说明调用次数与资源开销不呈简单单调关系。
+- 两边C都只在Q1实际读取router，后续可沿用上下文。不能把六题都称为“六次router调用”，也不能因为后来未重读就判定没有路由。
+- 不计算“每调用一次skill提升多少分”或“单次router耗费多少token”：一轮可能同时含材料阅读、多个技能、检索与推理，且后续轮次持续携带前文。现有记录不能把这些成本和质量贡献独立拆分。
+- 结论是**接入成功、选择行为可观察，质量收益仍需结合题目判断**。本轮部分专业性、证据说明和文献覆盖有改善，但“读取更多技能”本身不是质量指标。
+
 ## skill 与 router 的实际效果
 
 | 观察 | Astra | DeepSeek | 可以得到的结论 |
