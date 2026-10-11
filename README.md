@@ -87,6 +87,8 @@ python tools/manage.py install --group research-evidence --skill scientific-skil
 
 ## 已有测试与使用限制
 
+[六问 Astra / DeepSeek 三组实测](docs/evaluations/2026-10-11-astra-deepseek/README.md)提供逐题 token、耗时、回答质量观察及原始最终回答。两种宿主下 router 的成本变化方向不同，尚无稳定省 token 的证据；模型版本标识与测试边界见报告。
+
 [首轮 Windows DSH 对照](docs/evaluations/2026-10-10-dsh/README.md)记录同一论文的 7 道问题、三组 21 份回复、资源消耗和独立上下文模型盲审。部分任务受益，部分增加消耗或出现错误；没有证明普遍优势，也不是专家认证。该轮 router 优先指令未实际注入，不能把组间差异归因为 router；新版本效果尚待复测。
 
 该测试只覆盖指定 Windows/headless DSH 配置下的部分技能，不认证桌面 UI、默认目录或 VASP/DFT 能力。[完整验证范围](docs/validation.md)
